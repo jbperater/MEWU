@@ -12,37 +12,24 @@ $level = $user_detail['type'];
 				<div class="col-lg-12">
 					<ol class="breadcrumb">
 						<li class="active">
-							<i class="fa fa-file"></i> View Pending Request
+							<i class="fa fa-file"></i> View Maintenance Pending Request
 						</li>
 					</ol>
 				</div>
 				<table>
 				  <tr>
 				    <th>Form No</th>
-				    <th>Name of Event</th>
-				    <th>Department</th>
-				    <th>Date Reserved</th>
-				    <th>Time Reserved</th>
-				    <th>Date Actual Use</th>
-				    <th>Time Actual Use</th>
-				    <th>Purpose</th>
-				    <th>Equipment Needed</th>
-				    <th>Contact</th>
-				    <th>Status</th>
-				    <th></th>
+				    <th>Date Requested</th>
+				    <th>Description</th>
+				    <th>Building Number</th>
+				    <th>Room Number</th>
 				  </tr>
 				  <tr>
 				    <td>1</td>
-				    <td>DOST Seminar</td>
-				    <td>CITC</td>
-				    <td>OCtober 25, 2018</td>
-				    <td>12:00</td>
-				    <td>NOvember 1, 2018</td>
-				    <td>12</td>
-				    <td>Seminar</td>
-				    <td>Chair</td>
-				    <td>09169947508</td>
-				    <td>Pending</td>
+				    <td>November 15, 2018</td>
+				    <td>Aircon not functioning</td>
+				    <td>Building 9</td>
+				    <td>306</td>
 				    <td>
 				    	<a href='../user/about_me.php?id=".$row['staff_id']."'>
 					      <button class='btn btn-success' style='width:75px;margin-top:2px;'>Approve</button>
@@ -52,7 +39,40 @@ $level = $user_detail['type'];
 					      <button class='btn btn-primary' style='width:75px;margin-top:2px;'>Disapprove</button>
 						</a>
 					 </td>
-				  </tr>
+					</tr>
+					<tr>
+					<td>2</td>
+				    <td>November 18, 2018</td>
+				    <td>Lights not functioning</td>
+				    <td>Building 5</td>
+				    <td>104</td>
+				    <td>
+				    	<a href='../user/about_me.php?id=".$row['staff_id']."'>
+					      <button class='btn btn-success' style='width:75px;margin-top:2px;'>Approve</button>
+						</a>
+					 	
+					    <a href='Update_staff.php?id=".$row['staff_id']."'>
+					      <button class='btn btn-primary' style='width:75px;margin-top:2px;'>Disapprove</button>
+						</a>
+					 </td>
+					</tr>
+					<tr>
+					<td>1</td>
+				    <td>November 30, 2018</td>
+				    <td>Lights not functioning</td>
+				    <td>Building 13</td>
+				    <td>102</td>
+				    <td>
+				    	<a href='../user/about_me.php?id=".$row['staff_id']."'>
+					      <button class='btn btn-success' style='width:75px;margin-top:2px;'>Approve</button>
+						</a>
+					 	
+					    <a href='Update_staff.php?id=".$row['staff_id']."'>
+					      <button class='btn btn-primary' style='width:75px;margin-top:2px;'>Disapprove</button>
+						</a>
+					 </td>
+					</tr>
+
 				 <!--  <tr>
 				   <td>Centro comercial Moctezuma</td>
 				   <td>Francisco Chang</td>
