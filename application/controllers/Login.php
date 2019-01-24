@@ -59,7 +59,7 @@ class Login extends CI_Controller {
 				// user login ok
 				$data_to_view['selected'] = 'dashboard';
 				$data_to_view['content'] = 'dashboard';
-				$this->load->view('base_view2',$data_to_view);
+				$this->load->view('base_view',$data_to_view);
 				
 			} else {
 				

@@ -129,7 +129,7 @@ if($content == 'profile') { $this->load->view('profile'); $selected = $content; 
                                 <a href="<?php echo base_url(); ?>view_req/pending_event"> Set Event Reservation</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>view_req/pending_repair"> Set Repair Schedules</a>
+                                <a href="<?php echo base_url(); ?>view_req/pending_repair"> Set Repair Schedule</a>
                             </li>
                         </ul>
                     </li>
@@ -190,21 +190,6 @@ if($content == 'profile') { $this->load->view('profile'); $selected = $content; 
                             </li>
                             <li>
                                 <a href="<?php echo base_url(); ?>view_req/pending_repair"> View Venue</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <?php 
-                    if ($type == 'admin')  echo '<li >';
-                    else echo '<li>';
-                    ?>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo6"><i class="fa fa-fw fa-file"></i> View Request <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo6" class="collapse">
-                            <li>
-                                <a href="<?php echo base_url(); ?>view_req/pending_event"> Pending Event Request</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url(); ?>view_req/pending_repair"> Pending repair Request</a>
                             </li>
                         </ul>
                     </li>
