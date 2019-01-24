@@ -211,8 +211,8 @@ if($content == 'Admin_view_venue') { $this->load->view('Admin_view_venue'); $sel
         </nav>
 
 		<div id="foo-bottom">
-		<a href="http://ExplicitPHP.blogspot.com" id="txt-standard">
-			2016 ExplicitPHP. PHP is Easy.
+		<a href="" id="txt-standard">
+			MEWU 2019: Mechanical and Electrical Work Unit USTP
 		</a>
 		</div>
 		
