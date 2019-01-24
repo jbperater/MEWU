@@ -2,6 +2,8 @@
 $this->load->library('session');
 $user_detail = $this->session->userdata('user_data_session');
 $username = $user_detail['username'];
+$type = $user_detail['type'];
+
 
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}
 if($content == 'set_sched') { $this->load->view('set_sched'); $selected = $content; $content='';}
@@ -79,30 +81,125 @@ if($content == 'profile') { $this->load->view('profile'); $selected = $content; 
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse" >
                 <ul class="nav navbar-nav side-nav">
+                   <!--  <?php 
+                                       if ($selected == 'dashboard')     echo '<li class="active" >';
+                                       else echo '<li>';
+                                       ?>
+                       <a href="<?php echo base_url(); ?>home"><i class="fa fa-fw fa-dashboard"></i> Dashboard<?php echo '';?></a>
+                   </li>
+                   <?php 
+                                       if ($selected == 'set_sched')     echo '<li class="active" >';
+                                       else echo '<li>';
+                                       ?>
+                       <a href="<?php echo base_url(); ?>set_sched"><i class="fa fa-fw fa-desktop"></i> Set Schedule</a>
+                   </li>
+                   <?php 
+                                       if ($selected == 'view_req')     echo '<li class="active" >';
+                                       else echo '<li>';
+                                       ?>
+                       <a href="<?php echo base_url(); ?>view_req"><i class="fa fa-fw fa-edit"></i> View Request</a>
+                   </li> -->
                     <?php 
-					if ($selected == 'dashboard') 	echo '<li class="active" >';
-					else echo '<li>';
-					?>
-                        <a href="<?php echo base_url(); ?>home"><i class="fa fa-fw fa-dashboard"></i> Dashboard<?php echo '';?></a>
+                    if ( $type == 'admin')	echo '
+    					<li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> View Request <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="demo1" class="collapse">
+                                <li>
+                                    <a href="base_url(); application/views/Base_view2"> All Pending Request</a>
+                                </li>
+                                <li>
+                                    <a href="';echo base_url(); echo'Settings"> Pending Event Request</a>
+                                </li>
+                                <li>
+                                    <a href="echo base_url(); view_req/pending_repair"> Pending Repair Request</a>
+                                </li>
+                            </ul>
+                        </li>';;
+                   
+                    ?>
+
+                    <?php 
+
+                    if ($selected == 'pending_event' || $selected == 'pending_repair')  echo '<li class="active" >';
+                    else echo '<li>';
+                    ?>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-file"></i> Set Schedule <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo2" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>view_req/pending_event"> Set Event Reservation</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>view_req/pending_repair"> Set Repair Schedules</a>
+                            </li>
+                        </ul>
                     </li>
+                    
                     <?php 
-					if ($selected == 'set_sched') 	echo '<li class="active" >';
-					else echo '<li>';
-					?>
-                        <a href="<?php echo base_url(); ?>set_sched"><i class="fa fa-fw fa-desktop"></i> Set Schedule</a>
+                    if ($selected == 'pending_event' || $selected == 'pending_repair')  echo '<li class="active" >';
+                    else echo '<li>';
+                    ?>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-file"></i> View Schedule <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo3" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>view_req/pending_event">Pending Event Schedule</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>view_req/pending_repair">Repair Request</a>
+                            </li>
+                        </ul>
                     </li>
+
                     <?php 
-					if ($selected == 'view_req') 	echo '<li class="active" >';
-					else echo '<li>';
-					?>
-                        <a href="<?php echo base_url(); ?>view_req"><i class="fa fa-fw fa-edit"></i> View Request</a>
+                    if ($selected == 'pending_event' || $selected == 'pending_repair')  echo '<li class="active" >';
+                    else echo '<li>';
+                    ?>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo4"><i class="fa fa-fw fa-file"></i> Equipment <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo4" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>view_req/pending_event"> Add Equipment</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>view_req/pending_repair">View Equipment</a>
+                            </li>
+                        </ul>
                     </li>
+
                     <?php 
-					if ($selected == 'pending_event' || $selected == 'pending_repair') 	echo '<li class="active" >';
-					else echo '<li>';
-					?>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-file"></i> View Request <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
+                    if ($type == 'admin')  echo '<li >';
+                    else echo '<li>';
+                    ?>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo5"><i class="fa fa-fw fa-file"></i> Event Equipment <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo5" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>view_req/pending_event"> Add Event Equipment </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>view_req/pending_repair"> View Event Equipment</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <?php 
+                    if ($type == 'admin')  echo '<li  >';
+                    else echo '<li>';
+                    ?>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo6"><i class="fa fa-fw fa-file"></i> Venue <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo6" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>view_req/pending_event"> Add Venue </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>view_req/pending_repair"> View Venue</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <?php 
+                    if ($type == 'admin')  echo '<li >';
+                    else echo '<li>';
+                    ?>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo6"><i class="fa fa-fw fa-file"></i> View Request <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo6" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>view_req/pending_event"> Pending Event Request</a>
                             </li>
