@@ -6,14 +6,9 @@ class Blank_Page extends CI_Controller {
 		
 		parent::__construct(); 
 		$this->load->helper('url');
-		$this->load->library('session');
-		
+		$this->load->library('session');		
 		// to protect the controller to be accessed only by registered users
-	    if(!$this->session->userdata('logged_in')){
-			
-			redirect('login', 'refresh');
-			 		
-		}
+	    
 
 	}
 		
@@ -24,16 +19,78 @@ class Blank_Page extends CI_Controller {
 		
 	}
 	
-	public function blank_page1() {
+	public function Admin_pen_req() {
 				
-		$data['content'] = 'blank_page1';
+		$data['content'] = 'Admin_pen_req';
 		$this->load->view('base_view', $data);
 	}
 	
-	public function blank_page2() {
+	public function Admin_pen_rep() {
 		
-		$data['content'] = 'blank_page2';
+		$data['content'] = 'Admin_pen_rep';
 		$this->load->view('base_view', $data);
 	}
+
+	public function Admin_set_event() {
+		
+		$data['content'] = 'Admin_set_event';
+		$this->load->view('base_view', $data);
+	}
+
+
+	public function Admin_set_repair() {
+		
+		$data['content'] = 'Admin_set_repair';
+		$this->load->view('base_view', $data);
+	}
+
+	public function Admin_view_sched() {
+		
+		$data['content'] = 'Admin_view_sched';
+		$this->load->view('base_view', $data);
+	}
+
+	public function Admin_view_repair() {
+		
+		$data['content'] = 'Admin_view_repair';
+		$this->load->view('base_view', $data);
+	}
+
+	public function Admin_add_equip() {
+		
+		$data['content'] = 'Admin_add_equip';
+		$this->load->view('base_view', $data);
+	}
+
+	public function Admin_view_equip() {
+		
+		$data['content'] = 'Admin_view_equip';
+		$this->load->view('base_view', $data);
+	}
+
+	public function Admin_add_event_equip() {
+		
+		$data['content'] = 'Admin_add_event_equip';
+		$this->load->view('base_view', $data);
+	}
+
+	public function Admin_view_event_equip() {
+		
+		$data['content'] = 'Admin_view_event_equip';
+		$this->load->view('base_view', $data);
+	}
+
+	public function Admin_add_venue() {
+		
+		$data['content'] = 'Admin_add_venue';
+		$this->load->view('base_view', $data);
+	}
+
+	public function Admin_view_venue() {
+		
+		$data['content'] = 'Admin_view_venue';
+		$this->load->view('base_view', $data);
+	}
+
 
 }
