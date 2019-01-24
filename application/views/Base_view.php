@@ -121,10 +121,10 @@ if($content == 'Admin_view_venue') { $this->load->view('Admin_view_venue'); $sel
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>Blank_page/Admin_pen_req"> View Event Request</a>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_pen_req"> View Event Request</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>Blank_page/Admin_pen_rep"> View Pending Repair</a>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_pen_rep"> View Pending Repair</a>
                             </li>
                         </ul>
                     </li>
@@ -137,10 +137,10 @@ if($content == 'Admin_view_venue') { $this->load->view('Admin_view_venue'); $sel
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-file"></i> Set Schedule <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo2" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>Blank_page/Admin_set_event"> Set Event Reservation</a>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_set_event"> Set Event Reservation</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>Blank_page/Admin_set_repair"> Set Repair Schedule</a>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_set_repair"> Set Repair Schedule</a>
                             </li>
                         </ul>
                     </li>
@@ -152,10 +152,10 @@ if($content == 'Admin_view_venue') { $this->load->view('Admin_view_venue'); $sel
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-file"></i> View Schedule <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo3" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>Blank_page/Admin_view_sched">Event Schedule</a>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_view_sched">Event Schedule</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>Blank_page/Admin_view_repair">Repair Request</a>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_view_repair">Repair Request</a>
                             </li>
                         </ul>
                     </li>
@@ -167,10 +167,10 @@ if($content == 'Admin_view_venue') { $this->load->view('Admin_view_venue'); $sel
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo4"><i class="fa fa-fw fa-file"></i> Equipment <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo4" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>Blank_page/Admin_add_equip"> Add Equipment</a>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_add_equip"> Add Equipment</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>Blank_page/Admin_view_equip">View Equipment</a>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_view_equip">View Equipment</a>
                             </li>
                         </ul>
                     </li>
@@ -182,10 +182,10 @@ if($content == 'Admin_view_venue') { $this->load->view('Admin_view_venue'); $sel
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo5"><i class="fa fa-fw fa-file"></i> Equipment <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo5" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>Blank_page/Admin_add_event_equip"> Add Equipment</a>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_add_event_equip"> Add Equipment</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>Blank_page/Admin_view_event_equip">View Equipment</a>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_view_event_equip">View Equipment</a>
                             </li>
                         </ul>
                     </li>
@@ -197,10 +197,10 @@ if($content == 'Admin_view_venue') { $this->load->view('Admin_view_venue'); $sel
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo6"><i class="fa fa-fw fa-file"></i> Equipment <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo6" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>Blank_page/Admin_add_venue"> Add Venue</a>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_add_venue"> Add Venue</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>Blank_page/Admin_view_venue">View Venue</a>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_view_venue">View Venue</a>
                             </li>
                         </ul>
                     </li>

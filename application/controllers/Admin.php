@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('no direct access script allowed');
 
-class Blank_Page extends CI_Controller {
+class Admin extends CI_Controller {
 
 	public function __construct() {
 		
