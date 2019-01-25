@@ -21,7 +21,7 @@ class Logout extends CI_Controller {
 		
 		$this->session->unset_userdata('user_data_session');
 		$this->session->set_userdata('logged_in', false);
-		redirect(base_url().Login);
+		redirect('login', 'refresh');
 	}
 
 }
