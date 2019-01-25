@@ -15,56 +15,62 @@ class Staff extends CI_Controller {
 	public function index() {
 		
 		$data['content'] = 'blank_page1';
-		$this->load->view('base_view', $data);
+		$this->load->view('base_view_staff', $data);
 		
 	}
 	
 	public function Staff_add_event_req() {
 				
 		$data['content'] = 'Staff_add_event_req';
-		$this->load->view('base_view', $data);
+		$this->load->view('base_view_staff', $data);
 	}
 	
 	public function Staff_add_repair_req() {
 		
 		$data['content'] = 'Staff_add_repair_req';
-		$this->load->view('base_view', $data);
+		$this->load->view('base_view_staff', $data);
 	}
 
 	public function Staff_app_event_req() {
 		
 		$data['content'] = 'Staff_app_event_req';
-		$this->load->view('base_view', $data);
+		$this->load->view('base_view_staff', $data);
 	}
 
 	public function Staff_app_repair_req() {
 		
 		$data['content'] = 'Staff_app_repair_req';
-		$this->load->view('base_view', $data);
+		$this->load->view('base_view_staff', $data);
 	}
 
 	public function Staff_dec_event_req() {
 		
 		$data['content'] = 'Staff_dec_event_req';
-		$this->load->view('base_view', $data);
+		$this->load->view('base_view_staff', $data);
 	}
 
 	public function Staff_dec_repair_req() {
 		
 		$data['content'] = 'Staff_dec_repair_req';
-		$this->load->view('base_view', $data);
+		$this->load->view('base_view_staff', $data);
 	}
 
 	public function Staff_pen_event_req() {
 		
 		$data['content'] = 'Staff_pen_event_req';
-		$this->load->view('base_view', $data);
+		$this->load->view('base_view_staff', $data);
 	}
 
 	public function Staff_pen_repair_req() {
 		
 		$data['content'] = 'Staff_pen_repair_req';
-		$this->load->view('base_view', $data);
+		$this->load->view('base_view_staff', $data);
+	}
+
+	public function Staff_view_sched() {
+		
+		$data['content'] = 'Staff_view_sched';
+		$this->load->view('base_view_staff', $data);
 	}
 
 }

@@ -24,7 +24,7 @@ if($content == 'Student_view_sched') { $this->load->view('Student_view_sched'); 
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin Page</title>
+    <title>Student Page</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet">
@@ -125,7 +125,7 @@ if($content == 'Student_view_sched') { $this->load->view('Student_view_sched'); 
                                 <a href="<?php echo base_url(); ?>Student/Student_all_req"> All Request</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>Student/Student_app_rec"> Approved Requests</a>
+                                <a href="<?php echo base_url(); ?>Student/Student_app_req"> Approved Requests</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url(); ?>Student/Student_dec_req"> Declined Requests</a>

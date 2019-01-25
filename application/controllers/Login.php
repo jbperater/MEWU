@@ -68,10 +68,30 @@ class Login extends CI_Controller {
 					$data_to_view['content'] = 'dashboard';
 					$this->load->view('base_view_student',$data_to_view);
 				}
+				elseif( $user_data['type'] == 'staff'){
+					$data_to_view['selected'] = 'dashboard';
+					$data_to_view['content'] = 'dashboard';
+					$this->load->view('base_view_staff',$data_to_view);
+				}
+				elseif( $user_data['type'] == 'faculty'){
+					$data_to_view['selected'] = 'dashboard';
+					$data_to_view['content'] = 'dashboard';
+					$this->load->view('base_view_staff',$data_to_view);
+				}
+				elseif( $user_data['type'] == 'dean'){
+					$data_to_view['selected'] = 'dashboard';
+					$data_to_view['content'] = 'dashboard';
+					$this->load->view('base_view_adviser',$data_to_view);
+				}
 				elseif( $user_data['type'] == 'adviser'){
 					$data_to_view['selected'] = 'dashboard';
 					$data_to_view['content'] = 'dashboard';
-					$this->load->view('base_view',$data_to_view);
+					$this->load->view('base_view_adviser',$data_to_view);
+				}
+				elseif( $user_data['type'] == 'maintenance'){
+					$data_to_view['selected'] = 'dashboard';
+					$data_to_view['content'] = 'dashboard';
+					$this->load->view('base_view_maintenance',$data_to_view);
 				}
 				else{
 					$data_to_view['selected'] = 'dashboard';
