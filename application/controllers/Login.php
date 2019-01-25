@@ -13,16 +13,6 @@ class Login extends CI_Controller {
 		$this->load->model('Login_auth_db');
 		$this->load->library('session');
 
-		$this->output->set_header('Last-Modified:'.gmdate('D, d M Y H:i:s').'GMT');
-        $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate');
-        $this->output->set_header('Cache-Control: post-check=0, pre-check=0',false);
-        $this->output->set_header('Pragma: no-cache');
-
- 		$this->output->delete_cache();
-		$this->db->cache_delete_all();
-
-
-
 	}
 		
 	public function index() {
@@ -32,8 +22,6 @@ class Login extends CI_Controller {
 	}
 	
 	public function login_auth() {
-
-
 		
 		// create the data object
 		$data = new stdClass();
@@ -47,7 +35,6 @@ class Login extends CI_Controller {
 		$this->form_validation->set_rules('username', 'Username', 'required|alpha_numeric');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		
-
 		if ($this->form_validation->run() == false) {
 			
 			// validation not ok, send validation errors to the view
@@ -69,6 +56,7 @@ class Login extends CI_Controller {
 				);
 				$this->session->set_userdata('user_data_session', $user_detail);
 				$this->session->set_userdata('logged_in', true);
+<<<<<<< HEAD
 				// user login ok
 				if ( $user_data['type'] == 'admin' ){
 					$data_to_view['selected'] = 'dashboard';
@@ -91,6 +79,14 @@ class Login extends CI_Controller {
 					$this->load->view('base_view',$data_to_view);
 				}
 
+=======
+				
+				// user login ok
+				$data_to_view['selected'] = 'dashboard';
+				$data_to_view['content'] = 'dashboard';
+				$this->load->view('base_view',$data_to_view);
+				
+>>>>>>> 2a8c55f02de46a142bd8a5d5f902234b07d0b08c
 			} else {
 				
 				// login failed
