@@ -59,7 +59,7 @@ if($content == 'Student_view_sched') { $this->load->view('Student_view_sched'); 
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url();?>home">Admin Panel</a>
+                <a class="navbar-brand" href="<?php echo base_url();?>home">Student Panel</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">

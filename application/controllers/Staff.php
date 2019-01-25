@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('no direct access script allowed');
 
-class Student extends CI_Controller {
+class Staff extends CI_Controller {
 
 	public function __construct() {
 		
@@ -19,42 +19,52 @@ class Student extends CI_Controller {
 		
 	}
 	
-	public function Student_add_req() {
+	public function Staff_add_event_req() {
 				
-		$data['content'] = 'Student_add_req';
+		$data['content'] = 'Staff_add_event_req';
 		$this->load->view('base_view', $data);
 	}
 	
-	public function Student_all_req() {
+	public function Staff_add_repair_req() {
 		
-		$data['content'] = 'Student_all_req';
+		$data['content'] = 'Staff_add_repair_req';
 		$this->load->view('base_view', $data);
 	}
 
-	public function Student_app_req() {
+	public function Staff_app_event_req() {
 		
-		$data['content'] = 'Student_app_req';
+		$data['content'] = 'Staff_app_event_req';
 		$this->load->view('base_view', $data);
 	}
 
-
-	public function Student_dec_req() {
+	public function Staff_app_repair_req() {
 		
-		$data['content'] = 'Student_dec_req';
+		$data['content'] = 'Staff_app_repair_req';
 		$this->load->view('base_view', $data);
 	}
 
-	public function Student_pen_req() {
+	public function Staff_dec_event_req() {
 		
-		$data['content'] = 'Student_pen_req';
+		$data['content'] = 'Staff_dec_event_req';
 		$this->load->view('base_view', $data);
 	}
 
-	public function Student_view_sched() {
+	public function Staff_dec_repair_req() {
 		
-		$data['content'] = 'Student_view_sched';
+		$data['content'] = 'Staff_dec_repair_req';
 		$this->load->view('base_view', $data);
 	}
 
+	public function Staff_pen_event_req() {
+		
+		$data['content'] = 'Staff_pen_event_req';
+		$this->load->view('base_view', $data);
+	}
+
+	public function Staff_pen_repair_req() {
+		
+		$data['content'] = 'Staff_pen_repair_req';
+		$this->load->view('base_view', $data);
+	}
 
 }
