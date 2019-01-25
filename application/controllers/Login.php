@@ -9,7 +9,7 @@ class Login extends CI_Controller {
 		parent::__construct(); 
 		$this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-		$this->load->library('session');
+		//$this->load->library('session');
 		$this->load->model('Login_auth_db');
 		$this->load->library('session');
 
@@ -48,6 +48,7 @@ class Login extends CI_Controller {
 			
 			if ($this->Login_auth_db->login($username, $password)) {
 				$user_data = $this->Login_auth_db->get_user_data($username);
+
 				
 				$user_detail = array(
 					'username'	=> $user_data['username'],
@@ -75,11 +76,11 @@ class Login extends CI_Controller {
 		
 	}
 	
-	public function home() {
+	/*public function home() {
 		
 		$data['content'] = 'dashboard';
 		$this->load->view('base_view', $data);
 	
-	}
+	}*/
 
 }
