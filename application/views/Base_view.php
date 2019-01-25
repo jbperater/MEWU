@@ -194,7 +194,7 @@ if($content == 'Admin_view_venue') { $this->load->view('Admin_view_venue'); $sel
                     if ($selected == 'Admin_add_venue' || $selected == 'Admin_view_venue')  echo '<li class="active" >';
                     else echo '<li>';
                     ?>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo6"><i class="fa fa-fw fa-file"></i> Equipment <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo6"><i class="fa fa-fw fa-file"></i> Venue <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo6" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Admin/Admin_add_venue"> Add Venue</a>

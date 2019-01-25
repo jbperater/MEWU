@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('no direct access script allowed');
 
-class Admin extends CI_Controller {
+class Student extends CI_Controller {
 
 	public function __construct() {
 		
@@ -19,76 +19,40 @@ class Admin extends CI_Controller {
 		
 	}
 	
-	public function Admin_pen_req() {
+	public function Student_add_req() {
 				
-		$data['content'] = 'Admin_pen_req';
+		$data['content'] = 'Student_add_req';
 		$this->load->view('base_view', $data);
 	}
 	
-	public function Admin_pen_rep() {
+	public function Student_all_req() {
 		
-		$data['content'] = 'Admin_pen_rep';
+		$data['content'] = 'Student_all_req';
 		$this->load->view('base_view', $data);
 	}
 
-	public function Admin_set_event() {
+	public function Student_app_req() {
 		
-		$data['content'] = 'Admin_set_event';
+		$data['content'] = 'Student_app_req';
 		$this->load->view('base_view', $data);
 	}
 
 
-	public function Admin_set_repair() {
+	public function Student_dec_req() {
 		
-		$data['content'] = 'Admin_set_repair';
+		$data['content'] = 'Student_dec_req';
 		$this->load->view('base_view', $data);
 	}
 
-	public function Admin_view_sched() {
+	public function Student_pen_req() {
 		
-		$data['content'] = 'Admin_view_sched';
+		$data['content'] = 'Student_pen_req';
 		$this->load->view('base_view', $data);
 	}
 
-	public function Admin_view_repair() {
+	public function Student_view_sched() {
 		
-		$data['content'] = 'Admin_view_repair';
-		$this->load->view('base_view', $data);
-	}
-
-	public function Admin_add_equip() {
-		
-		$data['content'] = 'Admin_add_equip';
-		$this->load->view('base_view', $data);
-	}
-
-	public function Admin_view_equip() {
-		
-		$data['content'] = 'Admin_view_equip';
-		$this->load->view('base_view', $data);
-	}
-
-	public function Admin_add_event_equip() {
-		
-		$data['content'] = 'Admin_add_event_equip';
-		$this->load->view('base_view', $data);
-	}
-
-	public function Admin_view_event_equip() {
-		
-		$data['content'] = 'Admin_view_event_equip';
-		$this->load->view('base_view', $data);
-	}
-
-	public function Admin_add_venue() {
-		
-		$data['content'] = 'Admin_add_venue';
-		$this->load->view('base_view', $data);
-	}
-
-	public function Admin_view_venue() {
-		
-		$data['content'] = 'Admin_view_venue';
+		$data['content'] = 'Student_view_sched';
 		$this->load->view('base_view', $data);
 	}
 
