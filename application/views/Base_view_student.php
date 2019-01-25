@@ -6,24 +6,12 @@ $type = $user_detail['type'];
 
 
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}
-if($content == 'set_sched') { $this->load->view('set_sched'); $selected = $content; $content='';}
-if($content == 'pending_event') { $this->load->view('pending_event'); $selected = $content; $content='';}
-if($content == 'pending_repair') { $this->load->view('pending_repair'); $selected = $content; $content='';}
-if($content == 'settings') { $this->load->view('settings'); $selected = $content; $content='';}
-if($content == 'profile') { $this->load->view('profile'); $selected = $content; $content='';}
-if($content == 'Admin_pen_req') { $this->load->view('Admin_pen_req'); $selected = $content; $content='';}
-if($content == 'Admin_pen_rep') { $this->load->view('Admin_pen_rep'); $selected = $content; $content='';}
-if($content == 'Admin_set_event') { $this->load->view('Admin_set_event'); $selected = $content; $content='';}
-if($content == 'Admin_set_repair') { $this->load->view('Admin_set_repair'); $selected = $content; $content='';}
-if($content == 'Admin_view_sched') { $this->load->view('Admin_view_sched'); $selected = $content; $content='';}
-if($content == 'Admin_view_repair') { $this->load->view('Admin_view_repair'); $selected = $content; $content='';}
-if($content == 'Admin_add_equip') { $this->load->view('Admin_add_equip'); $selected = $content; $content='';}
-if($content == 'Admin_view_equip') { $this->load->view('Admin_view_equip'); $selected = $content; $content='';}
-if($content == 'Admin_add_event_equip') { $this->load->view('Admin_add_event_equip'); $selected = $content; $content='';}
-if($content == 'Admin_view_event_equip') { $this->load->view('Admin_view_event_equip'); $selected = $content; $content='';}
-if($content == 'Admin_add_venue') { $this->load->view('Admin_add_venue'); $selected = $content; $content='';}
-if($content == 'Admin_view_venue') { $this->load->view('Admin_view_venue'); $selected = $content; $content='';}
-
+if($content == 'Student_add_req') { $this->load->view('Student_add_req'); $selected = $content; $content='';}
+if($content == 'Student_all_req') { $this->load->view('Student_all_req'); $selected = $content; $content='';}
+if($content == 'Student_app_req') { $this->load->view('Student_app_req'); $selected = $content; $content='';}
+if($content == 'Student_dec_req') { $this->load->view('Student_dec_req'); $selected = $content; $content='';}
+if($content == 'Student_pen_req') { $this->load->view('Student_pen_req'); $selected = $content; $content='';}
+if($content == 'Student_view_sched') { $this->load->view('Student_view_sched'); $selected = $content; $content='';}
 ?>
 <!DOCTYPE html>
 <html lang="en">
