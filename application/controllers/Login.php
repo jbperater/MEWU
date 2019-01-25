@@ -67,11 +67,29 @@ class Login extends CI_Controller {
 					'username'	=> $user_data['username'],
 					'type'	=> $user_data['type']
 				);
-				
+				$this->session->set_userdata('user_data_session', $user_detail);
+				$this->session->set_userdata('logged_in', true);
 				// user login ok
-				$data_to_view['selected'] = 'dashboard';
-				$data_to_view['content'] = 'dashboard';
-				$this->load->view('base_view',$data_to_view);
+				if ( $user_data['type'] == 'admin' ){
+					$data_to_view['selected'] = 'dashboard';
+					$data_to_view['content'] = 'dashboard';
+					$this->load->view('base_view',$data_to_view);
+				}
+				elseif( $user_data['type'] == 'student'){
+					$data_to_view['selected'] = 'dashboard';
+					$data_to_view['content'] = 'dashboard';
+					$this->load->view('base_view_student',$data_to_view);
+				}
+				elseif( $user_data['type'] == 'adviser'){
+					$data_to_view['selected'] = 'dashboard';
+					$data_to_view['content'] = 'dashboard';
+					$this->load->view('base_view',$data_to_view);
+				}
+				else{
+					$data_to_view['selected'] = 'dashboard';
+					$data_to_view['content'] = 'dashboard';
+					$this->load->view('base_view',$data_to_view);
+				}
 
 			} else {
 				
