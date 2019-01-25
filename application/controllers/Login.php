@@ -78,11 +78,14 @@ class Login extends CI_Controller {
 					$data_to_view['content'] = 'dashboard';
 					$this->load->view('base_view',$data_to_view);
 				}
+
 				
 
 			} 
-			else {
 				
+
+			} else {
+
 				// login failed
 				$data->error = 'Wrong username or password.';
 				
