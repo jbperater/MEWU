@@ -56,7 +56,7 @@ class Login extends CI_Controller {
 				);
 				$this->session->set_userdata('user_data_session', $user_detail);
 				$this->session->set_userdata('logged_in', true);
-<<<<<<< HEAD
+
 				// user login ok
 				if ( $user_data['type'] == 'admin' ){
 					$data_to_view['selected'] = 'dashboard';
@@ -79,14 +79,14 @@ class Login extends CI_Controller {
 					$this->load->view('base_view',$data_to_view);
 				}
 
-=======
+
 				
 				// user login ok
 				$data_to_view['selected'] = 'dashboard';
 				$data_to_view['content'] = 'dashboard';
 				$this->load->view('base_view',$data_to_view);
 				
->>>>>>> 2a8c55f02de46a142bd8a5d5f902234b07d0b08c
+
 			} else {
 				
 				// login failed
