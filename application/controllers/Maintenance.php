@@ -7,7 +7,8 @@ class Maintenance extends CI_Controller {
 		parent::__construct();
 		$this->load->database(); 
 		$this->load->helper('url');
-		$this->load->library('session');		
+		$this->load->library('session');
+		 $this->load->model('Login_auth_db');		
 		// to protect the controller to be accessed only by registered users
 	    
 
@@ -16,14 +17,22 @@ class Maintenance extends CI_Controller {
 	public function index() {
 		
 		$data['content'] = 'blank_page1';
-		$this->load->view('base_view_maintenance', $data);
+		$this->load->view('base_view_maintenancel', $data);
 		
 	}
 	
 	public function Maintenance_view_equip() {
-				
-		$data['content'] ='Maintenance_view_equip';
-		$this->load->view('base_view_maintenance', $data);
+
+		 $query = $this->Login_auth_db->get_equipment();
+		  $data['equipment'] = null;
+		  if($query){
+		   $data['equipment'] =  $query;
+		   $data['content'] ='Maintenance_view_equip';
+		   $this->load->view('base_view_maintenance', $data);
+  }
+
+		//$data['content'] ='Maintenance_view_equip';
+		//$this->load->view('base_view_maintenance', $data);
 	}
 	
 	public function Maintenance_add_report() {

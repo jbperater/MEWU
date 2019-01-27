@@ -46,11 +46,11 @@ Class Login_auth_db extends CI_Model {
 		
 	}
 
-	 public function Maintenance_view_equip()  
-      {  
-         //data is retrive from this query  
-         $query = $this->db->get('equipment');  
-         return $query;  
-      }  
+     public function get_equipment(){
+		  $this->db->select("equip_id,equip_name,brand,model,serial_no,office,depart,year_acquired");
+		  $this->db->from('equipment');
+		  $query = $this->db->get();
+		  return $query->result();
+ }
 	
 }
