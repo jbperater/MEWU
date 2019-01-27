@@ -35,7 +35,7 @@ $level = $user_detail['type'];
 				 	<td><?=$equipment->serial_no;?></td>
 				 	<td><?=$equipment->office;?></td>
 				 	<td><?=$equipment->depart;?></td>
-				 	<td><?=$equipment->year_acquired;?></td></tr>     
+				 	<td><?=$equipment->year_acc;?></td></tr>     
 				    <?php }?>
 				  <!--<tr>
 				    <th>Name</th>
