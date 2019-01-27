@@ -18,22 +18,23 @@ $level = $user_detail['type'];
 				</div>
 				<table>
 				  <tr>
+				    <th>Name</th>
 				    <th>Brand</th>
 				    <th>Model</th>
-				    <th>Serial No</th>
+				    <th>Serial Number</th>
 				    <th>Office</th>
 				    <th>Department</th>
 				    <th>Year Acquired</th>
-				    <th></th>
 				  </tr>
-				  <tr>
-				    <td>LG</td>
-				    <td>Model Ni</td>
-				    <td>125174</td>
-				    <td>LRC</td>
-				    <td>CITC</td>
-				    <td>2020</td>
-				  </tr>
+				
+		            <td></td>  
+		            <td></td>
+		            <td></td>  
+		            <td></td> 
+		            <td></td>  
+		            <td></td>
+		            <td></td>   
+		            
 				 <!--  <tr>
 				   <td>Centro comercial Moctezuma</td>
 				   <td>Francisco Chang</td>

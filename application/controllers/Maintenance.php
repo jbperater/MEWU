@@ -4,7 +4,8 @@ class Maintenance extends CI_Controller {
 
 	public function __construct() {
 		
-		parent::__construct(); 
+		parent::__construct();
+		$this->load->database(); 
 		$this->load->helper('url');
 		$this->load->library('session');		
 		// to protect the controller to be accessed only by registered users
@@ -21,7 +22,7 @@ class Maintenance extends CI_Controller {
 	
 	public function Maintenance_view_equip() {
 				
-		$data['content'] = 'Maintenance_view_equip';
+		$data['content'] ='Maintenance_view_equip';
 		$this->load->view('base_view_maintenance', $data);
 	}
 	
