@@ -17,7 +17,27 @@ $level = $user_detail['type'];
 					</ol>
 				</div>
 				<table>
-				  <tr>
+					<tr><td><strong>Number</strong></td>
+					<td><strong>Name</strong></td>
+					<td><strong>Brand</strong></td>
+					<td><strong>Model</strong></td>
+					<td><strong>Serial Number</strong></td>
+					<td><strong>Office</strong></td>
+					<td><strong>Department</strong></td>
+					<td><strong>Year Acquired</strong></td></tr> 
+				     
+				     <?php foreach($equipment as $equipment){?>
+				     <tr>
+				    <td><?=$equipment->equip_id;?></td>
+				 	<td><?=$equipment->equip_name;?></td>
+				 	<td><?=$equipment->brand;?></td>
+				 	<td><?=$equipment->model;?></td>
+				 	<td><?=$equipment->serial_no;?></td>
+				 	<td><?=$equipment->office;?></td>
+				 	<td><?=$equipment->depart;?></td>
+				 	<td><?=$equipment->year_acquired;?></td></tr>     
+				    <?php }?>
+				  <!--<tr>
 				    <th>Name</th>
 				    <th>Brand</th>
 				    <th>Model</th>
