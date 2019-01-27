@@ -10,26 +10,14 @@ class Venue extends CI_Controller {
 		$this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
 		//$this->load->library('session');
-		$this->load->database();
+		
 		$this->load->library('session');
-		$this->model->load("Main_model");
 
 	}
 		
 	public function index() {
 		
-		
-		
-	}
-
-	public function venue_view(){
-
-
-		$query=$this->main_model->fetch_data();
-		if($query){
-			$data['fetch_data']= $query;
-			$this->load->view('Admin_add_venue',$data);
-		}
+		$this->load->view('Admin_add_venue');
 		
 	}
 	

@@ -20,6 +20,11 @@ Class Main_model extends CI_Model {
 		$query = $this->db->get("venue");
 		return $query; 
 	}
+
+	function event_equip_fetch_data(){
+		$query = $this->db->get("event_equip");
+		return $query;
+	}
 	
 	
 }

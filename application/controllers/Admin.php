@@ -8,7 +8,7 @@ class Admin extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');		
 		// to protect the controller to be accessed only by registered users
-	    
+	    $this->load->model("main_model");
 
 	}
 		
@@ -75,9 +75,11 @@ class Admin extends CI_Controller {
 	}
 
 	public function Admin_view_event_equip() {
-		
+
 		$data['content'] = 'Admin_view_event_equip';
+		$data["fetch_data"]=$this->main_model->event_equip_fetch_data();
 		$this->load->view('base_view', $data);
+
 	}
 
 	public function Admin_add_venue() {
@@ -88,8 +90,10 @@ class Admin extends CI_Controller {
 
 	public function Admin_view_venue() {
 		
-		$data['content'] = 'Admin_view_venue';
-		$this->load->view('base_view', $data);
+		/*$data['content'] = 'Admin_view_venue';*/
+		$data["fetch_data"]=$this->main_model->fetch_data();
+		$data["content"]="Admin_view_venue";
+		$this->load->view('base_view',$data);
 	}
 
 
