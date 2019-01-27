@@ -21,12 +21,7 @@ class Logout extends CI_Controller {
 		
 		$this->session->unset_userdata('user_data_session');
 		$this->session->set_userdata('logged_in', false);
-<<<<<<< HEAD
-=======
-		$this->session->destroy();
-		$this->output->delete_cache();
-		$this->db->cache_delete_all();
->>>>>>> e5d0a8b3ef8a460daf20f33caaa26974b8aadc0b
+
 		redirect('login', 'refresh');
 	}
 

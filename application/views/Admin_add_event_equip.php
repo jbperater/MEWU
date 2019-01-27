@@ -16,14 +16,14 @@ $level = $user_detail['type'];
 						</li>
 					</ol>
 				</div>
-				<form class="form-horizontal" method="POST" action="action/attendance_details_add.php">
-								<form class="form-horizontal" method="POST" action="action/attendance_details_add.php">
+				
+								<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Event_equip/insert">
 								<div class="form-group">
 							     	<label for="" class="control-label col-sm-4">Name:</label>
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
-							     			 <input type="text" name="Bldg No" class='form-control' required placeholder="name">
+							     			 <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="name" required autofocus>
 							     		</div>
 							     	</div>
 							     </div>
@@ -32,12 +32,19 @@ $level = $user_detail['type'];
 								    <div class="col-sm-5 inputGroupContainer">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
-											<input type="text" name="Type" class='form-control' required placeholder="Type">
+											<input type="text" name="type" class='form-control' required placeholder="Type">
 										</div>
 									</div>
 								</div>
+								 <div class="form-group">
+							    <label for="" class="col-sm-4 control-label"></label>
+							   		<div class="col-sm-5">
+							  		<button type="submit" class="btn btn-primary" id="submit" name="submit" width="100px">Submit <span class="glyphicon glyphicon-send"></span></button>
+
+							  </div>
+							  </div>
 							</form>
-						</form>
+						
 					</div>
 			</div>
 		</div>
