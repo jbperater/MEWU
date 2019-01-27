@@ -19,6 +19,10 @@ class Login extends CI_Controller {
 		
 		$this->load->view('login');
 		
+		$this->load->model("main_model");
+		$data["fetch_data"]=$this->model->fetch_data();
+		$this->load->view('Admin_view_venue',$data);
+		
 	}
 	
 	public function login_auth() {

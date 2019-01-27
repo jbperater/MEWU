@@ -15,5 +15,6 @@ Class Event_equip_model extends CI_Model {
 		
 				
 	}
+
 	
 }
