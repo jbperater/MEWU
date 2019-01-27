@@ -18,44 +18,35 @@ $level = $user_detail['type'];
 				</div>
 				<table>
 				  <tr>
-				    <th>Equipment ID</th>
 				    <th>Name</th>
+				    <th>Type</th>
 				  </tr>
-				  <tr>
-				    <td>1</td>
-				    <td>Microphone</td>
-				  <tr>
-				    <td>2</td>
-				    <td>Chairs</td>
-				  <tr>
-				    <td>3</td>
-				    <td>Tables</td>
-				  </tr>
-				 <!--  <tr>
-				   <td>Centro comercial Moctezuma</td>
-				   <td>Francisco Chang</td>
-				   <td>Mexico</td>
-				 </tr>
-				 <tr>
-				   <td>Ernst Handel</td>
-				   <td>Roland Mendel</td>
-				   <td>Austria</td>
-				 </tr>
-				 <tr>
-				   <td>Island Trading</td>
-				   <td>Helen Bennett</td>
-				   <td>UK</td>
-				 </tr>
-				 <tr>
-				   <td>Laughing Bacchus Winecellars</td>
-				   <td>Yoshi Tannamuri</td>
-				   <td>Canada</td>
-				 </tr>
-				 <tr>
-				   <td>Magazzini Alimentari Riuniti</td>
-				   <td>Giovanni Rovelli</td>
-				   <td>Italy</td>
-				 </tr> -->
+				  <?php
+				 if($fetch_data->num_rows() > 0)
+				 {
+				 	foreach ($fetch_data->result() as $row) {
+				 ?>		
+					<tr>
+						<td><?php echo $row->name; ?></td>
+						<td><?php echo $row->type; ?></td>
+
+					</tr>
+				 <?php
+
+				 	}
+				 }
+
+				 else
+				 {
+
+				 ?>	
+					<tr>
+						<td>NO DATA</td>
+					</tr>
+				 <?php
+				 }
+
+				 ?>
 				</table>
 			</div>
 		</div>

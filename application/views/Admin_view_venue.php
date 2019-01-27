@@ -25,34 +25,34 @@ $level = $user_detail['type'];
 				    <th>Room Number</th>
 				    <th>Name</th>
 				  </tr>
-				<!--  <?php
-				if($fetch_data->num_rows() > 0)
-				{
-					foreach ($fetch_data->result() as $row) {
-				?>		
-									<tr>
-										<td><?php echo $row->venue_id; ?></td>
-										<td><?php echo $row->bldg_no; ?></td>
-										<td><?php echo $row->name; ?></td>
-										<td><?php echo $row->type; ?></td>
-				
-									</tr>
-				<?php
-				
-					}
-				}
-				
-				else
-				{
-				
-				?>	
-									<tr>
-										<td>NO DATA</td>
-									</tr>
-				<?php
-				}
-				
-				?> -->
+				 <?php
+				 if($fetch_data->num_rows() > 0)
+				 {
+				 	foreach ($fetch_data->result() as $row) {
+				 ?>		
+					<tr>
+						<td><?php echo $row->venue_id; ?></td>
+						<td><?php echo $row->bldg_no; ?></td>
+						<td><?php echo $row->name; ?></td>
+						<td><?php echo $row->type; ?></td>
+
+					</tr>
+				 <?php
+
+				 	}
+				 }
+
+				 else
+				 {
+
+				 ?>	
+					<tr>
+						<td>NO DATA</td>
+					</tr>
+				 <?php
+				 }
+
+				 ?>
 				</table>
 			</div>
 		</div>
