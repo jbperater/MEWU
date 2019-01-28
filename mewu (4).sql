@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2019 at 04:26 PM
+-- Generation Time: Jan 28, 2019 at 07:21 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -46,6 +46,18 @@ INSERT INTO `accounts` (`user_id`, `username`, `password`, `type`, `date_created
 (3, 's', 's', 'student', '2019-01-27 22:28:37'),
 (4, 'st', 'st', 'staff', '2019-01-27 22:28:37'),
 (5, 'a', 'a', 'adviser', '2019-01-27 22:29:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `department`
+--
+
+CREATE TABLE `department` (
+  `dep_id` int(11) NOT NULL,
+  `acroname` varchar(20) NOT NULL,
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -94,9 +106,10 @@ INSERT INTO `event_equip` (`equip_id`, `name`, `type`) VALUES
 
 CREATE TABLE `job_req` (
   `job_id` int(11) NOT NULL,
-  `date` date NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `item_no` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
+  `bldg_no` varchar(10) NOT NULL,
   `location` varchar(32) NOT NULL,
   `date_time_start` datetime NOT NULL,
   `date_time_fin` datetime NOT NULL,
@@ -277,6 +290,12 @@ ALTER TABLE `accounts`
   ADD PRIMARY KEY (`user_id`);
 
 --
+-- Indexes for table `department`
+--
+ALTER TABLE `department`
+  ADD PRIMARY KEY (`dep_id`);
+
+--
 -- Indexes for table `equipment`
 --
 ALTER TABLE `equipment`
@@ -358,6 +377,11 @@ ALTER TABLE `venue`
 --
 ALTER TABLE `accounts`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `department`
+--
+ALTER TABLE `department`
+  MODIFY `dep_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `equipment`
 --
