@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2019 at 10:13 PM
+-- Generation Time: Jan 28, 2019 at 04:26 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -42,7 +42,10 @@ CREATE TABLE `accounts` (
 
 INSERT INTO `accounts` (`user_id`, `username`, `password`, `type`, `date_created`) VALUES
 (1, 'admin', 'admin', 'admin', '2019-01-14 15:25:37'),
-(2, 'm', 'm', 'maintenance', '2019-01-27 21:05:37');
+(2, 'm', 'm', 'maintenance', '2019-01-27 21:05:37'),
+(3, 's', 's', 'student', '2019-01-27 22:28:37'),
+(4, 'st', 'st', 'staff', '2019-01-27 22:28:37'),
+(5, 'a', 'a', 'adviser', '2019-01-27 22:29:14');
 
 -- --------------------------------------------------------
 
@@ -60,17 +63,6 @@ CREATE TABLE `equipment` (
   `depart` varchar(32) DEFAULT NULL,
   `type` varchar(20) NOT NULL,
   `year_acc` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `equip_need`
---
-
-CREATE TABLE `equip_need` (
-  `form_no` int(11) NOT NULL,
-  `even_equip_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -117,6 +109,17 @@ CREATE TABLE `job_req` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `job_schedule`
+--
+
+CREATE TABLE `job_schedule` (
+  `job_id` int(11) NOT NULL,
+  `person_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `maintenance_rec`
 --
 
@@ -150,20 +153,51 @@ CREATE TABLE `persons` (
   `userid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `persons`
+--
+
+INSERT INTO `persons` (`person_id`, `fname`, `mname`, `lname`, `bday`, `position`, `contact_no`, `email`, `userid`) VALUES
+(1, 'Christian', 'Hundinay', 'Cat-awan', '2019-01-08', 'admin', '0916', 'h=gmail', 2);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `request`
+-- Table structure for table `reserve_equip_need`
 --
 
-CREATE TABLE `request` (
+CREATE TABLE `reserve_equip_need` (
+  `form_no` int(11) NOT NULL,
+  `even_equip_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reserve_event_venue`
+--
+
+CREATE TABLE `reserve_event_venue` (
+  `form_no` int(11) NOT NULL,
+  `venue` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reserve_request`
+--
+
+CREATE TABLE `reserve_request` (
   `form_no` int(11) NOT NULL,
   `applicant` int(11) DEFAULT NULL,
   `department` varchar(32) NOT NULL,
+  `venue` int(11) NOT NULL,
   `date_act` date NOT NULL,
   `time_act` time NOT NULL,
   `purpose` varchar(32) NOT NULL,
   `title_event` varchar(32) NOT NULL,
+  `status` varchar(20) NOT NULL,
   `contact_no` varchar(32) NOT NULL,
   `res_by` int(11) DEFAULT NULL,
   `noted_by` int(11) DEFAULT NULL,
@@ -185,13 +219,21 @@ CREATE TABLE `reserve_ven` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `schedule`
+-- Stand-in structure for view `users`
+-- (See below for the actual view)
 --
-
-CREATE TABLE `schedule` (
-  `job_id` int(11) NOT NULL,
-  `person_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `users` (
+`username` varchar(32)
+,`password` varchar(32)
+,`type` varchar(32)
+,`fname` varchar(50)
+,`mname` varchar(50)
+,`lname` varchar(50)
+,`bday` date
+,`position` varchar(50)
+,`contact_no` varchar(50)
+,`email` varchar(50)
+);
 
 -- --------------------------------------------------------
 
@@ -215,6 +257,15 @@ INSERT INTO `venue` (`venue_id`, `bldg_no`, `name`, `type`) VALUES
 (2, '1', 'dadadaw', 'dad'),
 (3, 'd', '12', 'daw');
 
+-- --------------------------------------------------------
+
+--
+-- Structure for view `users`
+--
+DROP TABLE IF EXISTS `users`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `users`  AS  select `accounts`.`username` AS `username`,`accounts`.`password` AS `password`,`accounts`.`type` AS `type`,`persons`.`fname` AS `fname`,`persons`.`mname` AS `mname`,`persons`.`lname` AS `lname`,`persons`.`bday` AS `bday`,`persons`.`position` AS `position`,`persons`.`contact_no` AS `contact_no`,`persons`.`email` AS `email` from (`accounts` join `persons` on((`accounts`.`user_id` = `persons`.`person_id`))) ;
+
 --
 -- Indexes for dumped tables
 --
@@ -230,13 +281,6 @@ ALTER TABLE `accounts`
 --
 ALTER TABLE `equipment`
   ADD PRIMARY KEY (`equip_id`);
-
---
--- Indexes for table `equip_need`
---
-ALTER TABLE `equip_need`
-  ADD KEY `form_no` (`form_no`),
-  ADD KEY `even_equip_id` (`even_equip_id`);
 
 --
 -- Indexes for table `event_equip`
@@ -255,6 +299,13 @@ ALTER TABLE `job_req`
   ADD KEY `approve_by` (`approve_by`);
 
 --
+-- Indexes for table `job_schedule`
+--
+ALTER TABLE `job_schedule`
+  ADD KEY `job_id` (`job_id`),
+  ADD KEY `person` (`person_id`);
+
+--
 -- Indexes for table `maintenance_rec`
 --
 ALTER TABLE `maintenance_rec`
@@ -269,9 +320,16 @@ ALTER TABLE `persons`
   ADD KEY `userid` (`userid`);
 
 --
--- Indexes for table `request`
+-- Indexes for table `reserve_equip_need`
 --
-ALTER TABLE `request`
+ALTER TABLE `reserve_equip_need`
+  ADD KEY `form_no` (`form_no`),
+  ADD KEY `even_equip_id` (`even_equip_id`);
+
+--
+-- Indexes for table `reserve_request`
+--
+ALTER TABLE `reserve_request`
   ADD PRIMARY KEY (`form_no`),
   ADD KEY `applicant` (`applicant`),
   ADD KEY `res_by` (`res_by`),
@@ -284,13 +342,6 @@ ALTER TABLE `request`
 ALTER TABLE `reserve_ven`
   ADD KEY `form_no` (`form_no`),
   ADD KEY `venue_id` (`venue_id`);
-
---
--- Indexes for table `schedule`
---
-ALTER TABLE `schedule`
-  ADD KEY `job_id` (`job_id`),
-  ADD KEY `person` (`person_id`);
 
 --
 -- Indexes for table `venue`
@@ -306,7 +357,7 @@ ALTER TABLE `venue`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `equipment`
 --
@@ -326,11 +377,11 @@ ALTER TABLE `job_req`
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `person_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `person_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `request`
+-- AUTO_INCREMENT for table `reserve_request`
 --
-ALTER TABLE `request`
+ALTER TABLE `reserve_request`
   MODIFY `form_no` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `venue`
@@ -342,18 +393,19 @@ ALTER TABLE `venue`
 --
 
 --
--- Constraints for table `equip_need`
---
-ALTER TABLE `equip_need`
-  ADD CONSTRAINT `equip_need_ibfk_2` FOREIGN KEY (`form_no`) REFERENCES `request` (`form_no`);
-
---
 -- Constraints for table `job_req`
 --
 ALTER TABLE `job_req`
   ADD CONSTRAINT `job_req_ibfk_1` FOREIGN KEY (`approve_by`) REFERENCES `persons` (`person_id`),
   ADD CONSTRAINT `job_req_ibfk_2` FOREIGN KEY (`person_attend`) REFERENCES `persons` (`person_id`),
   ADD CONSTRAINT `job_req_ibfk_3` FOREIGN KEY (`requested_by`) REFERENCES `persons` (`person_id`);
+
+--
+-- Constraints for table `job_schedule`
+--
+ALTER TABLE `job_schedule`
+  ADD CONSTRAINT `job_schedule_ibfk_1` FOREIGN KEY (`job_id`) REFERENCES `job_req` (`job_id`),
+  ADD CONSTRAINT `job_schedule_ibfk_2` FOREIGN KEY (`person_id`) REFERENCES `persons` (`person_id`);
 
 --
 -- Constraints for table `maintenance_rec`
@@ -369,27 +421,26 @@ ALTER TABLE `persons`
   ADD CONSTRAINT `persons_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `accounts` (`user_id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `request`
+-- Constraints for table `reserve_equip_need`
 --
-ALTER TABLE `request`
-  ADD CONSTRAINT `request_ibfk_2` FOREIGN KEY (`applicant`) REFERENCES `persons` (`person_id`),
-  ADD CONSTRAINT `request_ibfk_3` FOREIGN KEY (`confired_by`) REFERENCES `persons` (`person_id`),
-  ADD CONSTRAINT `request_ibfk_4` FOREIGN KEY (`noted_by`) REFERENCES `persons` (`person_id`),
-  ADD CONSTRAINT `request_ibfk_5` FOREIGN KEY (`res_by`) REFERENCES `persons` (`person_id`);
+ALTER TABLE `reserve_equip_need`
+  ADD CONSTRAINT `reserve_equip_need_ibfk_2` FOREIGN KEY (`form_no`) REFERENCES `reserve_request` (`form_no`);
+
+--
+-- Constraints for table `reserve_request`
+--
+ALTER TABLE `reserve_request`
+  ADD CONSTRAINT `reserve_request_ibfk_2` FOREIGN KEY (`applicant`) REFERENCES `persons` (`person_id`),
+  ADD CONSTRAINT `reserve_request_ibfk_3` FOREIGN KEY (`confired_by`) REFERENCES `persons` (`person_id`),
+  ADD CONSTRAINT `reserve_request_ibfk_4` FOREIGN KEY (`noted_by`) REFERENCES `persons` (`person_id`),
+  ADD CONSTRAINT `reserve_request_ibfk_5` FOREIGN KEY (`res_by`) REFERENCES `persons` (`person_id`);
 
 --
 -- Constraints for table `reserve_ven`
 --
 ALTER TABLE `reserve_ven`
-  ADD CONSTRAINT `reserve_ven_ibfk_1` FOREIGN KEY (`form_no`) REFERENCES `request` (`form_no`),
+  ADD CONSTRAINT `reserve_ven_ibfk_1` FOREIGN KEY (`form_no`) REFERENCES `reserve_request` (`form_no`),
   ADD CONSTRAINT `reserve_ven_ibfk_2` FOREIGN KEY (`venue_id`) REFERENCES `venue` (`venue_id`);
-
---
--- Constraints for table `schedule`
---
-ALTER TABLE `schedule`
-  ADD CONSTRAINT `schedule_ibfk_1` FOREIGN KEY (`job_id`) REFERENCES `job_req` (`job_id`),
-  ADD CONSTRAINT `schedule_ibfk_2` FOREIGN KEY (`person_id`) REFERENCES `persons` (`person_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
