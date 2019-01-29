@@ -55,6 +55,7 @@ class Login extends CI_Controller {
 
 				
 				$user_detail = array(
+					'user_id'	=> $user_data['user_id'],
 					'username'	=> $user_data['username'],
 					'type'	=> $user_data['type']
 				);

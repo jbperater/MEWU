@@ -38,6 +38,7 @@ Class Login_auth_db extends CI_Model {
 		$query = $this->db->get();
 		
 		$user_data = array(
+			'user_id'	=> $query->row('user_id'),
 			'username'	=> $query->row('username'),
 			'type'	=> $query->row('type')
 			);
@@ -47,7 +48,7 @@ Class Login_auth_db extends CI_Model {
 	}
 
      public function get_equipment(){
-		  $this->db->select("equip_id,equip_name,brand,model,serial_no,office,depart,year_acquired");
+		  $this->db->select("equip_id,equip_name,brand,model,serial_no,office,depart,year_acc");
 		  $this->db->from('equipment');
 		  $query = $this->db->get();
 		  return $query->result();

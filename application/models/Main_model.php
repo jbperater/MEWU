@@ -26,5 +26,10 @@ Class Main_model extends CI_Model {
 		return $query;
 	}
 	
+	function reservetion_insert($data) {
+
+		$this->db->insert('reserve_request',$data);
+				
+	}
 	
 }
