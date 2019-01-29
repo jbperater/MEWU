@@ -16,13 +16,13 @@ $level = $user_detail['type'];
 						</li>
 					</ol>
 				</div>
-				<form class="form-horizontal" method="POST" action="action/attendance_details_add.php">
+				<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Main/reservation_insert">
 								<div class="form-group">
 							     	<label for="" class="control-label col-sm-4">Title of Event:</label>
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
-							     			 <input type="text" name="Title of Event" class='form-control' required placeholder="Title of Event">
+							     			 <input type="text" name="title" class='form-control' required placeholder="Title of Event">
 							     		</div>
 							     	</div>
 							     </div>
@@ -31,7 +31,7 @@ $level = $user_detail['type'];
 								    <div class="col-sm-5 inputGroupContainer">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
-											<input type="text" name="Venue" class='form-control' required placeholder="Venue">
+											 <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="<title></title>" required autofocus>
 										</div>
 									</div>
 								</div>
@@ -40,7 +40,7 @@ $level = $user_detail['type'];
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-							     			 <input type="text" name="Department" class='form-control' required placeholder="Department">
+							     			  <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="department" required autofocus>
 							     		</div>
 							     	</div>
 							     </div>
@@ -59,34 +59,34 @@ $level = $user_detail['type'];
 									<div class="col-sm-5 inputGroupContainer">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-								    		<input type="text" name="Date Reserved" class='form-control' required placeholder="Date Reserved">
+								    		 <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="date_act" required autofocus>
 								    	</div>
 								    </div>
 								</div>
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<label class="control-label col-sm-4">Time Reserved:</label>
 									<div class="col-sm-5 inputGroupContainer">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-									 		 <input type="text" name="Time Reserved" class='form-control' required placeholder="Time Reserved">
+									 		 <input type="text" name="time_res" class='form-control' required placeholder="Time Reserved">
 										</div>
 									</div>
-							 	</div>
-							 	  <div class="form-group">
-							     	<label for="" class="control-label col-sm-4">Date Actual Use:</label>
-							     	<div class="col-sm-5 inputGroupContainer">
-							     		<div class="input-group">
-							     			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-							     			 <input type="text" name="Time Actual Use" class='form-control' required placeholder="Time Actual Use">
-							     		</div>
-							     	</div>
-							     </div>
+															 	</div>
+															 	  <div class="form-group">
+															     	<label for="" class="control-label col-sm-4">Date Actual Use:</label>
+															     	<div class="col-sm-5 inputGroupContainer">
+															     		<div class="input-group">
+															     			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+															     			 <input type="text" name="date_act" class='form-control' required placeholder="Time Actual Use">
+															     		</div>
+															     	</div>
+															     </div> -->
 							    <div class="form-group">
 							     	<label for="" class="control-label col-sm-4">Time Actual Use:</label>
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-							     			 <input type="text" name="Time Actual Use" class='form-control' required placeholder="Time Actual Use">
+							     			  <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="time_act" required autofocus>
 							     		</div>
 							     	</div>
 							     </div>
@@ -105,19 +105,19 @@ $level = $user_detail['type'];
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-							     			 <input type="text" name="Contact Number" class='form-control' required placeholder="Contact Number">
+							     			  <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="contact_no" required autofocus>
 							     		</div>
 							     	</div>
 							     </div>
-							     <!-- <div class="form-group">
+							     <div class="form-group">
 							     	<label for="" class="control-label col-sm-4">Reserved By:</label>
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-							     			 <input type="text" name="Reserved By" class='form-control' required placeholder="Reserved By">
+							     			<input type="text" id="inputUsername" class="form-control" placeholder="Username" name="purpose" required autofocus>
 							     		</div>
 							     	</div>
-							     </div> -->
+							     </div> 
 							     <!--  <div class="form-group">
 							     							     	<label for="" class="control-label col-sm-4">Noted by:</label>
 							     							     	<div class="col-sm-5 inputGroupContainer">

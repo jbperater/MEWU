@@ -38,6 +38,7 @@ Class Login_auth_db extends CI_Model {
 		$query = $this->db->get();
 		
 		$user_data = array(
+			'user_id'	=> $query->row('user_id'),
 			'username'	=> $query->row('username'),
 			'type'	=> $query->row('type')
 			);
@@ -45,6 +46,7 @@ Class Login_auth_db extends CI_Model {
 		return $user_data;
 		
 	}
+
 
 	 function view_repair(){
 		  $this->db->select("date,description,bldg_no,location");
@@ -54,6 +56,9 @@ Class Login_auth_db extends CI_Model {
  	}
 
     function get_equipment(){
+
+     public function get_equipment(){
+
 		  $this->db->select("equip_id,equip_name,brand,model,serial_no,office,depart,year_acc");
 		  $this->db->from('equipment');
 		  $query = $this->db->get();
