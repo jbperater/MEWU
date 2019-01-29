@@ -26,7 +26,7 @@ $level = $user_detail['type'];
 				    <th>Date & Time Finished</th>
 				    <th>Person Attended</th>
 				    <th>Remarks</th>
-				    <th></th>
+			
 				  </tr>
 				  <tr>
 				   <td>1</td>

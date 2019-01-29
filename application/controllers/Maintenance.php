@@ -37,9 +37,27 @@ class Maintenance extends CI_Controller {
 	
 	public function Maintenance_add_report() {
 		
+		/*load registration view form*/
 		$data['content'] = 'Maintenance_add_report';
 		$this->load->view('base_view_maintenance', $data);
-	}
+		/*Check submit button */
+		if($this->input->post('submit'))
+ 		{
+		
+		$date_req=$this->input->post('date_req');
+		$description=$this->input->post('description');
+		$parts_rep=$this->input->post('parts_rep');
+		$date_rep=$this->input->post('date_rep');
+		$time_rep=$this->input->post('time_rep');
+		$date_fin=$this->input->post('date_fin');
+		$remark=$this->input->post('remark');
+		$performed_by=$this->input->post('performed_by');
+
+		$this->Login_auth_db->add_report($date_req,$description,$parts_rep,$date_rep,$time_rep,$date_fin,$remark,$performed_by);	
+		echo "Records Saved Successfully";
+		}
+	
+}
 
 	public function Maintenance_repair_sched() {
 		

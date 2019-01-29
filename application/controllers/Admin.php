@@ -3,12 +3,11 @@
 class Admin extends CI_Controller {
 
 	public function __construct() {
-		
-		parent::__construct(); 
+		parent::__construct();
+		$this->load->database(); 
 		$this->load->helper('url');
-		$this->load->library('session');		
-		// to protect the controller to be accessed only by registered users
-	    $this->load->model("main_model");
+		$this->load->library('session');
+		 $this->load->model('Login_auth_db');
 
 	}
 		
@@ -20,16 +19,25 @@ class Admin extends CI_Controller {
 	}
 	
 	public function Admin_pen_req() {
-				
+		
 		$data['content'] = 'Admin_pen_req';
 		$this->load->view('base_view', $data);
 	}
+
 	
 	public function Admin_pen_rep() {
 		
-		$data['content'] = 'Admin_pen_rep';
-		$this->load->view('base_view', $data);
+		 $query = $this->Login_auth_db->view_repair();
+		 $data['repair'] = null;
+		  
+		 if($query){
+		 $data['repair'] =  $query;
+		 $data['content'] ='Admin_pen_rep';
+		 $this->load->view('base_view', $data);
+		//$data['content'] = 'Admin_pen_rep';
+		//$this->load->view('base_view', $data);
 	}
+}
 
 	public function Admin_set_event() {
 		
@@ -96,5 +104,10 @@ class Admin extends CI_Controller {
 		$this->load->view('base_view',$data);
 	}
 
+	public function approve_request() {
+
+		$data["content"]="approve_request";
+		$this->load->view('base_view',$data);
+	}
 
 }

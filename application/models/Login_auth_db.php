@@ -46,11 +46,25 @@ Class Login_auth_db extends CI_Model {
 		
 	}
 
-     public function get_equipment(){
-		  $this->db->select("equip_id,equip_name,brand,model,serial_no,office,depart,year_acquired");
+	 function view_repair(){
+		  $this->db->select("date,description,bldg_no,location");
+		  $this->db->from('job_req');
+		  $query = $this->db->get();
+		  return $query->result();
+ 	}
+
+    function get_equipment(){
+		  $this->db->select("equip_id,equip_name,brand,model,serial_no,office,depart,year_acc");
 		  $this->db->from('equipment');
 		  $query = $this->db->get();
 		  return $query->result();
- }
+ 	}
+
+ 	function add_report($date_req,$description,$parts_rep,$date_rep,$time_rep,$date_fin,$remark,$performed_by)
+	{
+
+	$query="insert into maintenance_rec values('','$date_req','$description','$parts_rep','$date_rep','$time_rep','$date_fin','$remark','$performed_by')";
+	$this->db->query($query);
+}
 	
 }
