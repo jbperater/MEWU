@@ -26,6 +26,7 @@ $level = $user_detail['type'];
 				    <th>Date & Time Finished</th>
 				    <th>Person Attended</th>
 				    <th>Remarks</th>
+				    <th></th>
 	
 				  </tr>
 				  <tr>
@@ -37,27 +38,9 @@ $level = $user_detail['type'];
 				    <td></td>
 				    <td>Joshua</td>
 				    <td></td>
+				    <td><button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="view_history" type="submit" value="Save Data">Update</button></td>
 				  </tr>
-				   <tr>
-				   <td>1</td>
-				    <td>Fan Cleaning</td>
-				     <td>BLDG 23</td>
-				     <td>101</td>
-				    <td></td>
-				    <td></td>
-				    <td>Joshua</td>
-				    <td></td>
-				  </tr>
-				   <tr>
-				   <td>1</td>
-				    <td>Fan Cleaning</td>
-				     <td>BLDG 23</td>
-				     <td>101</td>
-				    <td></td>
-				    <td></td>
-				    <td>Joshua</td>
-				    <td></td>
-				  </tr>
+
 				 <!--  <tr>
 				   <td>Centro comercial Moctezuma</td>
 				   <td>Francisco Chang</td>
