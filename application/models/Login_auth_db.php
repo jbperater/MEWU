@@ -55,12 +55,7 @@ Class Login_auth_db extends CI_Model {
 		  return $query->result();
  	}
 
-<<<<<<< HEAD
     function get_equipment(){
-=======
-     public function get_equipment(){
-
->>>>>>> 075af867a376247d73fb5a70b574754800894459
 		  $this->db->select("equip_id,equip_name,brand,model,serial_no,office,depart,year_acc");
 		  $this->db->from('equipment');
 		  $query = $this->db->get();
