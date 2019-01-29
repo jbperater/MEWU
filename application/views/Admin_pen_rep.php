@@ -28,7 +28,7 @@ $level = $user_detail['type'];
 				 	<td><?=$repair->description;?></td>
 				 	<td><?=$repair->bldg_no;?></td>
 				 	<td><?=$repair->location;?></td>
-				 	<td><a href="<?php echo base_url(); ?>Admin/approve_request" button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="approve_request" type="submit" value="Save Data">Approve</button></td>
+				 	<td><button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="decline_repair" type="submit" value="Save Data">Decline</button></td>
 				 	<td><button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="decline_repair" type="submit" value="Save Data">Decline</button></td></tr>    
 				    <?php }?>
 				<!--<table>
