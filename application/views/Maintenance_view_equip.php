@@ -24,7 +24,8 @@ $level = $user_detail['type'];
 					<td><strong>Serial Number</strong></td>
 					<td><strong>Office</strong></td>
 					<td><strong>Department</strong></td>
-					<td><strong>Year Acquired</strong></td></tr> 
+					<td><strong>Year Acquired</strong>
+					<td></td></td></tr> 
 				     
 				     <?php foreach($equipment as $equipment){?>
 				     <tr>
@@ -35,7 +36,8 @@ $level = $user_detail['type'];
 				 	<td><?=$equipment->serial_no;?></td>
 				 	<td><?=$equipment->office;?></td>
 				 	<td><?=$equipment->depart;?></td>
-				 	<td><?=$equipment->year_acc;?></td></tr>     
+				 	<td><?=$equipment->year_acc;?></td>
+				 	<td><button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="view_history" type="submit" value="Save Data">View History</button></td></tr>     
 				    <?php }?>
 				  <!--<tr>
 				    <th>Name</th>

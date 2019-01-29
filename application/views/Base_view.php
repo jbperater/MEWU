@@ -116,10 +116,10 @@ if($content == 'Admin_view_venue') { $this->load->view('Admin_view_venue'); $sel
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>Admin/Admin_pen_req"> View Event Request</a>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_pen_req"> View Event Requests</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>Admin/Admin_pen_rep"> View Pending Repair</a>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_pen_rep"> View Repair Requests</a>
                             </li>
                         </ul>
                     </li>

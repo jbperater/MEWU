@@ -17,12 +17,28 @@ $level = $user_detail['type'];
 					</ol>
 				</div>
 				<table>
+					<tr><td><strong>Date Requested</strong></td>
+					<td><strong>Description</strong></td>
+					<td><strong>Building Number</strong></td>
+					<td><strong>Location</strong></td>
+				     
+				     <?php foreach($repair as $repair){?>
+				     <tr>
+				    <td><?=$repair->date;?></td>
+				 	<td><?=$repair->description;?></td>
+				 	<td><?=$repair->bldg_no;?></td>
+				 	<td><?=$repair->location;?></td>
+				 	<td><button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="decline_repair" type="submit" value="Save Data">Decline</button></td>
+				 	<td><button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="decline_repair" type="submit" value="Save Data">Decline</button></td></tr>    
+				    <?php }?>
+				<!--<table>
 				  <tr>
 				    <th>Form No</th>
 				    <th>Date Requested</th>
 				    <th>Description</th>
 				    <th>Building Number</th>
 				    <th>Room Number</th>
+				    <th></th>
 				  </tr>
 				  <tr>
 				    <td>1</td>
@@ -40,39 +56,7 @@ $level = $user_detail['type'];
 						</a>
 					 </td>
 					</tr>
-					<tr>
-					<td>2</td>
-				    <td>November 18, 2018</td>
-				    <td>Lights not functioning</td>
-				    <td>Building 5</td>
-				    <td>104</td>
-				    <td>
-				    	<a href='../user/about_me.php?id=".$row['staff_id']."'>
-					      <button class='btn btn-success' style='width:75px;margin-top:2px;'>Approve</button>
-						</a>
-					 	
-					    <a href='Update_staff.php?id=".$row['staff_id']."'>
-					      <button class='btn btn-primary' style='width:75px;margin-top:2px;'>Disapprove</button>
-						</a>
-					 </td>
-					</tr>
-					<tr>
-					<td>1</td>
-				    <td>November 30, 2018</td>
-				    <td>Lights not functioning</td>
-				    <td>Building 13</td>
-				    <td>102</td>
-				    <td>
-				    	<a href='../user/about_me.php?id=".$row['staff_id']."'>
-					      <button class='btn btn-success' style='width:75px;margin-top:2px;'>Approve</button>
-						</a>
-					 	
-					    <a href='Update_staff.php?id=".$row['staff_id']."'>
-					      <button class='btn btn-primary' style='width:75px;margin-top:2px;'>Disapprove</button>
-						</a>
-					 </td>
-					</tr>
-
+				
 				 <!--  <tr>
 				   <td>Centro comercial Moctezuma</td>
 				   <td>Francisco Chang</td>
