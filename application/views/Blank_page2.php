@@ -6,7 +6,7 @@
 				<div class="col-lg-12">
 					<ol class="breadcrumb">
 						<li class="active">
-							<i class="fa fa-file"></i> B
+							<i class="fa fa-file"></i> Blank page 2
 						</li>
 					</ol>
 				</div>
