@@ -18,6 +18,7 @@ if($content == 'Admin_add_event_equip') { $this->load->view('Admin_add_event_equ
 if($content == 'Admin_view_event_equip') { $this->load->view('Admin_view_event_equip'); $selected = $content; $content='';}
 if($content == 'Admin_add_venue') { $this->load->view('Admin_add_venue'); $selected = $content; $content='';}
 if($content == 'Admin_view_venue') { $this->load->view('Admin_view_venue'); $selected = $content; $content='';}
+if($content == 'Admin_forecast') { $this->load->view('Admin_forecast'); $selected = $content; $content='';}
 
 ?>
 <!DOCTYPE html>
@@ -200,6 +201,19 @@ if($content == 'Admin_view_venue') { $this->load->view('Admin_view_venue'); $sel
                         </ul>
                     </li>
 
+                    <?php 
+                    if ($selected == 'Admin_forecast' || $selected == 'Admin_view_event_equip')  echo '<li class="active" >';
+                    else echo '<li>';
+                    ?>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo7"><i class="fa fa-fw fa-file"></i>Forecast <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo7" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_forecast"> View Forecast</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+
                 </ul>				
             </div>
             <!-- /.navbar-collapse -->
@@ -213,17 +227,17 @@ if($content == 'Admin_view_venue') { $this->load->view('Admin_view_venue'); $sel
 		
     </div>
 	
-    <!-- jQuery -->
+     jQuery
     <script src="<?php echo base_url();?>assets/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
+    
+    Bootstrap Core JavaScript
     <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
+    
+    <!--Morris Charts JavaScript
     <script src="<?php echo base_url();?>assets/js/plugins/morris/raphael.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/plugins/morris/morris.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/plugins/morris/morris-data.js"></script>
-
+     -->
 </body>
 
 </html>

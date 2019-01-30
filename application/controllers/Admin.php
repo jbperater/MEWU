@@ -96,5 +96,18 @@ class Admin extends CI_Controller {
 		$this->load->view('base_view',$data);
 	}
 
+	public function Admin_forecast() {
+		$this->load->model('main_model');
+		/*$data2 = $this->main_model->get_data_forecast()->result();*/
+
+	    
+	    $data2 = $this->main_model->get_data_forecast()->result();
+	    $try = $this->main_model->forecast_data();
+	    $data['try'] = json_encode($try);
+	    $data['datani'] = json_encode($data2);
+		$data['content'] = 'Admin_forecast';
+		$this->load->view('base_view', $data);
+	}
+
 
 }
