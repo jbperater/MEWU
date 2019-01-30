@@ -111,9 +111,9 @@ if($content == 'Maintenance_all_sched') { $this->load->view('Maintenance_all_sch
                             <li>
                                 <a href="<?php echo base_url(); ?>Maintenance/Maintenance_view_equip"> View Equipments</a>
                             </li>
-                            <li>
-                                <a href="<?php echo base_url(); ?>Maintenance/Maintenance_add_report"> View Pending Repair</a>
-                            </li>
+                            <!--<li>
+                                <a href="<?php echo base_url(); ?>Maintenance/Maintenance_add_report"> Add Repair Report</a>
+                            </li>-->
                         </ul>
                     </li>
 
@@ -125,10 +125,10 @@ if($content == 'Maintenance_all_sched') { $this->load->view('Maintenance_all_sch
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-file"></i> View Schedule <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo2" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>Maintenance/Maintenance_repair_sched"> Repair Schedule</a>
+                                <a href="<?php echo base_url(); ?>Maintenance/Maintenance_repair_sched"> Repair Schedules</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>Maintenance/Maintenance_all_sched"> All Repair Schedule</a>
+                                <a href="<?php echo base_url(); ?>Maintenance/Maintenance_all_sched"> Summary Reports</a>
                             </li>
                         </ul>
                 </ul>               
