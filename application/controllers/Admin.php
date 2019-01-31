@@ -8,20 +8,30 @@ class Admin extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 		 $this->load->model('Login_auth_db');
+		  $this->load->model('main_model');
 
 	}
 		
 	public function index() {
-		
-		$data['content'] = 'blank_page1';
-		$this->load->view('base_view', $data);
-		
+		if($this->check_access()){
+			$data['content'] = 'blank_page1';
+			$this->load->view('base_view', $data);
+	    }
+	}
+
+	private function check_access(){
+		if($this->session->userdata('logged_in')){
+			return true;
+		}else{
+			redirect('login');
+		}
 	}
 	
 	public function Admin_pen_req() {
-		
-		$data['content'] = 'Admin_pen_req';
-		$this->load->view('base_view', $data);
+		if($this->check_access()){
+			$data['content'] = 'Admin_pen_req';
+		    $this->load->view('base_view', $data);
+		}		
 	}
 
 	
@@ -40,9 +50,10 @@ class Admin extends CI_Controller {
 }
 
 	public function Admin_set_event() {
-		
-		$data['content'] = 'Admin_set_event';
-		$this->load->view('base_view', $data);
+		if($this->check_access()){
+		    $data['content'] = 'Admin_set_event';
+		    $this->load->view('base_view', $data);
+	    }
 	}
 
 

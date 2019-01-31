@@ -14,21 +14,27 @@ class Login extends CI_Controller {
 		$this->load->library('session');
 
 	}
+
+
+	private function check_access(){
+		if($this->session->userdata('logged_in')){
+			redirect('Admin');
+		}else{
+			redirect('login');
+		}
+	}
 		
 	public function index() {
 		
+		
 		$this->load->view('login');
 
-		
-
-
-		
 	}
 	
 	public function login_auth() {
 		
 		// create the data object
-		$data = new stdClass();
+	
 		
 		// load form helper and validation library
 		$this->load->helper('form');
@@ -67,6 +73,7 @@ class Login extends CI_Controller {
 					$data_to_view['selected'] = 'dashboard';
 					$data_to_view['content'] = 'dashboard';
 					$this->load->view('base_view',$data_to_view);
+				
 				}
 				elseif( $user_data['type'] == 'student'){
 					$data_to_view['selected'] = 'Student_view_sched';

@@ -119,7 +119,7 @@ if($content == 'Student_view_sched') { $this->load->view('Student_view_sched'); 
                     if ($selected == 'Student_all_req' || $selected == 'Student_app_rec' || $selected == 'Student_dec_req' || $selected == 'Student_pen_req')  echo '<li class="active" >';
                     else echo '<li>';
                     ?>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-file"></i> Set Schedule <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-file"></i> My Request <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo2" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Student/Student_all_req"> All Request</a>

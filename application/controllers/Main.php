@@ -67,6 +67,7 @@ class Main extends CI_Controller {
 	public function forecast(){
 
 		$this->load->model('get_data_forecast');
+		
 		 $data2 = $this->get_data_forecast->get_data_()->result();
 	      $data['data'] = json_encode($data2);
 	      $data['content'] = 'Admin_forecast';
