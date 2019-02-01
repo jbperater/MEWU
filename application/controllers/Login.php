@@ -83,16 +83,6 @@ class Login extends CI_Controller {
 					$data_to_view['content'] = 'Staff_view_sched';
 					$this->load->view('base_view_staff',$data_to_view);
 				}
-				elseif( $user_data['type'] == 'dean'){
-					$data_to_view['selected'] = 'Adviser_student_req';
-					$data_to_view['content'] = 'Adviser_student_req';
-					$this->load->view('base_view_adviser',$data_to_view);
-				}
-				elseif( $user_data['type'] == 'adviser'){
-					$data_to_view['selected'] = 'Adviser_student_req';
-					$data_to_view['content'] = 'Adviser_student_req';
-					$this->load->view('base_view_adviser',$data_to_view);
-				}
 				elseif( $user_data['type'] == 'maintenance'){
 					$data_to_view['selected'] = 'Maintenance_repair_sched';
 					$data_to_view['content'] = 'Maintenance_repair_sched';
