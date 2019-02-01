@@ -36,8 +36,9 @@ class Main extends CI_Controller {
 		$this->form_validation->set_rules('department', 'department', 'required');
 		$this->form_validation->set_rules('date_act', 'date_act', 'required');
 		$this->form_validation->set_rules('time_act', 'time_act', 'required');
-		$this->form_validation->set_rules('purpose', 'purpose', 'required');
 		$this->form_validation->set_rules('contact_no', 'contact_no', 'required');
+		$this->form_validation->set_rules('title_event', 'title_event', 'required');
+		$this->form_validation->set_rules('venue', 'venue', 'required');
 		
 		if ($this->form_validation->run() == true) {
 			$data['content'] = 'Admin_set_event';
@@ -51,8 +52,9 @@ class Main extends CI_Controller {
 				'department' => $this->input->post('department'),
 				'date_act' => $this->input->post('date_act'),
 				'time_act' => $this->input->post('time_act'),
-				'purpose' => $this->input->post('purpose'),
-				'title_event' => $this->input->post('contact_no'),
+				'title_event' => $this->input->post('title_event'),
+				'venue' => $this->input->post('venue'),
+				'contact_no' => $this->input->post('contact_no'),
 				
 			);	
 

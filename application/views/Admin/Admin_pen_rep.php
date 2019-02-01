@@ -17,19 +17,21 @@ $level = $user_detail['type'];
 					</ol>
 				</div>
 				<table>
-					<tr><td><strong>Date Requested</strong></td>
+					<tr><td><strong>Job ID</strong></td>
+					<td><strong>Date Requested</strong></td>
 					<td><strong>Description</strong></td>
 					<td><strong>Building Number</strong></td>
 					<td><strong>Location</strong></td>
 				     
 				     <?php foreach($repair as $repair){?>
 				     <tr>
+				    <td><?=$repair->job_id;?></td>
 				    <td><?=$repair->date;?></td>
 				 	<td><?=$repair->description;?></td>
 				 	<td><?=$repair->bldg_no;?></td>
 				 	<td><?=$repair->location;?></td>
-				 	<td><button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="decline_repair" type="submit" value="Save Data">Decline</button></td>
-				 	<td><button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="decline_repair" type="submit" value="Save Data">Decline</button></td></tr>    
+				 	<td><a href="<?php echo base_url(); ?>Admin/approve_request?approve=<?php echo $repair->job_id;?>" button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="approve_request" type="submit" value="Save Data">Approve</button></td>
+				 	<td><a href="<?php echo base_url(); ?>Admin/decline_request?decline=<?php echo $repair->job_id;?>" button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="decline_request" type="submit" value="Save Data">Decline</button></td></tr>    
 				    <?php }?>
 				<!--<table>
 				  <tr>

@@ -6,10 +6,10 @@ $type = $user_detail['type'];
 
 
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}
-if($content == 'Maintenance_view_equip') { $this->load->view('Maintenance_view_equip'); $selected = $content; $content='';}
-if($content == 'Maintenance_add_report') { $this->load->view('Maintenance_add_report'); $selected = $content; $content='';}
-if($content == 'Maintenance_repair_sched') { $this->load->view('Maintenance_repair_sched'); $selected = $content; $content='';}
-if($content == 'Maintenance_all_sched') { $this->load->view('Maintenance_all_sched'); $selected = $content; $content='';}
+if($content == 'Maintenance_view_equip') { $this->load->view('Maintenance/Maintenance_view_equip'); $selected = $content; $content='';}
+if($content == 'Maintenance_add_report') { $this->load->view('Maintenance/Maintenance_add_report'); $selected = $content; $content='';}
+if($content == 'Maintenance_repair_sched') { $this->load->view('Maintenance/Maintenance_repair_sched'); $selected = $content; $content='';}
+if($content == 'Maintenance_all_sched') { $this->load->view('Maintenance/Maintenance_all_sched'); $selected = $content; $content='';}
 
 
 ?>
