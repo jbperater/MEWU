@@ -28,25 +28,23 @@ class Admin extends CI_Controller {
 	}
 	
 	public function Admin_pen_req() {
-		if($this->check_access()){
+		
 			$data['content'] = 'Admin_pen_req';
 		    $this->load->view('base_view', $data);
-		}		
+			
 	}
 
 	
 	public function Admin_pen_rep() {
 		
 		 $query = $this->Login_auth_db->view_repair();
-		 $data['repair'] = null;
-		  
-		 if($query){
+		
 		 $data['repair'] =  $query;
 		 $data['content'] ='Admin_pen_rep';
 		 $this->load->view('base_view', $data);
 		//$data['content'] = 'Admin_pen_rep';
 		//$this->load->view('base_view', $data);
-	}
+	
 }
 
 	public function Admin_set_event() {

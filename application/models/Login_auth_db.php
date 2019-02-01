@@ -49,8 +49,9 @@ Class Login_auth_db extends CI_Model {
 
 
 	 function view_repair(){
-		  $this->db->select("date,description,bldg_no,location");
+		  $this->db->select("date_req,work_description,bldg_no,location");
 		  $this->db->from('job_req');
+		  $this->db->where('remark','pending');
 		  $query = $this->db->get();
 		  return $query->result();
  	}

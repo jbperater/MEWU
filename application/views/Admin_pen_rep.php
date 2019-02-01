@@ -21,14 +21,14 @@ $level = $user_detail['type'];
 					<td><strong>Description</strong></td>
 					<td><strong>Building Number</strong></td>
 					<td><strong>Location</strong></td>
-				     
+				    <td><strong>Action</strong></td>
 				     <?php foreach($repair as $repair){?>
 				     <tr>
-				    <td><?=$repair->date;?></td>
-				 	<td><?=$repair->description;?></td>
+				    <td><?=$repair->date_req;?></td>
+				 	<td><?=$repair->work_description;?></td>
 				 	<td><?=$repair->bldg_no;?></td>
 				 	<td><?=$repair->location;?></td>
-				 	<td><button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="decline_repair" type="submit" value="Save Data">Decline</button></td>
+				 	<td><button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="decline_repair" type="submit" value="Save Data">Accept</button></td>
 				 	<td><button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="decline_repair" type="submit" value="Save Data">Decline</button></td></tr>    
 				    <?php }?>
 				<!--<table>
