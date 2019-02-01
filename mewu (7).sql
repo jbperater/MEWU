@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2019 at 06:21 PM
+-- Generation Time: Feb 01, 2019 at 05:59 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -74,6 +74,36 @@ INSERT INTO `accounts` (`user_id`, `username`, `password`, `type`, `status`, `da
 (3, 's', 's', 'student', '', '2019-01-27 22:28:37'),
 (4, 'st', 'st', 'staff', '', '2019-01-27 22:28:37'),
 (5, 'a', 'a', 'adviser', '', '2019-01-27 22:29:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calendar_events`
+--
+
+CREATE TABLE `calendar_events` (
+  `ID` int(11) NOT NULL,
+  `title` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `start` datetime NOT NULL,
+  `end` datetime NOT NULL,
+  `description` varchar(1000) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `calendar_events`
+--
+
+INSERT INTO `calendar_events` (`ID`, `title`, `start`, `end`, `description`) VALUES
+(1, 'TRY', '2019-02-08 00:00:00', '2019-02-02 00:00:00', ''),
+(2, 'WAW', '2019-02-15 00:00:00', '2019-02-22 00:00:00', 'HAHAH'),
+(3, '12', '2019-02-09 00:00:00', '2019-02-10 00:00:00', '212'),
+(4, 'what the', '2019-02-08 00:00:00', '2019-02-09 00:00:00', ''),
+(11, 'Joshua Brain Perater', '2019-02-08 00:00:00', '2019-02-08 00:00:00', 'sumbagay'),
+(12, 'Joshua Brain Perater', '2019-02-05 00:00:00', '2019-02-06 00:00:00', '212'),
+(13, 'Lazada', '2019-02-02 00:00:00', '2019-02-06 10:09:15', 'dawd'),
+(14, '', '2019-02-22 12:21:00', '2019-02-28 00:00:00', ''),
+(15, '', '2019-02-22 12:21:00', '2019-02-28 04:12:21', ''),
+(16, '', '2019-02-01 14:04:48', '2019-02-01 14:04:48', '');
 
 -- --------------------------------------------------------
 
@@ -478,6 +508,12 @@ ALTER TABLE `accounts`
   ADD PRIMARY KEY (`user_id`);
 
 --
+-- Indexes for table `calendar_events`
+--
+ALTER TABLE `calendar_events`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `department`
 --
 ALTER TABLE `department`
@@ -568,6 +604,11 @@ ALTER TABLE `account2`
 --
 ALTER TABLE `accounts`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `calendar_events`
+--
+ALTER TABLE `calendar_events`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `department`
 --
