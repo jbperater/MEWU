@@ -32,6 +32,29 @@ $level = $user_detail['type'];
 				 	<td><?=$repair->location;?></td>
 				 	<td><a href="<?php echo base_url(); ?>Admin/approve_request?approve=<?php echo $repair->job_id;?>" button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="approve_request" type="submit" value="Save Data">Approve</button></td>
 				 	<td><a href="<?php echo base_url(); ?>Admin/decline_request?decline=<?php echo $repair->job_id;?>" button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="decline_request" type="submit" value="Save Data">Decline</button></td></tr>    
+
+					<tr>
+						<th><strong>Item No</strong></th>
+						<th><strong>Date Requested</strong></th>
+						<th><strong>Description</strong></th>
+						<th><strong>Building Number</strong></th>
+						<th><strong>Location</strong></th>
+						<th><strong>Request By</strong></th>
+					    <th><strong>Action</strong></th>
+					</tr>
+				     <?php foreach($repair as $repair){?>
+				     <tr>
+				     <td><?=$repair->item_no;?></td>
+				    <td><?=$repair->date_req;?></td>
+				 	<td><?=$repair->work_description;?></td>
+				 	<td><?=$repair->bldg_no;?></td>
+				 	<td><?=$repair->location;?></td>
+				 	<td><a href="<?php echo base_url();?>Admin/admin_rep_app?id=<?=$repair->job_id;?>">
+					      <button class='btn btn-success' style='width:40%;margin-top:2px;'>Approve</button>
+						</a>
+				 	 <a href="<?php echo base_url();?>Admin/admin_rep_dec?id=<?=$repair->job_id;?>">
+					      <button class='btn btn-danger' style='width:40%;margin-top:2px;'>Decline</button>
+						</a></td></tr>    
 				    <?php }?>
 				<!--<table>
 				  <tr>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2019 at 07:21 PM
+-- Generation Time: Feb 01, 2019 at 05:59 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -25,6 +25,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `account2`
+--
+
+CREATE TABLE `account2` (
+  `id` int(11) NOT NULL,
+  `year` year(4) DEFAULT NULL,
+  `purchase` int(11) DEFAULT NULL,
+  `sale` int(11) DEFAULT NULL,
+  `profit` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `account2`
+--
+
+INSERT INTO `account2` (`id`, `year`, `purchase`, `sale`, `profit`) VALUES
+(1, 2013, 2000, 3000, 1000),
+(2, 2014, 4500, 5000, 500),
+(3, 2015, 3000, 4500, 1500),
+(4, 2016, 2000, 3000, 1000),
+(5, 2017, 2000, 4000, 2000),
+(6, 2018, 2200, 3000, 800),
+(7, 2019, 5000, 7000, 2000);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `accounts`
 --
 
@@ -33,6 +60,7 @@ CREATE TABLE `accounts` (
   `username` varchar(32) NOT NULL,
   `password` varchar(32) NOT NULL,
   `type` varchar(32) NOT NULL,
+  `status` varchar(20) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -40,12 +68,42 @@ CREATE TABLE `accounts` (
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`user_id`, `username`, `password`, `type`, `date_created`) VALUES
-(1, 'admin', 'admin', 'admin', '2019-01-14 15:25:37'),
-(2, 'm', 'm', 'maintenance', '2019-01-27 21:05:37'),
-(3, 's', 's', 'student', '2019-01-27 22:28:37'),
-(4, 'st', 'st', 'staff', '2019-01-27 22:28:37'),
-(5, 'a', 'a', 'adviser', '2019-01-27 22:29:14');
+INSERT INTO `accounts` (`user_id`, `username`, `password`, `type`, `status`, `date_created`) VALUES
+(1, 'admin', 'admin', 'admin', '', '2019-01-14 15:25:37'),
+(2, 'm', 'm', 'maintenance', '', '2019-01-27 21:05:37'),
+(3, 's', 's', 'student', '', '2019-01-27 22:28:37'),
+(4, 'st', 'st', 'staff', '', '2019-01-27 22:28:37'),
+(5, 'a', 'a', 'adviser', '', '2019-01-27 22:29:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calendar_events`
+--
+
+CREATE TABLE `calendar_events` (
+  `ID` int(11) NOT NULL,
+  `title` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `start` datetime NOT NULL,
+  `end` datetime NOT NULL,
+  `description` varchar(1000) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `calendar_events`
+--
+
+INSERT INTO `calendar_events` (`ID`, `title`, `start`, `end`, `description`) VALUES
+(1, 'TRY', '2019-02-08 00:00:00', '2019-02-02 00:00:00', ''),
+(2, 'WAW', '2019-02-15 00:00:00', '2019-02-22 00:00:00', 'HAHAH'),
+(3, '12', '2019-02-09 00:00:00', '2019-02-10 00:00:00', '212'),
+(4, 'what the', '2019-02-08 00:00:00', '2019-02-09 00:00:00', ''),
+(11, 'Joshua Brain Perater', '2019-02-08 00:00:00', '2019-02-08 00:00:00', 'sumbagay'),
+(12, 'Joshua Brain Perater', '2019-02-05 00:00:00', '2019-02-06 00:00:00', '212'),
+(13, 'Lazada', '2019-02-02 00:00:00', '2019-02-06 10:09:15', 'dawd'),
+(14, '', '2019-02-22 12:21:00', '2019-02-28 00:00:00', ''),
+(15, '', '2019-02-22 12:21:00', '2019-02-28 04:12:21', ''),
+(16, '', '2019-02-01 14:04:48', '2019-02-01 14:04:48', '');
 
 -- --------------------------------------------------------
 
@@ -76,6 +134,13 @@ CREATE TABLE `equipment` (
   `type` varchar(20) NOT NULL,
   `year_acc` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `equipment`
+--
+
+INSERT INTO `equipment` (`equip_id`, `equip_name`, `brand`, `model`, `serial_no`, `office`, `depart`, `type`, `year_acc`) VALUES
+(1, 'dawd', 'dad', 'fef', 'fsef', 'f', NULL, 'fsef', 'fsefs');
 
 -- --------------------------------------------------------
 
@@ -151,6 +216,20 @@ CREATE TABLE `maintenance_rec` (
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `note_by`
+-- (See below for the actual view)
+--
+CREATE TABLE `note_by` (
+`person_id` int(11)
+,`fname` varchar(50)
+,`mname` varchar(50)
+,`lname` varchar(50)
+,`position` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `persons`
 --
 
@@ -176,6 +255,71 @@ INSERT INTO `persons` (`person_id`, `fname`, `mname`, `lname`, `bday`, `position
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `reservation`
+-- (See below for the actual view)
+--
+CREATE TABLE `reservation` (
+`form_no` int(11)
+,`department` varchar(32)
+,`venue` int(11)
+,`date_act` date
+,`time_act` time
+,`purpose` varchar(32)
+,`title_event` varchar(32)
+,`status` varchar(20)
+,`contact_no` varchar(32)
+,`rfname` varchar(50)
+,`rmname` varchar(50)
+,`rlname` varchar(50)
+,`nfname` varchar(50)
+,`nmname` varchar(50)
+,`nlname` varchar(50)
+,`cfname` varchar(50)
+,`cmname` varchar(50)
+,`clname` varchar(50)
+,`date_request` timestamp
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `reservation_equip`
+-- (See below for the actual view)
+--
+CREATE TABLE `reservation_equip` (
+`form_no` int(11)
+,`name` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `reservation_ven`
+-- (See below for the actual view)
+--
+CREATE TABLE `reservation_ven` (
+`form_no` int(11)
+,`bldg_no` varchar(16)
+,`name` varchar(32)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `reserve_by`
+-- (See below for the actual view)
+--
+CREATE TABLE `reserve_by` (
+`person_id` int(11)
+,`fname` varchar(50)
+,`mname` varchar(50)
+,`lname` varchar(50)
+,`position` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `reserve_equip_need`
 --
 
@@ -183,6 +327,14 @@ CREATE TABLE `reserve_equip_need` (
   `form_no` int(11) NOT NULL,
   `even_equip_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reserve_equip_need`
+--
+
+INSERT INTO `reserve_equip_need` (`form_no`, `even_equip_id`) VALUES
+(1, 1),
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -203,7 +355,6 @@ CREATE TABLE `reserve_event_venue` (
 
 CREATE TABLE `reserve_request` (
   `form_no` int(11) NOT NULL,
-  `applicant` int(11) DEFAULT NULL,
   `department` varchar(32) NOT NULL,
   `venue` int(11) NOT NULL,
   `date_act` date NOT NULL,
@@ -213,10 +364,18 @@ CREATE TABLE `reserve_request` (
   `status` varchar(20) NOT NULL,
   `contact_no` varchar(32) NOT NULL,
   `res_by` int(11) DEFAULT NULL,
-  `noted_by` int(11) DEFAULT NULL,
   `confired_by` int(11) DEFAULT NULL,
   `date_request` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reserve_request`
+--
+
+INSERT INTO `reserve_request` (`form_no`, `department`, `venue`, `date_act`, `time_act`, `purpose`, `title_event`, `status`, `contact_no`, `res_by`, `confired_by`, `date_request`) VALUES
+(1, 'CITC', 1, '2019-01-02', '08:00:00', 'secret', 'title', 'ok', '122', 1, 1, '2019-01-28 18:42:26'),
+(2, 'CITC', 1, '2019-01-02', '08:00:00', 'secret', 'title', 'ok', '122', 1, 1, '2019-01-28 18:42:34'),
+(3, 'dawd', 0, '0000-00-00', '00:00:00', 'daw', 'daw', '', '', NULL, NULL, '2019-01-28 22:37:10');
 
 -- --------------------------------------------------------
 
@@ -228,6 +387,14 @@ CREATE TABLE `reserve_ven` (
   `form_no` int(11) NOT NULL,
   `venue_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reserve_ven`
+--
+
+INSERT INTO `reserve_ven` (`form_no`, `venue_id`) VALUES
+(1, 1),
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -273,6 +440,51 @@ INSERT INTO `venue` (`venue_id`, `bldg_no`, `name`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure for view `note_by`
+--
+DROP TABLE IF EXISTS `note_by`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `note_by`  AS  select `persons`.`person_id` AS `person_id`,`persons`.`fname` AS `fname`,`persons`.`mname` AS `mname`,`persons`.`lname` AS `lname`,`persons`.`position` AS `position` from `persons` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `reservation`
+--
+DROP TABLE IF EXISTS `reservation`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reservation`  AS  select `reserve_request`.`form_no` AS `form_no`,`reserve_request`.`department` AS `department`,`reserve_request`.`venue` AS `venue`,`reserve_request`.`date_act` AS `date_act`,`reserve_request`.`time_act` AS `time_act`,`reserve_request`.`purpose` AS `purpose`,`reserve_request`.`title_event` AS `title_event`,`reserve_request`.`status` AS `status`,`reserve_request`.`contact_no` AS `contact_no`,`reserve_by`.`fname` AS `rfname`,`reserve_by`.`mname` AS `rmname`,`reserve_by`.`lname` AS `rlname`,`note_by`.`fname` AS `nfname`,`note_by`.`mname` AS `nmname`,`note_by`.`lname` AS `nlname`,`persons`.`fname` AS `cfname`,`persons`.`mname` AS `cmname`,`persons`.`lname` AS `clname`,`reserve_request`.`date_request` AS `date_request` from (((`reserve_request` join `reserve_by` on((`reserve_request`.`res_by` = `reserve_by`.`person_id`))) join `note_by` on((`reserve_request`.`confired_by` = `note_by`.`person_id`))) join `persons` on((`reserve_request`.`confired_by` = `persons`.`person_id`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `reservation_equip`
+--
+DROP TABLE IF EXISTS `reservation_equip`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reservation_equip`  AS  select `reserve_equip_need`.`form_no` AS `form_no`,`event_equip`.`name` AS `name` from (`reserve_equip_need` join `event_equip` on((`reserve_equip_need`.`even_equip_id` = `event_equip`.`equip_id`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `reservation_ven`
+--
+DROP TABLE IF EXISTS `reservation_ven`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reservation_ven`  AS  select `reserve_ven`.`form_no` AS `form_no`,`venue`.`bldg_no` AS `bldg_no`,`venue`.`name` AS `name` from (`reserve_ven` join `venue` on((`reserve_ven`.`venue_id` = `venue`.`venue_id`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `reserve_by`
+--
+DROP TABLE IF EXISTS `reserve_by`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reserve_by`  AS  select `persons`.`person_id` AS `person_id`,`persons`.`fname` AS `fname`,`persons`.`mname` AS `mname`,`persons`.`lname` AS `lname`,`persons`.`position` AS `position` from `persons` ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `users`
 --
 DROP TABLE IF EXISTS `users`;
@@ -284,10 +496,22 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 
 --
+-- Indexes for table `account2`
+--
+ALTER TABLE `account2`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `accounts`
 --
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `calendar_events`
+--
+ALTER TABLE `calendar_events`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `department`
@@ -350,9 +574,7 @@ ALTER TABLE `reserve_equip_need`
 --
 ALTER TABLE `reserve_request`
   ADD PRIMARY KEY (`form_no`),
-  ADD KEY `applicant` (`applicant`),
   ADD KEY `res_by` (`res_by`),
-  ADD KEY `noted_by` (`noted_by`),
   ADD KEY `confired_by` (`confired_by`);
 
 --
@@ -373,10 +595,20 @@ ALTER TABLE `venue`
 --
 
 --
+-- AUTO_INCREMENT for table `account2`
+--
+ALTER TABLE `account2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `calendar_events`
+--
+ALTER TABLE `calendar_events`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `department`
 --
@@ -386,7 +618,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `equipment`
 --
 ALTER TABLE `equipment`
-  MODIFY `equip_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `equip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `event_equip`
 --
@@ -406,7 +638,7 @@ ALTER TABLE `persons`
 -- AUTO_INCREMENT for table `reserve_request`
 --
 ALTER TABLE `reserve_request`
-  MODIFY `form_no` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `form_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `venue`
 --
@@ -448,15 +680,14 @@ ALTER TABLE `persons`
 -- Constraints for table `reserve_equip_need`
 --
 ALTER TABLE `reserve_equip_need`
-  ADD CONSTRAINT `reserve_equip_need_ibfk_2` FOREIGN KEY (`form_no`) REFERENCES `reserve_request` (`form_no`);
+  ADD CONSTRAINT `reserve_equip_need_ibfk_2` FOREIGN KEY (`form_no`) REFERENCES `reserve_request` (`form_no`),
+  ADD CONSTRAINT `reserve_equip_need_ibfk_3` FOREIGN KEY (`even_equip_id`) REFERENCES `event_equip` (`equip_id`);
 
 --
 -- Constraints for table `reserve_request`
 --
 ALTER TABLE `reserve_request`
-  ADD CONSTRAINT `reserve_request_ibfk_2` FOREIGN KEY (`applicant`) REFERENCES `persons` (`person_id`),
   ADD CONSTRAINT `reserve_request_ibfk_3` FOREIGN KEY (`confired_by`) REFERENCES `persons` (`person_id`),
-  ADD CONSTRAINT `reserve_request_ibfk_4` FOREIGN KEY (`noted_by`) REFERENCES `persons` (`person_id`),
   ADD CONSTRAINT `reserve_request_ibfk_5` FOREIGN KEY (`res_by`) REFERENCES `persons` (`person_id`);
 
 --

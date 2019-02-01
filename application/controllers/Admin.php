@@ -7,6 +7,7 @@ class Admin extends CI_Controller {
 		$this->load->database(); 
 		$this->load->helper('url');
 		$this->load->library('session');
+
 		$this->load->model('Login_auth_db');
 
 	}
@@ -23,6 +24,33 @@ class Admin extends CI_Controller {
 		$this->load->view('base_view', $data);
 		//$data['content'] = 'Admin_pen_rep';
 		//$this->load->view('base_view', $data);
+
+		 $this->load->model('Login_auth_db');
+		  $this->load->model('main_model');
+
+	}
+		
+	public function index() {
+		if($this->check_access()){
+			$data['content'] = 'blank_page1';
+			$this->load->view('base_view', $data);
+	    }
+	}
+
+	private function check_access(){
+		if($this->session->userdata('logged_in')){
+			return true;
+		}else{
+			redirect('login');
+		}
+	}
+	
+	public function Admin_pen_req() {
+		
+			$data['content'] = 'Admin_pen_req';
+		    $this->load->view('base_view', $data);
+			
+
 	}
 }
 
@@ -30,18 +58,17 @@ class Admin extends CI_Controller {
 	public function Admin_pen_rep() {
 		
 		 $query = $this->Login_auth_db->view_repair();
-		 $data['repair'] = null;
-		  
-		 if($query){
+		
 		 $data['repair'] =  $query;
 		 $data['content'] ='Admin_pen_rep';
 		 $this->load->view('base_view', $data);
 		//$data['content'] = 'Admin_pen_rep';
 		//$this->load->view('base_view', $data);
-	}
+	
 }
 
 	public function Admin_set_event() {
+
 		
 		$data['content'] = 'Admin_set_event';
 		$this->load->view('base_view', $data);
@@ -59,6 +86,12 @@ class Admin extends CI_Controller {
 		echo "Records Saved Successfully";
 		}
 	
+
+		if($this->check_access()){
+		    $data['content'] = 'Admin_set_event';
+		    $this->load->view('base_view', $data);
+	    }
+
 	}
 
 	public function Admin_add_event() {
@@ -132,6 +165,21 @@ class Admin extends CI_Controller {
 		$this->load->view('base_view',$data);
 	}
 
+
+	public function Admin_forecast() {
+		$this->load->model('main_model');
+		/*$data2 = $this->main_model->get_data_forecast()->result();*/
+
+	    
+	    $data2 = $this->main_model->get_data_forecast()->result();
+	    $try = $this->main_model->forecast_data();
+	    $data['try'] = json_encode($try);
+	    $data['datani'] = json_encode($data2);
+		$data['content'] = 'Admin_forecast';
+		$this->load->view('base_view', $data);
+	}
+
+
 	public function approve_request() {
 
 		/*load registration view form*/
@@ -161,5 +209,22 @@ class Admin extends CI_Controller {
 		echo "Records Saved Successfully";
 		}
 	}
+
+	public function admin_rep_app() {
+		$this->load->model('main_model');
+		$id = $this->input->get('id');
+		$this->main_model->update_rep_approve($id);
+		redirect( base_url(). "Admin/Admin_pen_rep" );
+	}
+
+	public function admin_rep_dec() {
+		$this->load->model('main_model');
+		$id = $this->input->get('id');
+		$this->main_model->update_rep_dec($id);
+		redirect( base_url(). "Admin/Admin_pen_rep" );
+	}
+
+	
+
 
 }

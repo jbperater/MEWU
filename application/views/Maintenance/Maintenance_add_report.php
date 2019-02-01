@@ -17,7 +17,7 @@ $level = $user_detail['type'];
 					</ol>
 				</div>
 				
-								<!--<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Maintenance/Maintenance_add_report">
+								<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Maintenance/Maintenance_add_report">
 								
 							     <div class="form-group">
 							     	<label for="" class="control-label col-sm-4">Date Requested:</label>
@@ -92,7 +92,7 @@ $level = $user_detail['type'];
 							     	</div>
 								<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" >Submit</button>
 								</form>-->
-				<form method="post" action="<?php echo base_url(); ?>Maintenance/Maintenance_add_report">
+				<!--<form method="post" action="<?php echo base_url(); ?>Maintenance/Maintenance_add_report">
 							<table >
 					  <tr>
 					    <td>Date Requested </td>
@@ -128,7 +128,7 @@ $level = $user_detail['type'];
 					  </tr>
 					  <tr>
 					  	<td><button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="submit" type="submit" value="Save Data">Submit</button></td>
-					    <!--<td colspan="2" align="left"><input type="submit" name="submit" value="Save Data"/></td>-->
+					    <td colspan="2" align="left"><input type="submit" name="submit" value="Save Data"/></td>-->
 					  </tr>
 					</table>
 					 

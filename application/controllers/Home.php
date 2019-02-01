@@ -10,7 +10,7 @@ class Home extends CI_Controller {
 		$this->load->library('session');
 		
 		// to protect the controller to be accessed only by registered users
-	    if(!$this->session->userdata('logged_in')){
+	    if($this->session->userdata('logged_in')){
 			
 			redirect('login', 'refresh');
 			 		
@@ -23,6 +23,10 @@ class Home extends CI_Controller {
 		$data['content'] = 'dashboard';
 		$this->load->view('base_view', $data);			
 	
+	}
+
+	public function try(){
+		echo "what";
 	}
 
 }

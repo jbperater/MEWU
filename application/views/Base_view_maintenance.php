@@ -111,9 +111,9 @@ if($content == 'Maintenance_all_sched') { $this->load->view('Maintenance/Mainten
                             <li>
                                 <a href="<?php echo base_url(); ?>Maintenance/Maintenance_view_equip"> View Equipments</a>
                             </li>
-                            <li>
+                            <!--<li>
                                 <a href="<?php echo base_url(); ?>Maintenance/Maintenance_add_report"> Add Repair Report</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </li>
 

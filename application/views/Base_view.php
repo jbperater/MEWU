@@ -6,6 +6,7 @@ $type = $user_detail['type'];
 
 
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}
+
 if($content == 'Admin_pen_req') { $this->load->view('Admin/Admin_pen_req'); $selected = $content; $content='';}
 if($content == 'Admin_pen_rep') { $this->load->view('Admin/Admin_pen_rep'); $selected = $content; $content='';}
 if($content == 'Admin_set_event') { $this->load->view('Admin/Admin_set_event'); $selected = $content; $content='';}
@@ -19,6 +20,21 @@ if($content == 'Admin_view_event_equip') { $this->load->view('Admin/Admin_view_e
 if($content == 'Admin_add_venue') { $this->load->view('Admin/Admin_add_venue'); $selected = $content; $content='';}
 if($content == 'Admin_view_venue') { $this->load->view('Admin/Admin_view_venue'); $selected = $content; $content='';}
 if($content == 'approve_request') { $this->load->view('Admin/approve_request'); $selected = $content; $content='';}
+
+if($content == 'Admin_pen_req') { $this->load->view('Admin_pen_req'); $selected = $content; $content='';}
+if($content == 'Admin_pen_rep') { $this->load->view('Admin_pen_rep'); $selected = $content; $content='';}
+if($content == 'Admin_set_event') { $this->load->view('Admin_set_event'); $selected = $content; $content='';}
+if($content == 'Admin_set_repair') { $this->load->view('Admin_set_repair'); $selected = $content; $content='';}
+if($content == 'Admin_view_sched') { $this->load->view('Admin_view_sched'); $selected = $content; $content='';}
+if($content == 'Admin_view_repair') { $this->load->view('Admin_view_repair'); $selected = $content; $content='';}
+if($content == 'Admin_add_equip') { $this->load->view('Admin_add_equip'); $selected = $content; $content='';}
+if($content == 'Admin_view_equip') { $this->load->view('Admin_view_equip'); $selected = $content; $content='';}
+if($content == 'Admin_add_event_equip') { $this->load->view('Admin_add_event_equip'); $selected = $content; $content='';}
+if($content == 'Admin_view_event_equip') { $this->load->view('Admin_view_event_equip'); $selected = $content; $content='';}
+if($content == 'Admin_add_venue') { $this->load->view('Admin_add_venue'); $selected = $content; $content='';}
+if($content == 'Admin_view_venue') { $this->load->view('Admin_view_venue'); $selected = $content; $content='';}
+if($content == 'Admin_forecast') { $this->load->view('Admin_forecast'); $selected = $content; $content='';}
+
 
 ?>
 <!DOCTYPE html>
@@ -47,6 +63,9 @@ if($content == 'approve_request') { $this->load->view('Admin/approve_request'); 
     <link href="<?php echo base_url();?>assets/css/plugins/morris.css" rel="stylesheet">
 
     <link href="<?php echo base_url();?>assets/css/css.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/scripts/fullcalendar/fullcalendar.min.css" />
+    
 
     <!-- Custom Fonts 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"  -->
@@ -201,6 +220,19 @@ if($content == 'approve_request') { $this->load->view('Admin/approve_request'); 
                         </ul>
                     </li>
 
+                    <?php 
+                    if ($selected == 'Admin_forecast' || $selected == 'Admin_view_event_equip')  echo '<li class="active" >';
+                    else echo '<li>';
+                    ?>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo7"><i class="fa fa-fw fa-file"></i>Forecast <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo7" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_forecast"> View Forecast</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+
                 </ul>				
             </div>
             <!-- /.navbar-collapse -->
@@ -214,17 +246,23 @@ if($content == 'approve_request') { $this->load->view('Admin/approve_request'); 
 		
     </div>
 	
-    <!-- jQuery -->
+     jQuery
     <script src="<?php echo base_url();?>assets/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
+    
+    
+    Bootstrap Core JavaScript
     <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
+    
+    <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/lib/moment.min.js"></script>
+     <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/lib/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/fullcalendar.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/gcal.js"></script>
 
-    <!-- Morris Charts JavaScript -->
+    <!--Morris Charts JavaScript
     <script src="<?php echo base_url();?>assets/js/plugins/morris/raphael.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/plugins/morris/morris.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/plugins/morris/morris-data.js"></script>
-
+     -->
 </body>
 
 </html>

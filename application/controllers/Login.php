@@ -14,21 +14,27 @@ class Login extends CI_Controller {
 		$this->load->library('session');
 
 	}
+
+
+	private function check_access(){
+		if($this->session->userdata('logged_in')){
+			redirect('Admin');
+		}else{
+			redirect('login');
+		}
+	}
 		
 	public function index() {
 		
+		
 		$this->load->view('login');
 
-		
-
-
-		
 	}
 	
 	public function login_auth() {
 		
 		// create the data object
-		$data = new stdClass();
+	
 		
 		// load form helper and validation library
 		$this->load->helper('form');
@@ -63,10 +69,12 @@ class Login extends CI_Controller {
 				$this->session->set_userdata('logged_in', true);
 
 				// user login ok
-				if ( $user_data['type'] == 'admin' ){
+				if ( $user_detail['type'] ==='admin' ){
 					$data_to_view['selected'] = 'dashboard';
 					$data_to_view['content'] = 'dashboard';
 					$this->load->view('base_view',$data_to_view);
+
+				
 				}
 				elseif( $user_data['type'] == 'student'){
 					$data_to_view['selected'] = 'Student_view_sched';
@@ -83,25 +91,14 @@ class Login extends CI_Controller {
 					$data_to_view['content'] = 'Staff_view_sched';
 					$this->load->view('base_view_staff',$data_to_view);
 				}
-				elseif( $user_data['type'] == 'dean'){
-					$data_to_view['selected'] = 'Adviser_student_req';
-					$data_to_view['content'] = 'Adviser_student_req';
-					$this->load->view('base_view_adviser',$data_to_view);
-				}
-				elseif( $user_data['type'] == 'adviser'){
-					$data_to_view['selected'] = 'Adviser_student_req';
-					$data_to_view['content'] = 'Adviser_student_req';
-					$this->load->view('base_view_adviser',$data_to_view);
-				}
 				elseif( $user_data['type'] == 'maintenance'){
 					$data_to_view['selected'] = 'Maintenance_repair_sched';
 					$data_to_view['content'] = 'Maintenance_repair_sched';
 					$this->load->view('base_view_maintenance',$data_to_view);
 				}
 				else{
-					$data_to_view['selected'] = 'dashboard';
-					$data_to_view['content'] = 'dashboard';
-					$this->load->view('base_view',$data_to_view);
+					
+					$this->load->view('login');
 				}
 
 				
