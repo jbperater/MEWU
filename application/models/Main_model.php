@@ -67,5 +67,18 @@ Class Main_model extends CI_Model {
       }
       return $arrayni;
   }
+
+  function update_rep_approve($id){
+		$this->db->set('remark', 'approve');
+		$this->db->where('job_id', $id);
+		$this->db->update('job_req');
+ 	}
+
+ function update_rep_dec($id){
+		$this->db->set('remark', 'decline');
+		$this->db->where('job_id', $id);
+		$this->db->update('job_req');
+ 	}
+	
 	
 }

@@ -49,8 +49,8 @@ Class Login_auth_db extends CI_Model {
 
 
 	 function view_repair(){
-		  $this->db->select("date_req,work_description,bldg_no,location");
-		  $this->db->from('job_req');
+		  $this->db->select("job_id,item_no,date_req,work_description,bldg_no,location,fname,mname,lname");
+		  $this->db->from('job_request_view');
 		  $this->db->where('remark','pending');
 		  $query = $this->db->get();
 		  return $query->result();
@@ -68,6 +68,13 @@ Class Login_auth_db extends CI_Model {
 
 	$query="insert into maintenance_rec values('','$date_req','$description','$parts_rep','$date_rep','$time_rep','$date_fin','$remark','$performed_by')";
 	$this->db->query($query);
-}
+
+}	
+
+	function update_rep_approve($id){
+		$this->db->set('remark', 'approve');
+		$this->db->where('id', $id);
+		$this->db->update('job_req');
+ 	}
 	
 }

@@ -134,5 +134,21 @@ class Admin extends CI_Controller {
 		$this->load->view('base_view',$data);
 	}
 
+	public function admin_rep_app() {
+		$this->load->model('main_model');
+		$id = $this->input->get('id');
+		$this->main_model->update_rep_approve($id);
+		redirect( base_url(). "Admin/Admin_pen_rep" );
+	}
+
+	public function admin_rep_dec() {
+		$this->load->model('main_model');
+		$id = $this->input->get('id');
+		$this->main_model->update_rep_dec($id);
+		redirect( base_url(). "Admin/Admin_pen_rep" );
+	}
+
+	
+
 
 }
