@@ -69,10 +69,11 @@ class Login extends CI_Controller {
 				$this->session->set_userdata('logged_in', true);
 
 				// user login ok
-				if ( $user_data['type'] == 'admin' ){
+				if ( $user_detail['type'] ==='admin' ){
 					$data_to_view['selected'] = 'dashboard';
 					$data_to_view['content'] = 'dashboard';
 					$this->load->view('base_view',$data_to_view);
+
 				
 				}
 				elseif( $user_data['type'] == 'student'){
@@ -106,9 +107,8 @@ class Login extends CI_Controller {
 					$this->load->view('base_view_maintenance',$data_to_view);
 				}
 				else{
-					$data_to_view['selected'] = 'dashboard';
-					$data_to_view['content'] = 'dashboard';
-					$this->load->view('base_view',$data_to_view);
+					
+					$this->load->view('login');
 				}
 
 				

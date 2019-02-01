@@ -48,6 +48,9 @@ if($content == 'Admin_forecast') { $this->load->view('Admin_forecast'); $selecte
 
     <link href="<?php echo base_url();?>assets/css/css.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/scripts/fullcalendar/fullcalendar.min.css" />
+    
+
     <!-- Custom Fonts 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"  -->
 
@@ -230,9 +233,15 @@ if($content == 'Admin_forecast') { $this->load->view('Admin_forecast'); $selecte
      jQuery
     <script src="<?php echo base_url();?>assets/js/jquery.js"></script>
     
+    
     Bootstrap Core JavaScript
     <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
     
+    <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/lib/moment.min.js"></script>
+     <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/lib/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/fullcalendar.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/gcal.js"></script>
+
     <!--Morris Charts JavaScript
     <script src="<?php echo base_url();?>assets/js/plugins/morris/raphael.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/plugins/morris/morris.min.js"></script>
