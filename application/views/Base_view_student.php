@@ -135,7 +135,6 @@ if($content == 'Student_view_sched') { $this->load->view('Student_view_sched'); 
                             </li>
                         </ul>
                     </li>
-                    
                     <?php 
                     if ($selected == 'Student_view_sched')  echo '<li class="active" >';
                     else echo '<li>';
@@ -147,7 +146,6 @@ if($content == 'Student_view_sched') { $this->load->view('Student_view_sched'); 
                             </li>
                         </ul>
                     </li>
-
                 </ul>               
             </div>
             <!-- /.navbar-collapse -->
