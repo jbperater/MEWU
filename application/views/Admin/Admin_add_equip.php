@@ -17,6 +17,18 @@ $level = $user_detail['type'];
 					</ol>
 				</div>
 				<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Admin/add_equip">
+
+				
+								<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Admin/Admin_equip_add">
+								<div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Name:</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
+							     			 <input type="text" name="name" class='form-control' required placeholder="Name">
+							     		</div>
+							     	</div>
+							     </div>
 								<div class="form-group">
 							     	<label for="" class="control-label col-sm-4">Equipment Name:</label>
 							     	<div class="col-sm-5 inputGroupContainer">
@@ -44,7 +56,10 @@ $level = $user_detail['type'];
 							     		</div>
 							     	</div>
 							     </div>
-							  
+							     			 <input type="text" name="SerailNo" class='form-control' required placeholder="Serail No">
+							     		</div>
+							     	</div>
+							     </div>
 							    <div class="form-group">
 									<label class="control-label col-sm-4">Serial Number:</label>
 									<div class="col-sm-5 inputGroupContainer">
@@ -63,7 +78,6 @@ $level = $user_detail['type'];
 										</div>
 									</div>
 							 	</div>
-							 	 
 							     <div class="form-group">
 							     	<label for="" class="control-label col-sm-4">Type</label>
 							     	<div class="col-sm-5 inputGroupContainer">
@@ -80,6 +94,21 @@ $level = $user_detail['type'];
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 							     			 <input type="text" name="year_acc"class='form-control' required placeholder="Year Acquired">
+							 	<div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Type:</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							     			 <input type="text" name="type" class='form-control' required placeholder="Year Acquired">
+							     		</div>
+							     	</div>
+							     </div>
+							 	  <div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Year Acquired:</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							     			 <input type="text" name="year" class='form-control' required placeholder="Year Acquired">
 							     		</div>
 							     	</div>
 							     </div>

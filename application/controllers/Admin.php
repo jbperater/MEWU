@@ -49,14 +49,15 @@ class Admin extends CI_Controller {
 	public function Admin_pen_rep() {
 		
 		 $query = $this->Login_auth_db->view_repair();
-		
+		$query2 = $this->main_model->maintenance_personel();
 		 $data['repair'] =  $query;
+		 $data['option'] =  $query2;
 		 $data['content'] ='Admin_pen_rep';
 		 $this->load->view('base_view', $data);
 		//$data['content'] = 'Admin_pen_rep';
 		//$this->load->view('base_view', $data);
 	
-}
+	}
 
 	public function Admin_set_event() {
 
@@ -208,8 +209,17 @@ class Admin extends CI_Controller {
 	public function admin_rep_app() {
 		$this->load->model('main_model');
 		$id = $this->input->get('id');
+		/*$this->main_model->update_rep_approve($id);*/
+		$query = $this->Login_auth_db->view_repair();
+		$query2 = $this->main_model->maintenance_personel();
+		 $data['repair'] =  $query;
+		 $data['option'] =  $query2;
+		 $data['content'] ='Admin_pen_rep';
+		 $this->load->view('base_view', $data);
+		/*redirect( base_url(). "Admin/Admin_pen_rep" );*/
+		$dat['per'] =  $id;
+		$this->load->view('Modal_personel',$dat);
 		$this->main_model->update_rep_approve($id);
-		redirect( base_url(). "Admin/Admin_pen_rep" );
 	}
 
 	public function admin_rep_dec() {
@@ -219,7 +229,55 @@ class Admin extends CI_Controller {
 		redirect( base_url(). "Admin/Admin_pen_rep" );
 	}
 
-	
+	public function admin_per_ass() {
+		$this->load->model('main_model');
+		$per_id = $this->input->post('personel');
+		$job_id = $this->input->get('id');
+		$this->main_model->update_per_ass($per_id,$job_id);
+		/*redirect( base_url(). "Admin/Admin_pen_rep" );*/
+	}
 
+	public function admin_equip_add(){
+
+		// create the data object
+		
+		
+		// load form helper and validation library
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->load->library('session');
+		
+		// set validation rules
+		$this->form_validation->set_rules('Brand', 'Brand', 'required|alpha_numeric');
+		$this->form_validation->set_rules('name', 'name', 'required');
+		$this->form_validation->set_rules('type', 'type', 'required');
+		
+		if ($this->form_validation->run() == false) {
+			
+			$this->load->view('Admin_add_venue');
+			
+			} else {
+				
+				$this->load->model('main_model');
+			
+			$data = array(	
+				'brand' => $this->input->post('Brand'),
+				'equip_name' => $this->input->post('name'),
+				'model' => $this->input->post('Model'),
+				'serial_no' => $this->input->post('SerailNo'),
+				'office' => $this->input->post('Office'),
+				'depart' => $this->input->post('Department'),
+				'type' => $this->input->post('Brand'),
+				'year_acc' => $this->input->post('year')
+				
+			);	
+
+			$this->main_model->insert_equip($data);	
+			redirect('admin/admin_add_event');
+
+				
+				
+			}
+	}
 
 }
