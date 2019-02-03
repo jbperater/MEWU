@@ -22,7 +22,7 @@ $level = $user_detail['type'];
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
-							     			 <input type="text" name="title" class='form-control' required placeholder="Title of Event">
+							     			 <input type="text" name="title_event" class='form-control' required placeholder="Title of Event">
 							     		</div>
 							     	</div>
 							     </div>
@@ -31,7 +31,7 @@ $level = $user_detail['type'];
 								    <div class="col-sm-5 inputGroupContainer">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
-											 <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="<title></title>" required autofocus>
+											 <input type="text" id="inputUsername" class="form-control" placeholder="Venue" name="venue" required autofocus>
 										</div>
 									</div>
 								</div>
@@ -40,102 +40,37 @@ $level = $user_detail['type'];
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-							     			  <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="department" required autofocus>
+							     			  <input type="text" id="inputUsername" class="form-control" placeholder="Department" name="department" required autofocus>
 							     		</div>
 							     	</div>
 							     </div>
-							    <!-- <div class="form-group">
-							    									<label class="control-label col-sm-4">Applicant:</label>
-							    									<div class="col-sm-5 inputGroupContainer">
-							    										<div class="input-group">
-							    											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-							    											<input type="text" name="Applicant" class='form-control' required placeholder="Applicant">
-							    										</div>
-							    									</div>
-							    							 	</div> -->
-							     
-							    <div class="form-group">
-									<label class="control-label col-sm-4">Date Reserved:</label>
-									<div class="col-sm-5 inputGroupContainer">
+								<div class="form-group">
+								    <label class="control-label col-sm-4">Date Actual Use:</label>
+								    <div class="col-sm-5 inputGroupContainer">
 										<div class="input-group">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-								    		 <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="date_act" required autofocus>
-								    	</div>
-								    </div>
-								</div>
-								<!-- <div class="form-group">
-									<label class="control-label col-sm-4">Time Reserved:</label>
-									<div class="col-sm-5 inputGroupContainer">
-										<div class="input-group">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-									 		 <input type="text" name="time_res" class='form-control' required placeholder="Time Reserved">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
+											 <input type="Date" id="inputUsername" class="form-control" placeholder="Username" name="date_act" required autofocus>
 										</div>
 									</div>
-															 	</div>
-															 	  <div class="form-group">
-															     	<label for="" class="control-label col-sm-4">Date Actual Use:</label>
-															     	<div class="col-sm-5 inputGroupContainer">
-															     		<div class="input-group">
-															     			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-															     			 <input type="text" name="date_act" class='form-control' required placeholder="Time Actual Use">
-															     		</div>
-															     	</div>
-															     </div> -->
-							    <div class="form-group">
+								</div>
+								<div class="form-group">
 							     	<label for="" class="control-label col-sm-4">Time Actual Use:</label>
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
-							     			<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-							     			  <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="time_act" required autofocus>
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+							     			  <input type="time" id="inputUsername" class="form-control" placeholder="Time Actual Use" name="time_act" required autofocus>
 							     		</div>
 							     	</div>
 							     </div>
-							    <!--  <div class="form-group">
-							    	<label for="" class="control-label col-sm-4">Confirmd by:</label>
-							    	<div class="col-sm-5 inputGroupContainer">
-							    		<div class="input-group">
-							    			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-							    			 <input type="text" name="Confirmd by" class='form-control' required placeholder="Confirmd by">
-							    		</div>
-							    	</div>
-							    </div> -->
-							     
 							     <div class="form-group">
 							     	<label for="" class="control-label col-sm-4">Contact Number:</label>
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-							     			  <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="contact_no" required autofocus>
+							     			  <input type="text" id="inputUsername" class="form-control" placeholder="Contact Number" name="contact_no" required autofocus>
 							     		</div>
 							     	</div>
 							     </div>
-							     <div class="form-group">
-							     	<label for="" class="control-label col-sm-4">Reserved By:</label>
-							     	<div class="col-sm-5 inputGroupContainer">
-							     		<div class="input-group">
-							     			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-							     			<input type="text" id="inputUsername" class="form-control" placeholder="Username" name="purpose" required autofocus>
-							     		</div>
-							     	</div>
-							     </div> 
-							     <!--  <div class="form-group">
-							     							     	<label for="" class="control-label col-sm-4">Noted by:</label>
-							     							     	<div class="col-sm-5 inputGroupContainer">
-							     							     		<div class="input-group">
-							     							     			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-							     							     			 <input type="text" name="Noted by" class='form-control' required placeholder="Noted by">
-							     							     		</div>
-							     							     	</div>
-							     							     </div> -->
-							      <!-- <div class="form-group">
-							      							     	<label for="" class="control-label col-sm-4">Confirmd by:</label>
-							      							     	<div class="col-sm-5 inputGroupContainer">
-							      							     		<div class="input-group">
-							      							     			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-							      							     			 <input type="text" name="Confirmd by" class='form-control' required placeholder="Confirmd by">
-							      							     		</div>
-							      							     	</div>
-							      							     </div> -->
 							   <br>
 							   <div class="form-group">
 							    <label for="" class="col-sm-4 control-label"></label>

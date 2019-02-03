@@ -7,6 +7,24 @@ class Admin extends CI_Controller {
 		$this->load->database(); 
 		$this->load->helper('url');
 		$this->load->library('session');
+
+		$this->load->model('Login_auth_db');
+
+	}
+	
+	
+	public function Admin_pen_req() {
+		
+		$query = $this->Login_auth_db->view_event();
+		$data['event'] = null;
+		  
+		if($query){
+		$data['event'] =  $query;
+		$data['content'] ='Admin_pen_req';
+		$this->load->view('base_view', $data);
+		//$data['content'] = 'Admin_pen_rep';
+		//$this->load->view('base_view', $data);
+
 		 $this->load->model('Login_auth_db');
 		  $this->load->model('main_model');
 
@@ -32,7 +50,9 @@ class Admin extends CI_Controller {
 			$data['content'] = 'Admin_pen_req';
 		    $this->load->view('base_view', $data);
 			
+
 	}
+}
 
 	
 	public function Admin_pen_rep() {
@@ -49,12 +69,44 @@ class Admin extends CI_Controller {
 	}
 
 	public function Admin_set_event() {
+
+		
+		$data['content'] = 'Admin_set_event';
+		$this->load->view('base_view', $data);
+		/*Check submit button */
+		if($this->input->post('submit'))
+ 		{
+		
+		
+		$no_participants=$this->input->post('no_participants');
+		$date_act=$this->input->post('date_act');
+		$title_event=$this->input->post('title_event');
+		$contact_no=$this->input->post('contact_no');
+
+		$this->Login_auth_db->set_event($no_participants,$title_event,$date_act,$contact_no);	
+		echo "Records Saved Successfully";
+		}
+	
+
 		if($this->check_access()){
 		    $data['content'] = 'Admin_set_event';
 		    $this->load->view('base_view', $data);
 	    }
+
 	}
 
+	public function Admin_add_event() {
+	
+		
+		$no_participants=$this->input->post('no_participants');
+		$date_act=$this->input->post('date_act');
+		$title_event=$this->input->post('title_event');
+		$contact_no=$this->input->post('contact_no');
+
+		$this->Login_auth_db->set_event($no_participants,$date_act,$title_event,$contact_no);	
+		
+	
+	}
 
 	public function Admin_set_repair() {
 		
@@ -131,8 +183,32 @@ class Admin extends CI_Controller {
 
 	public function approve_request() {
 
-		$data["content"]="approve_request";
-		$this->load->view('base_view',$data);
+		/*load registration view form*/
+		$data['content'] = 'approve_request';
+		$this->load->view('base_view', $data);
+		/*Check submit button */
+		if($this->input->post('submit'))
+ 		{
+		$approve = $this->input->get('approve');
+		$person_attend=$this->input->post('person_attend');
+
+		$this->Login_auth_db->person_attend($person_attend,$approve);	
+		echo "Records Saved Successfully";
+		}
+	}
+
+	public function decline_request() {
+
+		/*load registration view form*/
+		/*Check submit button */
+		if($this->input->post('decline'))
+ 		{
+		$decline = $this->input->get('decline');
+		$decline_job_req=$this->input->post('decline_job_req');
+
+		$this->Login_auth_db->decline_job_req($decline);	
+		echo "Records Saved Successfully";
+		}
 	}
 
 	public function admin_rep_app() {

@@ -6,12 +6,12 @@ $type = $user_detail['type'];
 
 
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}
-if($content == 'Student_add_req') { $this->load->view('Student_add_req'); $selected = $content; $content='';}
-if($content == 'Student_all_req') { $this->load->view('Student_all_req'); $selected = $content; $content='';}
-if($content == 'Student_app_req') { $this->load->view('Student_app_req'); $selected = $content; $content='';}
-if($content == 'Student_dec_req') { $this->load->view('Student_dec_req'); $selected = $content; $content='';}
-if($content == 'Student_pen_req') { $this->load->view('Student_pen_req'); $selected = $content; $content='';}
-if($content == 'Student_view_sched') { $this->load->view('Student_view_sched'); $selected = $content; $content='';}
+if($content == 'Student_add_req') { $this->load->view('Student/Student_add_req'); $selected = $content; $content='';}
+if($content == 'Student_all_req') { $this->load->view('Student/Student_all_req'); $selected = $content; $content='';}
+if($content == 'Student_app_req') { $this->load->view('Student/Student_app_req'); $selected = $content; $content='';}
+if($content == 'Student_dec_req') { $this->load->view('Student/Student_dec_req'); $selected = $content; $content='';}
+if($content == 'Student_pen_req') { $this->load->view('Student/Student_pen_req'); $selected = $content; $content='';}
+if($content == 'Student_view_sched') { $this->load->view('Student/Student_view_sched'); $selected = $content; $content='';}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,7 +119,11 @@ if($content == 'Student_view_sched') { $this->load->view('Student_view_sched'); 
                     if ($selected == 'Student_all_req' || $selected == 'Student_app_rec' || $selected == 'Student_dec_req' || $selected == 'Student_pen_req')  echo '<li class="active" >';
                     else echo '<li>';
                     ?>
+
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-file"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
+
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-file"></i> My Request <i class="fa fa-fw fa-caret-down"></i></a>
+
                         <ul id="demo2" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Student/Student_all_req"> All Request</a>

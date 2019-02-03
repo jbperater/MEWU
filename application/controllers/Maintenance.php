@@ -40,6 +40,7 @@ class Maintenance extends CI_Controller {
 		/*load registration view form*/
 		$data['content'] = 'Maintenance_add_report';
 		$this->load->view('base_view_maintenance', $data);
+		$this->load->view('Maintenance_add_report', $data);
 		/*Check submit button */
 		if($this->input->post('submit'))
  		{

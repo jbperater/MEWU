@@ -49,9 +49,14 @@ Class Login_auth_db extends CI_Model {
 
 
 	 function view_repair(){
+
+		  $this->db->select("job_id,date,description,bldg_no,location");
+		  $this->db->from('job_req');
+
 		  $this->db->select("job_id,item_no,date_req,work_description,bldg_no,location,fname,mname,lname");
 		  $this->db->from('job_request_view');
 		  $this->db->where('remark','pending');
+
 		  $query = $this->db->get();
 		  return $query->result();
  	}
@@ -68,6 +73,31 @@ Class Login_auth_db extends CI_Model {
 
 	$query="insert into maintenance_rec values('','$date_req','$description','$parts_rep','$date_rep','$time_rep','$date_fin','$remark','$performed_by')";
 	$this->db->query($query);
+
+}
+
+	function person_attend($person_attend,$approve)
+	{
+
+			$query="update job_req SET person_attend= $person_attend where job_id = $approve";
+			$this->db->query($query);
+		}
+	 function view_event(){
+		  $this->db->select("date_request,title_event,venue,purpose,date_act,time_act,department");
+		  $this->db->from('reserve_request');
+		  $query = $this->db->get();
+		  return $query->result();
+ 	}
+
+ 	function set_event($no_participants,$date_act,$title_event,$contact_no)
+	{
+
+	$query="insert into reserve_request values('','$no_participants','','','$date_act','','$title_event','','$contact_no','','','')";
+	$this->db->query($query);
+}
+
+}
+
 
 }	
 
