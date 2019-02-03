@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2019 at 07:21 AM
+-- Generation Time: Feb 03, 2019 at 09:01 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -105,6 +105,20 @@ INSERT INTO `calendar_events` (`ID`, `title`, `start`, `end`, `description`) VAL
 (14, '', '2019-02-22 12:21:00', '2019-02-28 00:00:00', ''),
 (15, '', '2019-02-22 12:21:00', '2019-02-28 04:12:21', ''),
 (16, '', '2019-02-01 14:04:48', '2019-02-01 14:04:48', '');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `confirmed_by`
+-- (See below for the actual view)
+--
+CREATE TABLE `confirmed_by` (
+`person_id` int(11)
+,`fname` varchar(50)
+,`mname` varchar(50)
+,`lname` varchar(50)
+,`position` varchar(50)
+);
 
 -- --------------------------------------------------------
 
@@ -245,20 +259,6 @@ CREATE TABLE `maintenance_rec` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `note_by`
--- (See below for the actual view)
---
-CREATE TABLE `note_by` (
-`person_id` int(11)
-,`fname` varchar(50)
-,`mname` varchar(50)
-,`lname` varchar(50)
-,`position` varchar(50)
-);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `persons`
 --
 
@@ -281,34 +281,6 @@ CREATE TABLE `persons` (
 INSERT INTO `persons` (`person_id`, `fname`, `mname`, `lname`, `bday`, `position`, `contact_no`, `email`, `userid`) VALUES
 (1, 'Christian', 'Hundinay', 'Cat-awan', '2019-01-08', 'admin', '0916', 'h=gmail', 2),
 (2, 'joshua', 'Hundinay', 'Garbosa', '2019-02-04', 'maintenance', '122', 'cat-awan@gmail.com', 2);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `reservation`
--- (See below for the actual view)
---
-CREATE TABLE `reservation` (
-`form_no` int(11)
-,`department` varchar(32)
-,`venue` int(11)
-,`date_act` date
-,`time_act` time
-,`purpose` varchar(32)
-,`title_event` varchar(32)
-,`status` varchar(20)
-,`contact_no` varchar(32)
-,`rfname` varchar(50)
-,`rmname` varchar(50)
-,`rlname` varchar(50)
-,`nfname` varchar(50)
-,`nmname` varchar(50)
-,`nlname` varchar(50)
-,`cfname` varchar(50)
-,`cmname` varchar(50)
-,`clname` varchar(50)
-,`date_request` timestamp
-);
 
 -- --------------------------------------------------------
 
@@ -336,15 +308,26 @@ CREATE TABLE `reservation_ven` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `reserve_by`
+-- Stand-in structure for view `reservation_view`
 -- (See below for the actual view)
 --
-CREATE TABLE `reserve_by` (
-`person_id` int(11)
-,`fname` varchar(50)
-,`mname` varchar(50)
-,`lname` varchar(50)
-,`position` varchar(50)
+CREATE TABLE `reservation_view` (
+`form_no` int(11)
+,`no_participants` int(11)
+,`acroname` varchar(20)
+,`name` varchar(32)
+,`date_act` datetime
+,`purpose` varchar(32)
+,`title_event` varchar(32)
+,`status` varchar(20)
+,`contact_no` varchar(32)
+,`rfname` varchar(50)
+,`rmname` varchar(50)
+,`rlname` varchar(50)
+,`cfname` varchar(50)
+,`cmname` varchar(50)
+,`clname` varchar(50)
+,`date_request` timestamp
 );
 
 -- --------------------------------------------------------
@@ -385,10 +368,10 @@ CREATE TABLE `reserve_event_venue` (
 
 CREATE TABLE `reserve_request` (
   `form_no` int(11) NOT NULL,
+  `no_participants` int(11) NOT NULL,
   `department` varchar(32) NOT NULL,
   `venue` int(11) NOT NULL,
-  `date_act` date NOT NULL,
-  `time_act` time NOT NULL,
+  `date_act` datetime NOT NULL,
   `purpose` varchar(32) NOT NULL,
   `title_event` varchar(32) NOT NULL,
   `status` varchar(20) NOT NULL,
@@ -402,10 +385,10 @@ CREATE TABLE `reserve_request` (
 -- Dumping data for table `reserve_request`
 --
 
-INSERT INTO `reserve_request` (`form_no`, `department`, `venue`, `date_act`, `time_act`, `purpose`, `title_event`, `status`, `contact_no`, `res_by`, `confired_by`, `date_request`) VALUES
-(1, 'CITC', 1, '2019-01-02', '08:00:00', 'secret', 'title', 'pending', '122', 1, 1, '2019-01-28 18:42:26'),
-(2, 'CITC', 1, '2019-01-02', '08:00:00', 'secret', 'title', 'pending', '122', 1, 1, '2019-01-28 18:42:34'),
-(3, 'dawd', 0, '0000-00-00', '00:00:00', 'daw', 'daw', 'decline', '', 1, 1, '2019-01-28 22:37:10');
+INSERT INTO `reserve_request` (`form_no`, `no_participants`, `department`, `venue`, `date_act`, `purpose`, `title_event`, `status`, `contact_no`, `res_by`, `confired_by`, `date_request`) VALUES
+(1, 0, 'CITC', 1, '2019-01-02 00:00:00', 'secret', 'title', 'pending', '122', 1, 1, '2019-01-28 18:42:26'),
+(2, 0, 'CITC', 1, '2019-01-02 00:00:00', 'secret', 'title', 'pending', '122', 1, 1, '2019-01-28 18:42:34'),
+(3, 0, 'dawd', 0, '0000-00-00 00:00:00', 'daw', 'daw', 'decline', '', 1, 1, '2019-01-28 22:37:10');
 
 -- --------------------------------------------------------
 
@@ -470,29 +453,20 @@ INSERT INTO `venue` (`venue_id`, `bldg_no`, `name`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure for view `confirmed_by`
+--
+DROP TABLE IF EXISTS `confirmed_by`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `confirmed_by`  AS  select `persons`.`person_id` AS `person_id`,`persons`.`fname` AS `fname`,`persons`.`mname` AS `mname`,`persons`.`lname` AS `lname`,`persons`.`position` AS `position` from `persons` ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `job_request_view`
 --
 DROP TABLE IF EXISTS `job_request_view`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `job_request_view`  AS  select `job_req`.`job_id` AS `job_id`,`job_req`.`item_no` AS `item_no`,`job_req`.`work_description` AS `work_description`,`job_req`.`bldg_no` AS `bldg_no`,`job_req`.`location` AS `location`,`job_req`.`remark` AS `remark`,`job_req`.`date_req` AS `date_req`,`persons`.`fname` AS `fname`,`persons`.`mname` AS `mname`,`persons`.`lname` AS `lname` from (`job_req` join `persons` on((`job_req`.`requested_by` = `persons`.`person_id`))) ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `note_by`
---
-DROP TABLE IF EXISTS `note_by`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `note_by`  AS  select `persons`.`person_id` AS `person_id`,`persons`.`fname` AS `fname`,`persons`.`mname` AS `mname`,`persons`.`lname` AS `lname`,`persons`.`position` AS `position` from `persons` ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `reservation`
---
-DROP TABLE IF EXISTS `reservation`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reservation`  AS  select `reserve_request`.`form_no` AS `form_no`,`reserve_request`.`department` AS `department`,`reserve_request`.`venue` AS `venue`,`reserve_request`.`date_act` AS `date_act`,`reserve_request`.`time_act` AS `time_act`,`reserve_request`.`purpose` AS `purpose`,`reserve_request`.`title_event` AS `title_event`,`reserve_request`.`status` AS `status`,`reserve_request`.`contact_no` AS `contact_no`,`reserve_by`.`fname` AS `rfname`,`reserve_by`.`mname` AS `rmname`,`reserve_by`.`lname` AS `rlname`,`note_by`.`fname` AS `nfname`,`note_by`.`mname` AS `nmname`,`note_by`.`lname` AS `nlname`,`persons`.`fname` AS `cfname`,`persons`.`mname` AS `cmname`,`persons`.`lname` AS `clname`,`reserve_request`.`date_request` AS `date_request` from (((`reserve_request` join `reserve_by` on((`reserve_request`.`res_by` = `reserve_by`.`person_id`))) join `note_by` on((`reserve_request`.`confired_by` = `note_by`.`person_id`))) join `persons` on((`reserve_request`.`confired_by` = `persons`.`person_id`))) ;
 
 -- --------------------------------------------------------
 
@@ -515,11 +489,11 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `reserve_by`
+-- Structure for view `reservation_view`
 --
-DROP TABLE IF EXISTS `reserve_by`;
+DROP TABLE IF EXISTS `reservation_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reserve_by`  AS  select `persons`.`person_id` AS `person_id`,`persons`.`fname` AS `fname`,`persons`.`mname` AS `mname`,`persons`.`lname` AS `lname`,`persons`.`position` AS `position` from `persons` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reservation_view`  AS  select `reserve_request`.`form_no` AS `form_no`,`reserve_request`.`no_participants` AS `no_participants`,`department`.`acroname` AS `acroname`,`venue`.`name` AS `name`,`reserve_request`.`date_act` AS `date_act`,`reserve_request`.`purpose` AS `purpose`,`reserve_request`.`title_event` AS `title_event`,`reserve_request`.`status` AS `status`,`reserve_request`.`contact_no` AS `contact_no`,`persons`.`fname` AS `rfname`,`persons`.`mname` AS `rmname`,`persons`.`lname` AS `rlname`,`confirmed_by`.`fname` AS `cfname`,`confirmed_by`.`mname` AS `cmname`,`confirmed_by`.`lname` AS `clname`,`reserve_request`.`date_request` AS `date_request` from ((((`reserve_request` join `department` on((`reserve_request`.`department` = `department`.`dep_id`))) join `venue` on((`reserve_request`.`venue` = `venue`.`venue_id`))) join `persons` on((`reserve_request`.`res_by` = `persons`.`person_id`))) join `confirmed_by` on((`reserve_request`.`confired_by` = `confirmed_by`.`person_id`))) ;
 
 -- --------------------------------------------------------
 

@@ -30,6 +30,23 @@ $level = $user_detail['type'];
 
 			
 				  </tr>
+					<?php foreach($data as $data){?>
+				     <tr>
+				     <td><?=$repair->item_no;?></td>
+				    <td><?=$repair->date_req;?></td>
+				 	<td><?=$repair->work_description;?></td>
+				 	<td><?=$repair->bldg_no;?></td>
+				 	<td><?=$repair->location;?></td>
+				 	<td><?=$repair->fname;?>&nbsp<?=$repair->mname;?>&nbsp<?=$repair->lname;?></td>
+				 	<td> <a href="<?php echo base_url();?>Admin/admin_rep_app?id=<?=$repair->job_id;?>"> 
+				 		<!-- <a data-toggle="modal" href="#myModal" > -->
+					      <button class='btn btn-success' style='width:40%;margin-top:2px;'>Approve</button>
+						</a>
+				 	 <a href="<?php echo base_url();?>Admin/admin_rep_dec?id=<?=$repair->job_id;?>">
+					      <button class='btn btn-danger' style='width:40%;margin-top:2px;'>Decline</button>
+						</a></td></tr>    
+				    <?php }?>
+
 				  <tr>
 				   <td>1</td>
 				    <td>Fan Cleaning</td>

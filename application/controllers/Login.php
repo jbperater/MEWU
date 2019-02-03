@@ -67,7 +67,7 @@ class Login extends CI_Controller {
 				);
 				$this->session->set_userdata('user_data_session', $user_detail);
 				$this->session->set_userdata('logged_in', true);
-				$this->session->set_userdata('personel', '0');
+				
 
 
 				// user login ok
