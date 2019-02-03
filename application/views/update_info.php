@@ -15,10 +15,7 @@ $user_detail = $this->session->userdata('user_data_session');
 						</li>
 					</ol>
 				</div>
-				<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Admin/add_equip">
-
-				
-								<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Admin/Admin_equip_add">
+				<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Update_info/insert_info">
 								<div class="form-group">
 							     	<label for="" class="control-label col-sm-4">First Name:</label>
 							     	<div class="col-sm-5 inputGroupContainer">
