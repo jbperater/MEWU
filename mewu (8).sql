@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2019 at 05:59 PM
+-- Generation Time: Feb 03, 2019 at 07:21 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -73,7 +73,8 @@ INSERT INTO `accounts` (`user_id`, `username`, `password`, `type`, `status`, `da
 (2, 'm', 'm', 'maintenance', '', '2019-01-27 21:05:37'),
 (3, 's', 's', 'student', '', '2019-01-27 22:28:37'),
 (4, 'st', 'st', 'staff', '', '2019-01-27 22:28:37'),
-(5, 'a', 'a', 'adviser', '', '2019-01-27 22:29:14');
+(5, 'a', 'a', 'adviser', '', '2019-01-27 22:29:14'),
+(6, 'ma', 'ma', 'maintenance', 'active', '2019-02-02 09:44:34');
 
 -- --------------------------------------------------------
 
@@ -140,7 +141,8 @@ CREATE TABLE `equipment` (
 --
 
 INSERT INTO `equipment` (`equip_id`, `equip_name`, `brand`, `model`, `serial_no`, `office`, `depart`, `type`, `year_acc`) VALUES
-(1, 'dawd', 'dad', 'fef', 'fsef', 'f', NULL, 'fsef', 'fsefs');
+(1, 'dawd', 'dad', 'fef', 'fsef', 'f', NULL, 'fsef', 'fsefs'),
+(2, 'Joshua Brain Perater', 'daw', 'dadcdac', 'fafad', 'dawdad', 'dawd', 'daw', 'vfvava');
 
 -- --------------------------------------------------------
 
@@ -171,18 +173,45 @@ INSERT INTO `event_equip` (`equip_id`, `name`, `type`) VALUES
 
 CREATE TABLE `job_req` (
   `job_id` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `item_no` int(11) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `item_no` int(11) DEFAULT NULL,
+  `work_description` varchar(255) DEFAULT NULL,
   `bldg_no` varchar(10) NOT NULL,
   `location` varchar(32) NOT NULL,
-  `date_time_start` datetime NOT NULL,
-  `date_time_fin` datetime NOT NULL,
-  `person_attend` int(11) NOT NULL,
-  `remark` varchar(50) NOT NULL,
+  `date_time_start` datetime DEFAULT NULL,
+  `date_time_fin` datetime DEFAULT NULL,
+  `person_attend` int(11) DEFAULT NULL,
+  `remark` varchar(50) DEFAULT NULL,
   `requested_by` int(11) NOT NULL,
-  `approve_by` int(11) NOT NULL
+  `approve_by` int(11) DEFAULT NULL,
+  `date_req` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `job_req`
+--
+
+INSERT INTO `job_req` (`job_id`, `item_no`, `work_description`, `bldg_no`, `location`, `date_time_start`, `date_time_fin`, `person_attend`, `remark`, `requested_by`, `approve_by`, `date_req`) VALUES
+(1, 2, 'wala', '201', 'bisan asa', NULL, NULL, 2, 'approve', 1, 1, '2019-02-01 17:50:57'),
+(3, NULL, NULL, '201', 'dadawd', '2019-02-13 00:00:00', '2019-02-13 00:00:00', NULL, 'pending', 1, NULL, '2019-02-03 06:12:10');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `job_request_view`
+-- (See below for the actual view)
+--
+CREATE TABLE `job_request_view` (
+`job_id` int(11)
+,`item_no` int(11)
+,`work_description` varchar(255)
+,`bldg_no` varchar(10)
+,`location` varchar(32)
+,`remark` varchar(50)
+,`date_req` timestamp
+,`fname` varchar(50)
+,`mname` varchar(50)
+,`lname` varchar(50)
+);
 
 -- --------------------------------------------------------
 
@@ -250,7 +279,8 @@ CREATE TABLE `persons` (
 --
 
 INSERT INTO `persons` (`person_id`, `fname`, `mname`, `lname`, `bday`, `position`, `contact_no`, `email`, `userid`) VALUES
-(1, 'Christian', 'Hundinay', 'Cat-awan', '2019-01-08', 'admin', '0916', 'h=gmail', 2);
+(1, 'Christian', 'Hundinay', 'Cat-awan', '2019-01-08', 'admin', '0916', 'h=gmail', 2),
+(2, 'joshua', 'Hundinay', 'Garbosa', '2019-02-04', 'maintenance', '122', 'cat-awan@gmail.com', 2);
 
 -- --------------------------------------------------------
 
@@ -373,9 +403,9 @@ CREATE TABLE `reserve_request` (
 --
 
 INSERT INTO `reserve_request` (`form_no`, `department`, `venue`, `date_act`, `time_act`, `purpose`, `title_event`, `status`, `contact_no`, `res_by`, `confired_by`, `date_request`) VALUES
-(1, 'CITC', 1, '2019-01-02', '08:00:00', 'secret', 'title', 'ok', '122', 1, 1, '2019-01-28 18:42:26'),
-(2, 'CITC', 1, '2019-01-02', '08:00:00', 'secret', 'title', 'ok', '122', 1, 1, '2019-01-28 18:42:34'),
-(3, 'dawd', 0, '0000-00-00', '00:00:00', 'daw', 'daw', '', '', NULL, NULL, '2019-01-28 22:37:10');
+(1, 'CITC', 1, '2019-01-02', '08:00:00', 'secret', 'title', 'pending', '122', 1, 1, '2019-01-28 18:42:26'),
+(2, 'CITC', 1, '2019-01-02', '08:00:00', 'secret', 'title', 'pending', '122', 1, 1, '2019-01-28 18:42:34'),
+(3, 'dawd', 0, '0000-00-00', '00:00:00', 'daw', 'daw', 'decline', '', 1, 1, '2019-01-28 22:37:10');
 
 -- --------------------------------------------------------
 
@@ -436,6 +466,15 @@ INSERT INTO `venue` (`venue_id`, `bldg_no`, `name`, `type`) VALUES
 (1, '1', 'dawdczs', 'dawczs'),
 (2, '1', 'dadadaw', 'dad'),
 (3, 'd', '12', 'daw');
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `job_request_view`
+--
+DROP TABLE IF EXISTS `job_request_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `job_request_view`  AS  select `job_req`.`job_id` AS `job_id`,`job_req`.`item_no` AS `item_no`,`job_req`.`work_description` AS `work_description`,`job_req`.`bldg_no` AS `bldg_no`,`job_req`.`location` AS `location`,`job_req`.`remark` AS `remark`,`job_req`.`date_req` AS `date_req`,`persons`.`fname` AS `fname`,`persons`.`mname` AS `mname`,`persons`.`lname` AS `lname` from (`job_req` join `persons` on((`job_req`.`requested_by` = `persons`.`person_id`))) ;
 
 -- --------------------------------------------------------
 
@@ -603,7 +642,7 @@ ALTER TABLE `account2`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `calendar_events`
 --
@@ -618,7 +657,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `equipment`
 --
 ALTER TABLE `equipment`
-  MODIFY `equip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `equip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `event_equip`
 --
@@ -628,12 +667,12 @@ ALTER TABLE `event_equip`
 -- AUTO_INCREMENT for table `job_req`
 --
 ALTER TABLE `job_req`
-  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `person_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `person_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `reserve_request`
 --
