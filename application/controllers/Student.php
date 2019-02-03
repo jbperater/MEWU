@@ -18,26 +18,49 @@ class Student extends CI_Controller {
 		
 	}
 	
-	public function Student_add_req() {
+	// public function Student_add_req() {
 
 	
-		$data['content'] = 'Student_add_req';
-		$this->load->view('base_view_student', $data);
+	// 	$data['content'] = 'Student_add_req';
+	// 	$this->load->view('base_view_student', $data);
 		
+	// 	/*Check submit button */
+	// 	if($this->input->post('submit'))
+ // 		{
+		
+	// 	$no_participants=$this->input->post('no_participants');
+	// 	$date_act=$this->input->post('date_act');
+	// 	$title_event=$this->input->post('title_event');
+	// 	$contact_no=$this->input->post('contact_no');
+
+	// 	$this->Login_auth_db->set_event($no_participants,$date_act,$title_event,$contact_no);	
+	// 	echo "Records Saved Successfully";
+	// 	}
+	
+
+
+	public function Student_set_req() {
+
+		
+		$data['content'] = 'Student_set_event';
+		$this->load->view('base_view_student', $data);
 		/*Check submit button */
-		if($this->input->post('submit'))
- 		{
+		echo "Records Saved Successfully";
+		}
+	
+	public function Student_add_req() {
+	
 		
 		$no_participants=$this->input->post('no_participants');
 		$date_act=$this->input->post('date_act');
 		$title_event=$this->input->post('title_event');
 		$contact_no=$this->input->post('contact_no');
+		$date_request=$this->input->post('date_request');
 
-		$this->Login_auth_db->set_event($no_participants,$date_act,$title_event,$contact_no);	
-		echo "Records Saved Successfully";
-		}
+		$this->Login_auth_db->set_event($no_participants,$date_act,$title_event,$contact_no,$date_request);	
+		
 	
-}
+	}
 				
 		// $data['content'] = 'Student_add_req';
 		// $this->load->view('base_view_student', $data);

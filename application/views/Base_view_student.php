@@ -109,7 +109,7 @@ if($content == 'Student_view_sched') { $this->load->view('Student/Student_view_s
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i>Request <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>Student/Student_add_req"> Add Event Request</a>
+                                <a href="<?php echo base_url(); ?>Student/Student_set_req"> Add Event Request</a>
                             </li>
                         </ul>
                     </li>
@@ -121,8 +121,6 @@ if($content == 'Student_view_sched') { $this->load->view('Student/Student_view_s
                     ?>
 
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-file"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
-
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-file"></i> My Request <i class="fa fa-fw fa-caret-down"></i></a>
 
                         <ul id="demo2" class="collapse">
                             <li>
