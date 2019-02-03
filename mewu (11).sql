@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2019 at 10:44 AM
+-- Generation Time: Feb 03, 2019 at 10:38 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -213,7 +213,7 @@ CREATE TABLE `job_req` (
 --
 
 INSERT INTO `job_req` (`job_id`, `item_no`, `work_description`, `bldg_no`, `location`, `date_time_start`, `date_time_fin`, `person_attend`, `remark`, `requested_by`, `approve_by`, `date_req`) VALUES
-(1, 2, 'wala', '201', 'bisan asa', NULL, NULL, 2, 'approve', 1, 1, '2019-02-01 17:50:57'),
+(1, 2, 'wala', '201', 'bisan asa', '2019-02-19 11:11:00', '2019-02-13 11:11:00', 2, 'decline', 1, 1, '2019-02-01 17:50:57'),
 (3, NULL, NULL, '201', 'dadawd', '2019-02-13 00:00:00', '2019-02-13 00:00:00', NULL, 'pending', 1, NULL, '2019-02-03 06:12:10');
 
 -- --------------------------------------------------------
@@ -279,16 +279,21 @@ CREATE TABLE `persons` (
   `position` varchar(50) NOT NULL,
   `contact_no` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `userid` int(11) NOT NULL
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `status` varchar(32) NOT NULL,
+  `sign` int(11) NOT NULL,
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `persons`
 --
 
-INSERT INTO `persons` (`person_id`, `fname`, `mname`, `lname`, `bday`, `position`, `contact_no`, `email`, `userid`) VALUES
-(1, 'Christian', 'Hundinay', 'Cat-awan', '2019-01-08', 'admin', '0916', 'h=gmail', 2),
-(2, 'joshua', 'Hundinay', 'Garbosa', '2019-02-04', 'maintenance', '122', 'cat-awan@gmail.com', 2);
+INSERT INTO `persons` (`person_id`, `fname`, `mname`, `lname`, `bday`, `position`, `contact_no`, `email`, `username`, `password`, `type`, `status`, `sign`, `date_created`) VALUES
+(1, 'Christian', 'Hundinay', 'Cat-awan', '2019-01-08', 'admin', '0916', 'h=gmail', '', '', '', '', 0, '2019-02-03 21:38:05'),
+(2, 'joshua', 'Hundinay', 'Garbosa', '2019-02-04', 'maintenance', '122', 'cat-awan@gmail.com', '', '', '', '', 0, '2019-02-03 21:38:05');
 
 -- --------------------------------------------------------
 
@@ -577,8 +582,7 @@ ALTER TABLE `maintenance_rec`
 -- Indexes for table `persons`
 --
 ALTER TABLE `persons`
-  ADD PRIMARY KEY (`person_id`),
-  ADD KEY `userid` (`userid`);
+  ADD PRIMARY KEY (`person_id`);
 
 --
 -- Indexes for table `reserve_equip_need`
@@ -687,12 +691,6 @@ ALTER TABLE `job_schedule`
 ALTER TABLE `maintenance_rec`
   ADD CONSTRAINT `maintenance_rec_ibfk_1` FOREIGN KEY (`equip_id`) REFERENCES `equipment` (`equip_id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `maintenance_rec_ibfk_2` FOREIGN KEY (`performed_by`) REFERENCES `persons` (`person_id`) ON UPDATE CASCADE;
-
---
--- Constraints for table `persons`
---
-ALTER TABLE `persons`
-  ADD CONSTRAINT `persons_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `accounts` (`user_id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `reserve_equip_need`

@@ -17,8 +17,9 @@ class Maintenance extends CI_Controller {
 		
 	public function index() {
 		
-		$data['content'] = 'blank_page1';
-		$this->load->view('base_view_maintenancel', $data);
+		$data_to_view['selected'] = 'Maintenance_repair_sched';
+		$data_to_view['content'] = 'Maintenance_repair_sched';
+		$this->load->view('base_view_maintenance', $data_to_view);
 		
 	}
 	
@@ -63,17 +64,33 @@ class Maintenance extends CI_Controller {
 
 	public function Maintenance_repair_sched() {
 
-		$id= $this->session->userdata('user_data_session')['user_id'];
-
+		$id= $this->session->userdata('user_data_id');
+		
 		$query = $this->Maintenance_model->view_sched($id);
-		 $data['data'] =  $query;
-		 $data['content'] ='Admin_pen_rep';
+		 
+		echo $id;
 		$data['content'] = 'Maintenance_repair_sched';
-		echo $this->session->userdata('user_id');
-		echo 'nothing';
-		/*$this->load->view('base_view_maintenance', $data);*/
+		$data['repair'] =  $query;
+		$this->load->view('base_view_maintenance', $data);
 	}
 
+	public function Maintenance_update_sched(){
+		$id = $this->uri->segment(3);
+		$query = $this->Maintenance_model->update_sched($id);
+		$data['content'] = 'Maintenance_update_sched';
+		$data['uid'] =  $id;
+		$data['repair'] =  $query;
+		$this->load->view('base_view_maintenance', $data);
+	}
+
+	public function Maintenance_na(){
+		$id = $this->input->get('id');
+		$query = $this->Maintenance_model->update_sched_na($id);
+		$data['content'] = 'Maintenance_update_sched';
+		$data['id'] =  $id;
+		$this->load->view('base_view_maintenance', $data);
+		/*redirect(base_url().'maintenance');*/
+	}
 
 	public function Maintenance_all_sched() {
 		

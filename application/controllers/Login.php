@@ -67,9 +67,9 @@ class Login extends CI_Controller {
 					'sign'	=> $user_data['sign']
 				);
 				$this->session->set_userdata('user_data_session', $user_detail);
-				/*$this->session->set_userdata('user_data_session', $user_data['user_id']);
+				$this->session->set_userdata('user_data_id', $user_data['user_id']);
 				$this->session->set_userdata('user_data_session', $user_data['username']);
-				$this->session->set_userdata('user_data_session', $user_data['type']);*/
+				$this->session->set_userdata('user_data_session', $user_data['type']);
 				$this->session->set_userdata('logged_in', true);
 				$this->session->set_userdata('why', 'haahha');
 				
@@ -107,9 +107,11 @@ class Login extends CI_Controller {
 					$this->load->view('base_view_staff',$data_to_view);
 				}
 				elseif( $user_data['type'] == 'maintenance'){
-					$data_to_view['selected'] = 'Maintenance_repair_sched';
-					$data_to_view['content'] = 'Maintenance_repair_sched';
-					$this->load->view('base_view_maintenance',$data_to_view);
+					$data_to_view['selected'] = 'Maintenance_all_sched';
+					$data_to_view['content'] = 'Maintenance_all_sched';
+					/*$this->load->view('base_view_maintenance',$data_to_view);*/
+					redirect('maintenance');
+					
 				}
 				else{
 					
@@ -117,7 +119,7 @@ class Login extends CI_Controller {
 				}
 
 				
-				echo $this->session->userdata('user_data_session')['user_id'];
+				
 
 				
 
