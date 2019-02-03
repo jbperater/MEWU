@@ -22,6 +22,7 @@ if($content == 'Admin_add_venue') { $this->load->view('Admin/Admin_add_venue'); 
 if($content == 'Admin_view_venue') { $this->load->view('Admin/Admin_view_venue'); $selected = $content; $content='';}
 if($content == 'approve_request') { $this->load->view('Admin/approve_request'); $selected = $content; $content='';}
 if($content == 'Admin_forecast') { $this->load->view('Admin_forecast'); $selected = $content; $content='';}
+if($content == 'Admin_set_account') { $this->load->view('Admin/Admin_set_account'); $selected = $content; $content='';}
 
 
 ?>
@@ -225,10 +226,10 @@ if($content == 'Admin_forecast') { $this->load->view('Admin_forecast'); $selecte
                     if ($selected == 'Admin_add_account')  echo '<li class="active" >';
                     else echo '<li>';
                     ?>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo7"><i class="fa fa-fw fa-file"></i>Create Account<i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo7" class="collapse">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo8"><i class="fa fa-fw fa-file"></i>Create Account<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo8" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>Admin/Admin_add_account"> Create Account</a>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_set_account"> Create Account</a>
                             </li>
                             
                         </ul>

@@ -63,7 +63,8 @@ class Login extends CI_Controller {
 				$user_detail = array(
 					'user_id'	=> $user_data['user_id'],
 					'username'	=> $user_data['username'],
-					'type'	=> $user_data['type']
+					'type'	=> $user_data['type'],
+					'sign'	=> $user_data['sign']
 				);
 				$this->session->set_userdata('user_data_session', $user_detail);
 				$this->session->set_userdata('user_data_id', $user_data['user_id']);
@@ -75,6 +76,11 @@ class Login extends CI_Controller {
 
 
 				// user login ok
+				if ( $user_detail['sign'] ==='0' ){
+					redirect('Update_info/update_info');
+
+				
+				}
 				if ( $user_detail['type'] ==='admin' ){
 					$data_to_view['selected'] = 'dashboard';
 					$data_to_view['content'] = 'dashboard';

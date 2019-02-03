@@ -40,7 +40,8 @@ Class Login_auth_db extends CI_Model {
 		$user_data = array(
 			'user_id'	=> $query->row('user_id'),
 			'username'	=> $query->row('username'),
-			'type'	=> $query->row('type')
+			'type'	=> $query->row('type'),
+			'sign'	=> $query->row('sign')
 			);
 		
 		return $user_data;
@@ -82,6 +83,7 @@ Class Login_auth_db extends CI_Model {
 			$query="update job_req SET person_attend= $person_attend where job_id = $approve";
 			$this->db->query($query);
 		}
+
 	 function view_event(){
 		  $this->db->select("date_request,title_event,venue,purpose,date_act,time_act,department");
 		  $this->db->from('reserve_request');
@@ -104,7 +106,11 @@ Class Login_auth_db extends CI_Model {
  	}
 
  	function Admin_event_req(){
+
 		  $this->db->select("form_no,no_participants,acroname,name,date_act,purpose,title_event,contact_no,date_request");
+
+		  $this->db->select("form_no,no_participants,acroname,name,date_act,purpose,title_event,fname,mname,lname,contact_no,date_request");
+
 		  $this->db->from('reservation_view');
 		  $query = $this->db->get();
 		  return $query->result();
@@ -117,5 +123,20 @@ Class Login_auth_db extends CI_Model {
 	$this->db->query($query);
 
 }
+
+	function set_account($username,$password,$type,$status,$date_created)
+	{
+
+	$query="insert into accounts values('','$username','$password','$type','$status','','$date_created')";
+	$this->db->query($query);
+
+}
+
+	function update_info($fname,$mname,$lname,$bday,$position,$contact_no,$email)
+	{
+
+			$query="update persons SET person_attend= $person_attend where job_id = $approve";
+			$this->db->query($query);
+		}
 	
 }
