@@ -279,5 +279,28 @@ class Admin extends CI_Controller {
 				
 			}
 	}
+		public function Admin_set_account() {
+
+		
+		$data['content'] = 'Admin_set_account';
+		$this->load->view('base_view', $data);
+		/*Check submit button */
+		echo "Records Saved Successfully";
+		}
+	
+	public function Admin_add_account() {
+	
+		
+		$username=$this->input->post('username');
+		$password=$this->input->post('password');
+		$type=$this->input->post('type');
+		$status=$this->input->post('status');
+		$date_created=$this->input->post('date_created');
+
+		$this->Login_auth_db->set_account($username,$password,$type,$status,$date_created);
+		
+	
+	}
 
 }
+?>
