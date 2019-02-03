@@ -73,6 +73,7 @@ class Login extends CI_Controller {
 					$data_to_view['selected'] = 'dashboard';
 					$data_to_view['content'] = 'dashboard';
 					$this->load->view('base_view',$data_to_view);
+					redirect('Admin/Admin_pen_req');
 
 				
 				}
@@ -109,7 +110,8 @@ class Login extends CI_Controller {
 				$data->error = 'Wrong username or password.';
 				
 				// send error to the view
-				$this->load->view('login', $data);
+				// $this->load->view('login', $data);
+				redirect('login');
 				
 			}
 			

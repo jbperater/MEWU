@@ -7,6 +7,7 @@ $type = $user_detail['type'];
 
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}
 if($content == 'Staff_add_event_req') { $this->load->view('Staff/Staff_add_event_req'); $selected = $content; $content='';}
+if($content == 'Staff_add_event') { $this->load->view('Staff/Staff_add_event'); $selected = $content; $content='';}
 if($content == 'Staff_add_repair_req') { $this->load->view('Staff/Staff_add_repair_req'); $selected = $content; $content='';}
 if($content == 'Staff_app_event_req') { $this->load->view('Staff/Staff_app_event_req'); $selected = $content; $content='';}
 if($content == 'Staff_app_repair_req') { $this->load->view('Staff/Staff_app_repair_req'); $selected = $content; $content='';}

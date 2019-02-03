@@ -15,27 +15,27 @@ class Admin extends CI_Controller {
 	
 	public function Admin_pen_req() {
 		
-		$query = $this->Login_auth_db->view_event();
-		$data['event'] = null;
+		$query = $this->Login_auth_db->admin_event_req();
+		$data['event_req'] = null;
 		  
 		if($query){
-		$data['event'] =  $query;
+		$data['event_req'] =  $query;
 		$data['content'] ='Admin_pen_req';
 		$this->load->view('base_view', $data);
 		//$data['content'] = 'Admin_pen_rep';
 		//$this->load->view('base_view', $data);
 
 		 $this->load->model('Login_auth_db');
-		  $this->load->model('main_model');
 
 	}
+}
 		
 	public function index() {
-		if($this->check_access()){
+		
 			$data['content'] = 'blank_page1';
 			$this->load->view('base_view', $data);
 	    }
-	}
+	
 
 	private function check_access(){
 		if($this->session->userdata('logged_in')){
@@ -44,15 +44,6 @@ class Admin extends CI_Controller {
 			redirect('login');
 		}
 	}
-	
-	public function Admin_pen_req() {
-		
-			$data['content'] = 'Admin_pen_req';
-		    $this->load->view('base_view', $data);
-			
-
-	}
-}
 
 	
 	public function Admin_pen_rep() {
@@ -73,27 +64,9 @@ class Admin extends CI_Controller {
 		$data['content'] = 'Admin_set_event';
 		$this->load->view('base_view', $data);
 		/*Check submit button */
-		if($this->input->post('submit'))
- 		{
-		
-		
-		$no_participants=$this->input->post('no_participants');
-		$date_act=$this->input->post('date_act');
-		$title_event=$this->input->post('title_event');
-		$contact_no=$this->input->post('contact_no');
-
-		$this->Login_auth_db->set_event($no_participants,$title_event,$date_act,$contact_no);	
 		echo "Records Saved Successfully";
 		}
 	
-
-		if($this->check_access()){
-		    $data['content'] = 'Admin_set_event';
-		    $this->load->view('base_view', $data);
-	    }
-
-	}
-
 	public function Admin_add_event() {
 	
 		
@@ -101,8 +74,9 @@ class Admin extends CI_Controller {
 		$date_act=$this->input->post('date_act');
 		$title_event=$this->input->post('title_event');
 		$contact_no=$this->input->post('contact_no');
+		$date_request=$this->input->post('date_request');
 
-		$this->Login_auth_db->set_event($no_participants,$date_act,$title_event,$contact_no);	
+		$this->Login_auth_db->set_event($no_participants,$date_act,$title_event,$contact_no,$date_request);	
 		
 	
 	}
@@ -126,10 +100,31 @@ class Admin extends CI_Controller {
 	}
 
 	public function Admin_add_equip() {
-		
 		$data['content'] = 'Admin_add_equip';
 		$this->load->view('base_view', $data);
+		/*Check submit button */
+	
+		echo "Records Saved Successfully";
+	
 	}
+
+	public function add_equip() {
+		
+		/*Check submit button */
+		$equip_name=$this->input->post('equip_name');
+		$brand=$this->input->post('brand');
+		$model=$this->input->post('model');
+		$serial_no=$this->input->post('serial_no');
+		$office=$this->input->post('office');
+		
+		$type=$this->input->post('type');
+		$year_acc=$this->input->post('year_acc');
+
+		$this->Login_auth_db->add_equipment($equip_name,$brand,$model,$serial_no,$office,$type,$year_acc);	
+		
+	
+	}
+
 
 	public function Admin_view_equip() {
 		

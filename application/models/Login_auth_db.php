@@ -89,22 +89,33 @@ Class Login_auth_db extends CI_Model {
 		  return $query->result();
  	}
 
- 	function set_event($no_participants,$date_act,$title_event,$contact_no)
+ 	function set_event($no_participants,$date_act,$title_event,$contact_no,$date_request)
 	{
 
-	$query="insert into reserve_request values('','$no_participants','','','$date_act','','$title_event','','$contact_no','','','')";
+	$query="insert into reserve_request values('','$no_participants','','','$date_act','','$title_event','','$contact_no','','','$date_request')";
 	$this->db->query($query);
 }
 
-}
-
-
-}	
 
 	function update_rep_approve($id){
 		$this->db->set('remark', 'approve');
 		$this->db->where('id', $id);
 		$this->db->update('job_req');
  	}
+
+ 	function Admin_event_req(){
+		  $this->db->select("form_no,no_participants,acroname,bldg_no,name,date_act,purpose,title_event,contact_no,date_request");
+		  $this->db->from('event_res');
+		  $query = $this->db->get();
+		  return $query->result();
+ 	}
+
+ 	function add_equipment($equip_name,$brand,$model,$serial_no,$office,$type,$year_acc)
+	{
+
+	$query="insert into equipment values('','$equip_name','$brand','$model','$serial_no','$office','','$type','$year_acc')";
+	$this->db->query($query);
+
+}
 	
 }

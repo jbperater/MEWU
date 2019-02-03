@@ -17,23 +17,23 @@ $level = $user_detail['type'];
 					</ol>
 				</div>
 				<table>
-					<tr><td><strong>Date Requested</strong></td>
-					<td><strong>Title of Event</strong></td>
+					<tr><td><strong>Form Number</strong></td>
+					<td><strong>Applicant</strong></td>
+					<td><strong>Number of Participants</strong></td>
 					<td><strong>Venue</strong></td>
-					<td><strong>Purpose</strong></td>
-					<td><strong>Date Actual Use</strong></td>
-					<td><strong>Time Actual Use</strong></td>
 					<td><strong>Department</strong></td>
+					<td><strong>Date Request</strong></td>
+					<td><strong>Date Actual Use</strong></td>
 				     
-				     <?php foreach($event as $event){?>
+				     <?php foreach($event_req as $event_req){?>
 				     <tr>
-				    <td><?=$event->date_request;?></td>
-				    <td><?=$event->title_event;?></td>
-				 	<td><?=$event->venue;?></td>
-				 	<td><?=$event->purpose;?></td>
-				 	<td><?=$event->date_act;?></td>
-				 	<td><?=$event->time_act;?></td>
-				 	<td><?=$event->department;?></td>
+				     <td><?=$event_req->form_no;?></td>
+				    <td>chan</td>
+				 	<td><?=$event_req->no_participants;?></td>
+				 	<td><?=$event_req->bldg_no;?></td>
+				 	<td><?=$event_req->acroname;?></td>
+				 	<td><?=$event_req->date_request;?></td>
+				 	<td><?=$event_req->date_act;?></td>
 				 	<td><a href="" button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="approve_request" type="submit" value="Save Data">Approve</button></td>
 				 	<td><a href="" button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="decline_request" type="submit" value="Save Data">Decline</button></td></tr>    
 				    <?php }?>

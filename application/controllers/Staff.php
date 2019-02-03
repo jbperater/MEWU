@@ -39,6 +39,20 @@ class Staff extends CI_Controller {
 	
 }
 	
+	public function Staff_add_event() {
+	
+		
+		$no_participants=$this->input->post('no_participants');
+		$date_act=$this->input->post('date_act');
+		$title_event=$this->input->post('title_event');
+		$contact_no=$this->input->post('contact_no');
+
+		$this->Login_auth_db->Staff_set_event($no_participants,$date_act,$title_event,$contact_no);	
+		echo "Records Saved Successfully";
+	
+	}
+
+
 	public function Staff_add_repair_req() {
 		
 		$data['content'] = 'Staff_add_repair_req';

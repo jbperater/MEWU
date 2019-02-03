@@ -16,7 +16,7 @@ $level = $user_detail['type'];
 						</li>
 					</ol>
 				</div>
-				<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Staff/Staff_add_req">
+				<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Staff/Staff_add_event">
 								<div class="form-group">
 							     	<label for="" class="control-label col-sm-4">Number of Participants:</label>
 							     	<div class="col-sm-5 inputGroupContainer">

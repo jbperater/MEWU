@@ -8,6 +8,7 @@ $type = $user_detail['type'];
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}
 
 if($content == 'Admin_pen_req') { $this->load->view('Admin/Admin_pen_req'); $selected = $content; $content='';}
+if($content == 'Admin_set_event') { $this->load->view('Admin/Admin_set_event'); $selected = $content; $content='';}
 if($content == 'Admin_pen_rep') { $this->load->view('Admin/Admin_pen_rep'); $selected = $content; $content='';}
 if($content == 'Admin_set_event') { $this->load->view('Admin/Admin_set_event'); $selected = $content; $content='';}
 if($content == 'Admin_set_repair') { $this->load->view('Admin/Admin_set_repair'); $selected = $content; $content='';}
@@ -20,19 +21,6 @@ if($content == 'Admin_view_event_equip') { $this->load->view('Admin/Admin_view_e
 if($content == 'Admin_add_venue') { $this->load->view('Admin/Admin_add_venue'); $selected = $content; $content='';}
 if($content == 'Admin_view_venue') { $this->load->view('Admin/Admin_view_venue'); $selected = $content; $content='';}
 if($content == 'approve_request') { $this->load->view('Admin/approve_request'); $selected = $content; $content='';}
-
-if($content == 'Admin_pen_req') { $this->load->view('Admin_pen_req'); $selected = $content; $content='';}
-if($content == 'Admin_pen_rep') { $this->load->view('Admin_pen_rep'); $selected = $content; $content='';}
-if($content == 'Admin_set_event') { $this->load->view('Admin_set_event'); $selected = $content; $content='';}
-if($content == 'Admin_set_repair') { $this->load->view('Admin_set_repair'); $selected = $content; $content='';}
-if($content == 'Admin_view_sched') { $this->load->view('Admin_view_sched'); $selected = $content; $content='';}
-if($content == 'Admin_view_repair') { $this->load->view('Admin_view_repair'); $selected = $content; $content='';}
-if($content == 'Admin_add_equip') { $this->load->view('Admin_add_equip'); $selected = $content; $content='';}
-if($content == 'Admin_view_equip') { $this->load->view('Admin_view_equip'); $selected = $content; $content='';}
-if($content == 'Admin_add_event_equip') { $this->load->view('Admin_add_event_equip'); $selected = $content; $content='';}
-if($content == 'Admin_view_event_equip') { $this->load->view('Admin_view_event_equip'); $selected = $content; $content='';}
-if($content == 'Admin_add_venue') { $this->load->view('Admin_add_venue'); $selected = $content; $content='';}
-if($content == 'Admin_view_venue') { $this->load->view('Admin_view_venue'); $selected = $content; $content='';}
 if($content == 'Admin_forecast') { $this->load->view('Admin_forecast'); $selected = $content; $content='';}
 
 
