@@ -209,13 +209,26 @@ if($content == 'Admin_forecast') { $this->load->view('Admin_forecast'); $selecte
                     </li>
 
                     <?php 
-                    if ($selected == 'Admin_forecast' || $selected == 'Admin_view_event_equip')  echo '<li class="active" >';
+                    if ($selected == 'Admin_forecast')  echo '<li class="active" >';
                     else echo '<li>';
                     ?>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo7"><i class="fa fa-fw fa-file"></i>Forecast <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo7" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Admin/Admin_forecast"> View Forecast</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+
+                    <?php 
+                    if ($selected == 'Admin_add_account')  echo '<li class="active" >';
+                    else echo '<li>';
+                    ?>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo7"><i class="fa fa-fw fa-file"></i>Create Account<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo7" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>Admin/Admin_add_account"> Create Account</a>
                             </li>
                             
                         </ul>
