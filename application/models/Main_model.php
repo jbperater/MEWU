@@ -79,6 +79,28 @@ Class Main_model extends CI_Model {
 		$this->db->where('job_id', $id);
 		$this->db->update('job_req');
  	}
+
+ 	function update_per_ass($id,$id2){
+		$this->db->set('person_attend', $id);
+		$this->db->where('job_id', $id2);
+		$this->db->update('job_req');	
+ 	}
+
+ 	function insert_equip($data) {
+		
+		$this->db->insert('equipment',$data);
+		
+				
+	}
+
+	function maintenance_personel(){
+		  $this->db->select("person_id,fname,mname,lname");
+		  $this->db->from('persons');
+		  $this->db->where('position','maintenance');
+		  $query = $this->db->get();
+		  return $query->result();
+ 	}
+
 	
 	
 }

@@ -3,8 +3,7 @@ $this->load->library('session');
 $user_detail = $this->session->userdata('user_data_session');
 $level = $user_detail['type'];
 ?>
- 
-<div id="wrapper">
+
 	<div id="page-wrapper"> 
 		 <div class="container-fluid">
            
@@ -106,65 +105,10 @@ $level = $user_detail['type'];
 				</div>
 		</div>
 	</div>
-</div>
-
-
-  <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/lib/moment.min.js"></script>
-     <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/lib/jquery.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/fullcalendar.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/gcal.js"></script>
-
-<script type="text/javascript">
-
-var date_last_clicked = null;
-
-$(document).ready(function() {
-
-	/*$.post('<?php echo base_url() ?>calendar/get_eventss',
-		function(data){
-			alert(data);
-		});*/
-	$('#calendar').fullCalendar({
-		header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'month,basicWeek,basicDay',
-      },
-      	
-		 eventSources: [
-            {
-                 events: function(start, end, timezone, callback) {
-                 $.ajax({
-                 url: '<?php echo base_url() ?>calendar/get_events',
-                 dataType: 'json',
-                 data: {
-                 // our hypothetical feed requires UNIX timestamps
-                 start: start.unix(),
-                 end: end.unix()
-                 },
-                 success: function(msg) {
-                     var events = msg.events;
-                     callback(events);
-                 }
-                 });
-             }
-            }
-        ],
-
-         dayClick: function(date, jsEvent, view) {
-                date_last_clicked = $(this);
-                $(this).css('background-color', '#bed7f3');
-       
-           console.log(date_last_clicked);
-    	}
-
-    	
-    });
 
 
 
-    
-});
-</script>
+ 
+
 
 		

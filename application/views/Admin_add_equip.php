@@ -16,8 +16,17 @@ $level = $user_detail['type'];
 						</li>
 					</ol>
 				</div>
-				<form class="form-horizontal" method="POST" action="action/attendance_details_add.php">
-								<form class="form-horizontal" method="POST" action="action/attendance_details_add.php">
+				
+								<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Admin/Admin_equip_add">
+								<div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Name:</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
+							     			 <input type="text" name="name" class='form-control' required placeholder="Name">
+							     		</div>
+							     	</div>
+							     </div>
 								<div class="form-group">
 							     	<label for="" class="control-label col-sm-4">Brand:</label>
 							     	<div class="col-sm-5 inputGroupContainer">
@@ -41,20 +50,10 @@ $level = $user_detail['type'];
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-							     			 <input type="text" name="Serail No" class='form-control' required placeholder="Serail No">
+							     			 <input type="text" name="SerailNo" class='form-control' required placeholder="Serail No">
 							     		</div>
 							     	</div>
 							     </div>
-							    <!-- <div class="form-group">
-							    									<label class="control-label col-sm-4">Applicant:</label>
-							    									<div class="col-sm-5 inputGroupContainer">
-							    										<div class="input-group">
-							    											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-							    											<input type="text" name="Applicant" class='form-control' required placeholder="Applicant">
-							    										</div>
-							    									</div>
-							    							 	</div> -->
-							     
 							    <div class="form-group">
 									<label class="control-label col-sm-4">Office:</label>
 									<div class="col-sm-5 inputGroupContainer">
@@ -73,12 +72,21 @@ $level = $user_detail['type'];
 										</div>
 									</div>
 							 	</div>
+							 	<div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Type:</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							     			 <input type="text" name="type" class='form-control' required placeholder="Year Acquired">
+							     		</div>
+							     	</div>
+							     </div>
 							 	  <div class="form-group">
 							     	<label for="" class="control-label col-sm-4">Year Acquired:</label>
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-							     			 <input type="text" name="Time Actual Use" class='form-control' required placeholder="Year Acquired">
+							     			 <input type="text" name="year" class='form-control' required placeholder="Year Acquired">
 							     		</div>
 							     	</div>
 							     </div>

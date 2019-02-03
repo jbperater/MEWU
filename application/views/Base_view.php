@@ -10,7 +10,7 @@ if($content == 'Admin_pen_req') { $this->load->view('Admin_pen_req'); $selected 
 if($content == 'Admin_pen_rep') { $this->load->view('Admin_pen_rep'); $selected = $content; $content='';}
 if($content == 'Admin_set_event') { $this->load->view('Admin_set_event'); $selected = $content; $content='';}
 if($content == 'Admin_set_repair') { $this->load->view('Admin_set_repair'); $selected = $content; $content='';}
-if($content == 'Admin_view_sched') { $this->load->view('Admin_view_sched'); $selected = $content; $content='';}
+if($content == 'Admin_view_sched') { $selected = $content; }
 if($content == 'Admin_view_repair') { $this->load->view('Admin_view_repair'); $selected = $content; $content='';}
 if($content == 'Admin_add_equip') { $this->load->view('Admin_add_equip'); $selected = $content; $content='';}
 if($content == 'Admin_view_equip') { $this->load->view('Admin_view_equip'); $selected = $content; $content='';}
@@ -227,7 +227,9 @@ if($content == 'Admin_forecast') { $this->load->view('Admin_forecast'); $selecte
 			MEWU 2019: Mechanical and Electrical Work Unit USTP
 		</a>
 		</div>
-		
+        <?php
+        if($content == 'Admin_view_sched') { $this->load->view('Admin_view_sched'); $selected = $content; $content='';}
+		?>
     </div>
 	
      jQuery
@@ -241,6 +243,65 @@ if($content == 'Admin_forecast') { $this->load->view('Admin_forecast'); $selecte
      <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/lib/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/fullcalendar.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/gcal.js"></script>
+    
+    <script type="text/javascript">
+
+    var date_last_clicked = null;
+
+    $(document).ready(function() {
+
+        /*$.post('<?php echo base_url() ?>calendar/get_eventss',
+            function(data){
+                alert(data);
+            });*/
+        $('#calendar').fullCalendar({
+            header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,basicWeek,basicDay',
+          },
+            
+             eventSources: [
+                {
+                     events: function(start, end, timezone, callback) {
+                     $.ajax({
+                     url: '<?php echo base_url() ?>calendar/get_events',
+                     dataType: 'json',
+                     data: {
+                     // our hypothetical feed requires UNIX timestamps
+                     start: start.unix(),
+                     end: end.unix()
+                     },
+                     success: function(msg) {
+                         var events = msg.events;
+                         callback(events);
+                     }
+                     });
+                 }
+                }
+            ],
+
+             dayClick: function(date, jsEvent, view) {
+                    date_last_clicked = $(this);
+                    $(this).css('background-color', '#bed7f3');
+                    $("#addModal").modal('show');
+               console.log(date_last_clicked);
+            }
+
+            
+        });
+
+        $('.fc-day').click(function(e){
+            console.log($(e.currentTarget));
+
+            $("#addModal").modal('show');
+        })
+
+
+
+        
+    });
+    </script>
 
     <!--Morris Charts JavaScript
     <script src="<?php echo base_url();?>assets/js/plugins/morris/raphael.min.js"></script>

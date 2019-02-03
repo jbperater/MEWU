@@ -34,65 +34,45 @@ $level = $user_detail['type'];
 				 	<td><?=$repair->bldg_no;?></td>
 				 	<td><?=$repair->location;?></td>
 				 	<td><?=$repair->fname;?>&nbsp<?=$repair->mname;?>&nbsp<?=$repair->lname;?></td>
-				 	<td><a href="<?php echo base_url();?>Admin/admin_rep_app?id=<?=$repair->job_id;?>">
+				 	<td> <a href="<?php echo base_url();?>Admin/admin_rep_app?id=<?=$repair->job_id;?>"> 
+				 		<!-- <a data-toggle="modal" href="#myModal" > -->
 					      <button class='btn btn-success' style='width:40%;margin-top:2px;'>Approve</button>
 						</a>
 				 	 <a href="<?php echo base_url();?>Admin/admin_rep_dec?id=<?=$repair->job_id;?>">
 					      <button class='btn btn-danger' style='width:40%;margin-top:2px;'>Decline</button>
 						</a></td></tr>    
 				    <?php }?>
-				<!--<table>
-				  <tr>
-				    <th>Form No</th>
-				    <th>Date Requested</th>
-				    <th>Description</th>
-				    <th>Building Number</th>
-				    <th>Room Number</th>
-				    <th></th>
-				  </tr>
-				  <tr>
-				    <td>1</td>
-				    <td>November 15, 2018</td>
-				    <td>Aircon not functioning</td>
-				    <td>Building 9</td>
-				    <td>306</td>
-				    <td>
-				    	<a href='../user/about_me.php?id=".$row['staff_id']."'>
-					      <button class='btn btn-success' style='width:75px;margin-top:2px;'>Approve</button>
-						</a>
-					 	
-					    <a href='Update_staff.php?id=".$row['staff_id']."'>
-					      <button class='btn btn-primary' style='width:75px;margin-top:2px;'>Disapprove</button>
-						</a>
-					 </td>
-					</tr>
-				
-				 <!--  <tr>
-				   <td>Centro comercial Moctezuma</td>
-				   <td>Francisco Chang</td>
-				   <td>Mexico</td>
-				 </tr>
-				 <tr>
-				   <td>Ernst Handel</td>
-				   <td>Roland Mendel</td>
-				   <td>Austria</td>
-				 </tr>
-				 <tr>
-				   <td>Island Trading</td>
-				   <td>Helen Bennett</td>
-				   <td>UK</td>
-				 </tr>
-				 <tr>
-				   <td>Laughing Bacchus Winecellars</td>
-				   <td>Yoshi Tannamuri</td>
-				   <td>Canada</td>
-				 </tr>
-				 <tr>
-				   <td>Magazzini Alimentari Riuniti</td>
-				   <td>Giovanni Rovelli</td>
-				   <td>Italy</td>
-				 </tr> -->
+				  
+
 				</table>
+
+				<div class="row">
+						<div class="modal fade" id="myModal">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						          <h4 class="modal-title">Assign Personel</h4>
+						        </div>
+						        <form action="/action_page.php" class="form_group">
+						        <div class="modal-body">
+										<select name="personel" class="form-control">
+										<?php foreach($option as $option){?>
+										<option value=<?=$option->person_id;?>><?=$option->fname;?>&nbsp<?=$option->mname;?>&
+											<?=$option->lname;?></option>
+										<?php }?>
+										</select>
+										
+						        </div>
+						        <div class="modal-footer">
+						          <a href="#" data-dismiss="modal" class="btn">Close</a>
+						          <button class="btn btn-primary" type="submit">Save changes</button>
+						        </div>
+						        </form>
+						      </div>
+						    </div>
+						</div>
+			    </div>
 			</div>
 		</div>
 	</div>
