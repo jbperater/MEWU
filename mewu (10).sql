@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2019 at 09:01 AM
+-- Generation Time: Feb 03, 2019 at 10:44 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -61,6 +61,7 @@ CREATE TABLE `accounts` (
   `password` varchar(32) NOT NULL,
   `type` varchar(32) NOT NULL,
   `status` varchar(20) NOT NULL,
+  `sign` int(11) DEFAULT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -68,13 +69,13 @@ CREATE TABLE `accounts` (
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`user_id`, `username`, `password`, `type`, `status`, `date_created`) VALUES
-(1, 'admin', 'admin', 'admin', '', '2019-01-14 15:25:37'),
-(2, 'm', 'm', 'maintenance', '', '2019-01-27 21:05:37'),
-(3, 's', 's', 'student', '', '2019-01-27 22:28:37'),
-(4, 'st', 'st', 'staff', '', '2019-01-27 22:28:37'),
-(5, 'a', 'a', 'adviser', '', '2019-01-27 22:29:14'),
-(6, 'ma', 'ma', 'maintenance', 'active', '2019-02-02 09:44:34');
+INSERT INTO `accounts` (`user_id`, `username`, `password`, `type`, `status`, `sign`, `date_created`) VALUES
+(1, 'admin', 'admin', 'admin', '', NULL, '2019-01-14 15:25:37'),
+(2, 'm', 'm', 'maintenance', '', NULL, '2019-01-27 21:05:37'),
+(3, 's', 's', 'student', '', NULL, '2019-01-27 22:28:37'),
+(4, 'st', 'st', 'staff', '', NULL, '2019-01-27 22:28:37'),
+(5, 'a', 'a', 'adviser', '', NULL, '2019-01-27 22:29:14'),
+(6, 'ma', 'ma', 'maintenance', 'active', NULL, '2019-02-02 09:44:34');
 
 -- --------------------------------------------------------
 
@@ -131,6 +132,13 @@ CREATE TABLE `department` (
   `acroname` varchar(20) NOT NULL,
   `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `department`
+--
+
+INSERT INTO `department` (`dep_id`, `acroname`, `name`) VALUES
+(1, 'CITC', 'COLLEGE');
 
 -- --------------------------------------------------------
 
@@ -321,12 +329,9 @@ CREATE TABLE `reservation_view` (
 ,`title_event` varchar(32)
 ,`status` varchar(20)
 ,`contact_no` varchar(32)
-,`rfname` varchar(50)
-,`rmname` varchar(50)
-,`rlname` varchar(50)
-,`cfname` varchar(50)
-,`cmname` varchar(50)
-,`clname` varchar(50)
+,`fname` varchar(50)
+,`mname` varchar(50)
+,`lname` varchar(50)
 ,`date_request` timestamp
 );
 
@@ -386,7 +391,7 @@ CREATE TABLE `reserve_request` (
 --
 
 INSERT INTO `reserve_request` (`form_no`, `no_participants`, `department`, `venue`, `date_act`, `purpose`, `title_event`, `status`, `contact_no`, `res_by`, `confired_by`, `date_request`) VALUES
-(1, 0, 'CITC', 1, '2019-01-02 00:00:00', 'secret', 'title', 'pending', '122', 1, 1, '2019-01-28 18:42:26'),
+(1, 0, '1', 1, '2019-01-02 00:00:00', 'secret', 'title', 'pending', '122', 1, NULL, '2019-01-28 18:42:26'),
 (2, 0, 'CITC', 1, '2019-01-02 00:00:00', 'secret', 'title', 'pending', '122', 1, 1, '2019-01-28 18:42:34'),
 (3, 0, 'dawd', 0, '0000-00-00 00:00:00', 'daw', 'daw', 'decline', '', 1, 1, '2019-01-28 22:37:10');
 
@@ -493,7 +498,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `reservation_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reservation_view`  AS  select `reserve_request`.`form_no` AS `form_no`,`reserve_request`.`no_participants` AS `no_participants`,`department`.`acroname` AS `acroname`,`venue`.`name` AS `name`,`reserve_request`.`date_act` AS `date_act`,`reserve_request`.`purpose` AS `purpose`,`reserve_request`.`title_event` AS `title_event`,`reserve_request`.`status` AS `status`,`reserve_request`.`contact_no` AS `contact_no`,`persons`.`fname` AS `rfname`,`persons`.`mname` AS `rmname`,`persons`.`lname` AS `rlname`,`confirmed_by`.`fname` AS `cfname`,`confirmed_by`.`mname` AS `cmname`,`confirmed_by`.`lname` AS `clname`,`reserve_request`.`date_request` AS `date_request` from ((((`reserve_request` join `department` on((`reserve_request`.`department` = `department`.`dep_id`))) join `venue` on((`reserve_request`.`venue` = `venue`.`venue_id`))) join `persons` on((`reserve_request`.`res_by` = `persons`.`person_id`))) join `confirmed_by` on((`reserve_request`.`confired_by` = `confirmed_by`.`person_id`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reservation_view`  AS  select `reserve_request`.`form_no` AS `form_no`,`reserve_request`.`no_participants` AS `no_participants`,`department`.`acroname` AS `acroname`,`venue`.`name` AS `name`,`reserve_request`.`date_act` AS `date_act`,`reserve_request`.`purpose` AS `purpose`,`reserve_request`.`title_event` AS `title_event`,`reserve_request`.`status` AS `status`,`reserve_request`.`contact_no` AS `contact_no`,`persons`.`fname` AS `fname`,`persons`.`mname` AS `mname`,`persons`.`lname` AS `lname`,`reserve_request`.`date_request` AS `date_request` from (((`reserve_request` join `department` on((`reserve_request`.`department` = `department`.`dep_id`))) join `venue` on((`reserve_request`.`venue` = `venue`.`venue_id`))) join `persons` on((`reserve_request`.`res_by` = `persons`.`person_id`))) ;
 
 -- --------------------------------------------------------
 
@@ -626,7 +631,7 @@ ALTER TABLE `calendar_events`
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-  MODIFY `dep_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `dep_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `equipment`
 --

@@ -8,7 +8,8 @@ class Maintenance extends CI_Controller {
 		$this->load->database(); 
 		$this->load->helper('url');
 		$this->load->library('session');
-		 $this->load->model('Login_auth_db');		
+		$this->load->model('Login_auth_db');
+		$this->load->model('Maintenance_model');		
 		// to protect the controller to be accessed only by registered users
 	    
 
@@ -61,9 +62,16 @@ class Maintenance extends CI_Controller {
 }
 
 	public function Maintenance_repair_sched() {
-		
+
+		$id= $this->session->userdata('user_data_session')['user_id'];
+
+		$query = $this->Maintenance_model->view_sched($id);
+		 $data['data'] =  $query;
+		 $data['content'] ='Admin_pen_rep';
 		$data['content'] = 'Maintenance_repair_sched';
-		$this->load->view('base_view_maintenance', $data);
+		echo $this->session->userdata('user_id');
+		echo 'nothing';
+		/*$this->load->view('base_view_maintenance', $data);*/
 	}
 
 

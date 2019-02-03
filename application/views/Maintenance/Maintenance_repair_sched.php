@@ -32,19 +32,18 @@ $level = $user_detail['type'];
 				  </tr>
 					<?php foreach($data as $data){?>
 				     <tr>
-				     <td><?=$repair->item_no;?></td>
-				    <td><?=$repair->date_req;?></td>
-				 	<td><?=$repair->work_description;?></td>
-				 	<td><?=$repair->bldg_no;?></td>
-				 	<td><?=$repair->location;?></td>
-				 	<td><?=$repair->fname;?>&nbsp<?=$repair->mname;?>&nbsp<?=$repair->lname;?></td>
-				 	<td> <a href="<?php echo base_url();?>Admin/admin_rep_app?id=<?=$repair->job_id;?>"> 
+				     <td><?=$data->item_no;?></td>
+				    <td><?=$data->date_req;?></td>
+				 	<td><?=$data->work_description;?></td>
+				 	<td><?=$data->bldg_no;?></td>
+				 	<td><?=$data->location;?></td>
+				 	<td><?=$data->date_time_start;?></td>
+				 	<td><?=$data->date_time_fin;?></td>
+				 	<td> <a href="<?php echo base_url();?>Admin/admin_rep_app?id=<?=$data->job_id;?>"> 
 				 		<!-- <a data-toggle="modal" href="#myModal" > -->
-					      <button class='btn btn-success' style='width:40%;margin-top:2px;'>Approve</button>
+					      <button class='btn btn-success' style='width:40%;margin-top:2px;'>Update</button>
 						</a>
-				 	 <a href="<?php echo base_url();?>Admin/admin_rep_dec?id=<?=$repair->job_id;?>">
-					      <button class='btn btn-danger' style='width:40%;margin-top:2px;'>Decline</button>
-						</a></td></tr>    
+				 	 </td></tr>    
 				    <?php }?>
 
 				  <tr>

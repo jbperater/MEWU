@@ -11,7 +11,7 @@ class Login extends CI_Controller {
         $this->load->library('form_validation');
 		//$this->load->library('session');
 		$this->load->model('Login_auth_db');
-		$this->load->library('session');
+		
 
 	}
 
@@ -66,7 +66,11 @@ class Login extends CI_Controller {
 					'type'	=> $user_data['type']
 				);
 				$this->session->set_userdata('user_data_session', $user_detail);
+				/*$this->session->set_userdata('user_data_session', $user_data['user_id']);
+				$this->session->set_userdata('user_data_session', $user_data['username']);
+				$this->session->set_userdata('user_data_session', $user_data['type']);*/
 				$this->session->set_userdata('logged_in', true);
+				$this->session->set_userdata('why', 'haahha');
 				
 
 
@@ -105,6 +109,11 @@ class Login extends CI_Controller {
 				}
 
 				
+				echo $this->session->userdata('user_data_session')['user_id'];
+
+				
+
+				echo "nothing";
 
 			} else {
 

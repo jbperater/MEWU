@@ -18,14 +18,15 @@ Class Maintenance_model extends CI_Model {
 				
 	}
 
-	 function view_sched(){
+	 function view_sched($id){
 
 		  /*$this->db->select("job_id,date,description,bldg_no,location");
 		  $this->db->from('job_req');*/
 
-		  $this->db->select("job_id,item_no,date_req,work_description,bldg_no,location,fname,mname,lname");
+		  $this->db->select("job_id,item_no,date_req,work_description,bldg_no,location,date_time_start,date_time_fin");
 		  $this->db->from('job_req');
 		  $this->db->where('remark','approve');
+		  $this->db->where('person_attend',$id);
 
 		  $query = $this->db->get();
 		  return $query->result();
