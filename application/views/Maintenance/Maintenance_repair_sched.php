@@ -30,20 +30,23 @@ $level = $user_detail['type'];
 
 			
 				  </tr>
-					<?php foreach($data as $data){?>
+
+					 <?php foreach($repair as $repair){?>
 				     <tr>
-				     <td><?=$data->item_no;?></td>
-				    <td><?=$data->date_req;?></td>
-				 	<td><?=$data->work_description;?></td>
-				 	<td><?=$data->bldg_no;?></td>
-				 	<td><?=$data->location;?></td>
-				 	<td><?=$data->date_time_start;?></td>
-				 	<td><?=$data->date_time_fin;?></td>
-				 	<td> <a href="<?php echo base_url();?>Admin/admin_rep_app?id=<?=$data->job_id;?>"> 
+				     <td><?=$repair->item_no;?></td>
+				    <td><?=$repair->date_req;?></td>
+				 	<td><?=$repair->work_description;?></td>
+				 	<td><?=$repair->bldg_no;?></td>
+				 	<td><?=$repair->location;?></td>
+				 	<td><?=$repair->date_time_start;?></td>
+				 	<td><?=$repair->date_time_fin;?></td>
+				 	<td><?=$repair->remark;?></td>
+				 	
+				 	<td> <a href="<?php echo base_url();?>Maintenance/maintenance_update_sched?id=<?=$repair->job_id;?>"> 
 				 		<!-- <a data-toggle="modal" href="#myModal" > -->
-					      <button class='btn btn-success' style='width:40%;margin-top:2px;'>Update</button>
+					      <button class='btn btn-success' style='width:100%;margin-top:2px;'>Update</button>
 						</a>
-				 	 </td></tr>    
+				 	 </tr>    
 				    <?php }?>
 
 				  <tr>
@@ -56,34 +59,36 @@ $level = $user_detail['type'];
 				    <td>Joshua</td>
 				    <td></td>
 				    <td><button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="view_history" type="submit" value="Save Data">Update</button></td>
+
 				  </tr>
 
-				 <!--  <tr>
-				   <td>Centro comercial Moctezuma</td>
-				   <td>Francisco Chang</td>
-				   <td>Mexico</td>
-				 </tr>
-				 <tr>
-				   <td>Ernst Handel</td>
-				   <td>Roland Mendel</td>
-				   <td>Austria</td>
-				 </tr>
-				 <tr>
-				   <td>Island Trading</td>
-				   <td>Helen Bennett</td>
-				   <td>UK</td>
-				 </tr>
-				 <tr>
-				   <td>Laughing Bacchus Winecellars</td>
-				   <td>Yoshi Tannamuri</td>
-				   <td>Canada</td>
-				 </tr>
-				 <tr>
-				   <td>Magazzini Alimentari Riuniti</td>
-				   <td>Giovanni Rovelli</td>
-				   <td>Italy</td>
-				 </tr> -->
+				  
 				</table>
+					<div class="modal fade" id="myModal">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						          <h4 class="modal-title">Assign Personel</h4>
+						        </div>
+						        <form action="/action_page.php" class="form_group">
+						        <div class="modal-body">
+										<select name="personel" class="form-control">
+										<?php foreach($option as $option){?>
+										<option value=<?=$option->person_id;?>><?=$option->fname;?>&nbsp<?=$option->mname;?>&
+											<?=$option->lname;?></option>
+										<?php }?>
+										</select>
+										
+						        </div>
+						        <div class="modal-footer">
+						          <a href="#" data-dismiss="modal" class="btn">Close</a>
+						          <button class="btn btn-primary" type="submit">Save changes</button>
+						        </div>
+						        </form>
+						      </div>
+						    </div>
+						</div>
 			</div>
 		</div>
 	</div>

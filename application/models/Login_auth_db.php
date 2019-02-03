@@ -104,8 +104,8 @@ Class Login_auth_db extends CI_Model {
  	}
 
  	function Admin_event_req(){
-		  $this->db->select("form_no,no_participants,acroname,bldg_no,name,date_act,purpose,title_event,contact_no,date_request");
-		  $this->db->from('event_res');
+		  $this->db->select("form_no,no_participants,acroname,name,date_act,purpose,title_event,contact_no,date_request");
+		  $this->db->from('reservation_view');
 		  $query = $this->db->get();
 		  return $query->result();
  	}

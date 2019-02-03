@@ -17,7 +17,8 @@ $level = $user_detail['type'];
 					</ol>
 				</div>
 				<table>
-					<tr><td><strong>Number</strong></td>
+					<tr>
+					<!-- <td><strong>Number</strong></td> -->
 					<td><strong>Name</strong></td>
 					<td><strong>Brand</strong></td>
 					<td><strong>Model</strong></td>
@@ -25,6 +26,7 @@ $level = $user_detail['type'];
 					<td><strong>Office</strong></td>
 					<td><strong>Department</strong></td>
 					<td><strong>Year Acquired</strong>
+					<td><strong></strong>
 					<td></td></td></tr> 
 				     
 				     <?php foreach($equipment as $equipment){?>
@@ -37,52 +39,111 @@ $level = $user_detail['type'];
 				 	<td><?=$equipment->office;?></td>
 				 	<td><?=$equipment->depart;?></td>
 				 	<td><?=$equipment->year_acc;?></td>
-				 	<td><button class="btn btn-lg btn-primary btn-block btn-signin" float="right" name="view_history" type="submit" value="Save Data">View History</button></td></tr>     
+				 	<td>
+				 	<a href="<?php echo base_url();?>Admin/admin_rep_dec?id=<?=$equipment->equip_id;?>">
+				 		<button class="btn btn-success" style='width:45%;margin-top:2px;' name="view_history" type="submit">Add History</button>
+				 	</a>   
+					<a href="<?php echo base_url();?>Admin/admin_rep_dec?id=<?=$equipment->equip_id;?>">
+				 		<button class="btn btn-primary btn-signin" name="view_history" type="submit" style='width:45%;margin-top:2px;'>View History</button></td>
+				 	</a> 
+				 	</tr>  
 				    <?php }?>
-				  <!--<tr>
-				    <th>Name</th>
-				    <th>Brand</th>
-				    <th>Model</th>
-				    <th>Serial Number</th>
-				    <th>Office</th>
-				    <th>Department</th>
-				    <th>Year Acquired</th>
-				  </tr>
-				
-		            <td></td>  
-		            <td></td>
-		            <td></td>  
-		            <td></td> 
-		            <td></td>  
-		            <td></td>
-		            <td></td>   
-		            
-				 <!--  <tr>
-				   <td>Centro comercial Moctezuma</td>
-				   <td>Francisco Chang</td>
-				   <td>Mexico</td>
-				 </tr>
-				 <tr>
-				   <td>Ernst Handel</td>
-				   <td>Roland Mendel</td>
-				   <td>Austria</td>
-				 </tr>
-				 <tr>
-				   <td>Island Trading</td>
-				   <td>Helen Bennett</td>
-				   <td>UK</td>
-				 </tr>
-				 <tr>
-				   <td>Laughing Bacchus Winecellars</td>
-				   <td>Yoshi Tannamuri</td>
-				   <td>Canada</td>
-				 </tr>
-				 <tr>
-				   <td>Magazzini Alimentari Riuniti</td>
-				   <td>Giovanni Rovelli</td>
-				   <td>Italy</td>
-				 </tr> -->
+				  
 				</table>
+					<div class="modal fade" id="myModal">
+						<div class="modal-dialog">
+						    <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						          <h4 class="modal-title">Add Equipment History</h4>
+						        </div>
+						        <form action="/action_page.php" class="form_group">
+						        <div class="modal-body">
+									<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Admin/add_equip">
+										<div class="form-group">
+									     	<label for="" class="control-label col-sm-4">Date Request:</label>
+									     	<div class="col-sm-5 inputGroupContainer">
+									     		<div class="input-group">
+									     			<span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
+									     			 <input type="text" name="date_req" class='form-control' required placeholder="Date_Request">
+									     		</div>
+									     	</div>
+									     </div>
+										<div class="form-group">
+									     	<label for="" class="control-label col-sm-4">Description:</label>
+									     	<div class="col-sm-5 inputGroupContainer">
+									     		<div class="input-group">
+									     			<span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
+									     			 <input type="text" name="description" class='form-control' placeholder="Description">
+									     		</div>
+									     	</div>
+									     </div>
+										<div class="form-group">
+										    <label class="control-label col-sm-4">Part Repair:</label>
+										    <div class="col-sm-5 inputGroupContainer">
+												<div class="input-group">
+													<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
+													<input type="text" name="part_rep" class='form-control' placeholder="Part Repair">
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+									     	<label for="" class="control-label col-sm-4">Date Repair:</label>
+									     	<div class="col-sm-5 inputGroupContainer">
+									     		<div class="input-group">
+									     			<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+									     			 <input type="text" name="date_rep" class='form-control' required placeholder="Date Repair">
+									     		</div>
+									     	</div>
+									     </div>
+									     			 <input type="text" name="SerailNo" class='form-control' required placeholder="Serail No">
+									     		</div>
+									     	</div>
+									     </div>
+									    <div class="form-group">
+											<label class="control-label col-sm-4">Time Repair:</label>
+											<div class="col-sm-5 inputGroupContainer">
+												<div class="input-group">
+													<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+										    		<input type="time" name="time_rep" class='form-control' required placeholder="Time Repair">
+										    	</div>
+										    </div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-sm-4">Date Finish:</label>
+											<div class="col-sm-5 inputGroupContainer">
+												<div class="input-group">
+													<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+											 		 <input type="text" name="office" class='form-control'placeholder="date_fin">
+												</div>
+											</div>
+									 	</div>
+									     <div class="form-group">
+									     	<label for="" class="control-label col-sm-4">Remark</label>
+									     	<div class="col-sm-5 inputGroupContainer">
+									     		<div class="input-group">
+									     			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+									     			 <input type="text" name="remark" class='form-control' required placeholder="Type">
+									     		</div>
+									     	</div>
+									     </div>
+									   <div class="form-group">
+									    <label for="" class="col-sm-4 control-label"></label>
+									   		<div class="col-sm-5">
+									  		<button type="submit" class="btn btn-primary" id="submit" name="submit" width="100px">Submit <span class="glyphicon glyphicon-send"></span></button>
+
+									  </div>
+									  </div>
+							  		</form>
+								        </div>
+								        <div class="modal-footer">
+								          <a href="#" data-dismiss="modal" class="btn">Close</a>
+								          <button class="btn btn-primary" type="submit">Save changes</button>
+								        </div>
+						        </form>
+						    </div>
+						</div>
+					</div>
 			</div>
 		</div>
 	</div>

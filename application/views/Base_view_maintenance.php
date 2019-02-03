@@ -8,7 +8,19 @@ $type = $user_detail['type'];
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}
 if($content == 'Maintenance_view_equip') { $this->load->view('Maintenance/Maintenance_view_equip'); $selected = $content; $content='';}
 if($content == 'Maintenance_add_report') { $this->load->view('Maintenance/Maintenance_add_report'); $selected = $content; $content='';}
-if($content == 'Maintenance_repair_sched') { $this->load->view('Maintenance/Maintenance_repair_sched'); $selected = $content; $content='';}
+if($content == 'Maintenance_update_sched') { 
+        $id = $this->input->get('id');
+        $query = $this->Maintenance_model->update_sched($id);
+        $data['data'] = $query;
+        $this->load->view('Maintenance/Maintenance_update_sched',$data); 
+        $selected = 'Maintenance_repair_sched'; 
+        $content='';}
+if($content == 'Maintenance_repair_sched') { 
+        $id= $this->session->userdata('user_data_id');
+        $query = $this->Maintenance_model->view_sched($id);
+        $data['content'] = 'Maintenance_repair_sched';
+        $data['repair'] =  $query;
+    $this->load->view('Maintenance/Maintenance_repair_sched',$data); $selected = $content; $content='';}
 if($content == 'Maintenance_all_sched') { $this->load->view('Maintenance/Maintenance_all_sched'); $selected = $content; $content='';}
 
 
