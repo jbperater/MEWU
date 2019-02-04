@@ -235,7 +235,7 @@ class Admin extends CI_Controller {
 		$per_id = $this->input->post('personel');
 		$job_id = $this->input->get('id');
 		$this->main_model->update_per_ass($per_id,$job_id);
-		/*redirect( base_url(). "Admin/Admin_pen_rep" );*/
+		redirect( base_url(). "Admin/Admin_pen_rep" );
 	}
 
 	public function admin_equip_add(){

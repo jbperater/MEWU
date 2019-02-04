@@ -41,16 +41,11 @@ $level = $user_detail['type'];
 							     	<label for="" class="control-label col-sm-4">Department: (please check)</label>
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
-							     			  <input type="checkbox" name="vehicle" value="Bike">College of Engineering and Architecture<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> College of Science and Mathematics<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> College of Science and Technology Education<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> College of Information Technology and Computing<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> College of Technology<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> Graduate School<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> Student Organiation<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> University Administration<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> Others:
-							     			  	 <input id="propertytype_other" name="propertytype_other" type="text" value=""  placeholder="Please Specify" class="form-control"><br>
+							     			<select name="depart" id="" class="form-control">
+							     			  <?php foreach($option as $option){?>
+											<option value=<?=$option->person_id;?>><?=$option->fname;?></option>
+											<?php }?>
+							     			</select>
 							     		</div>
 							     	</div>
 							     </div>
@@ -77,12 +72,19 @@ $level = $user_detail['type'];
 							     	<label for="" class="control-label col-sm-4">Purpose: (please check)</label>
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
-							     			  <input type="checkbox" name="vehicle" value="Bike"> Lecture/Forum/Symposium<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> Film Showing<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> Seminar/Workshop/Conference<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> General Assembly<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> Others:
-							     			  	 <input id="propertytype_other" name="propertytype_other" type="text" value=""     placeholder="Please Specify" class="form-control"><br>
+							     			<select name="" id="" class="form-control">
+							     				<option 
+							     			  > </option>
+							     			  <option 
+							     			  <option 
+							     			   value="Lecture/Forum/Symposium"> Lecture/Forum/Symposium</option>
+							     			  <option 
+							     			   value="Film Showing"> Film Showing</option>
+							     			  <option 
+							     			   value="Seminar/Workshop/Conference"> Seminar/Workshop/Conference</option>
+							     			  <option 
+							     			   value="General Assembly"> General Assembly</option>
+							     			</select>
 							     		</div>
 							     	</div>
 							     </div>
