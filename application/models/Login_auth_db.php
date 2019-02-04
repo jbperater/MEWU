@@ -132,10 +132,10 @@ Class Login_auth_db extends CI_Model {
 
 }
 
-	function update_info($fname,$mname,$lname,$bday,$position,$contact_no,$email)
+	function insert_info($fname,$mname,$lname,$bday,$position,$contact_no,$email)
 	{
 
-			$query="update persons SET person_attend= $person_attend where job_id = $approve";
+			$query="insert into persons values('','$fname','$mname','$lname','$bday','$position','$contact_no','$email','')";
 			$this->db->query($query);
 		}
 	

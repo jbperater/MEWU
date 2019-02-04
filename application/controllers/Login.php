@@ -76,12 +76,14 @@ class Login extends CI_Controller {
 
 
 				// user login ok
-				if ( $user_detail['sign'] ==='0' ){
-					redirect('Update_info/update_info');
+				if ( $user_detail['sign'] ==='0'  ){
+					$data_to_view['selected'] = 'dashboard';
+					$data_to_view['content'] = 'dashboard';
+					$this->load->view('update_info',$data_to_view);
 
 				
 				}
-				if ( $user_detail['type'] ==='admin' ){
+				elseif ( $user_detail['type'] ==='admin' ){
 					$data_to_view['selected'] = 'dashboard';
 					$data_to_view['content'] = 'dashboard';
 					$this->load->view('base_view',$data_to_view);

@@ -8,28 +8,68 @@ class update_info extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 
-		// $this->load->model('Login_auth_db');
-		$this->load->view('update_info');
-
+		$this->load->model('Login_auth_db');
 
 	}
 	
 	
-	public function update_info() {
+	// public function Admin_set_event() {
+
 		
-		// $query = $this->Login_auth_db->admin_event_req();
-		// $data['event_req'] = null;
-		  
-		// if($query){
-		// $data['event_req'] =  $query;
-		// $data['content'] ='Admin_pen_req';
-		// $this->load->view('base_view', $data);
-		// //$data['content'] = 'Admin_pen_rep';
-		// //$this->load->view('base_view', $data);
+	// 	$data['content'] = 'Admin_set_event';
+	// 	$this->load->view('base_view', $data);
+	// 	/*Check submit button */
+	// 	echo "Records Saved Successfully";
+	// public function Admin_set_event() {
 
-		// $this->load->view('update_info', $data);
+		
+	// 	$data['content'] = 'Admin_set_event';
+	// 	$this->load->view('base_view', $data);
+	// 	/*Check submit button */
+	// 	echo "Records Saved Successfully";
+	// 	}
+	
+	// public function Admin_add_event() {
+	
+		
+	// 	$no_participants=$this->input->post('no_participants');
+	// 	$date_act=$this->input->post('date_act');
+	// 	$title_event=$this->input->post('title_event');
+	// 	$contact_no=$this->input->post('contact_no');
+	// 	$date_request=$this->input->post('date_request');
 
+	// 	$this->Login_auth_db->set_event($no_participants,$date_act,$title_event,$contact_no,$date_request);	
+		
+	
+	// }
+	// // 	}
+
+	public function insert_infos() {
+
+		
+		
+		$this->load->view('update_info', $data);
+		/*Check submit button */
+		echo "Records Saved Successfully";
+		}
+	
+	public function insert_info() {
+
+		
+	
+		
+		$fname=$this->input->post('fname');
+		$mname=$this->input->post('mname');
+		$lname=$this->input->post('lname');
+		$bday=$this->input->post('bday');
+		$position=$this->input->post('position');
+		$contact_no=$this->input->post('contact_no');
+		$email=$this->input->post('email');
+
+		$this->Login_auth_db->insert_info($fname,$mname,$lname,$bday,$position,$contact_no,$email);	
+		
+	
 	}
 }
 
-?>
+
