@@ -96,7 +96,7 @@ Class Main_model extends CI_Model {
 	function maintenance_personel(){
 		  $this->db->select("person_id,fname,mname,lname");
 		  $this->db->from('persons');
-		  $this->db->where('position','maintenance');
+		  $this->db->where('type','maintenance');
 		  $query = $this->db->get();
 		  return $query->result();
  	}

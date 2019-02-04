@@ -7,7 +7,7 @@
 						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 						          <h4 class="modal-title">Assign Personel</h4>
 						        </div>
-						        <form action="<?php echo base_url();?>Admin/admin_per_ass?id=<?php echo base_url();?>" class="form_group" method="post">
+						        <form action="<?php echo base_url();?>Admin/admin_per_ass?id=<?php echo $this->input->get('id');?>" class="form_group" method="post">
 						        <div class="modal-body">
 										<select name="personel" class="form-control">
 										<?php foreach($option as $option){?>
