@@ -9,6 +9,7 @@ class Admin extends CI_Controller {
 		$this->load->library('session');
 
 		$this->load->model('Login_auth_db');
+		$this->load->model('main_model');
 
 	}
 	
