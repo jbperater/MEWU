@@ -16,6 +16,7 @@ if($content == 'Staff_dec_repair_req') { $this->load->view('Staff/Staff_dec_repa
 if($content == 'Staff_pen_event_req') { $this->load->view('Staff/Staff_pen_event_req'); $selected = $content; $content='';}
 if($content == 'Staff_pen_repair_req') { $this->load->view('Staff/Staff_pen_repair_req'); $selected = $content; $content='';}
 if($content == 'Staff_view_sched') { $this->load->view('Staff/Staff_view_sched'); $selected = $content; $content='';}
+if($content == 'Staff_view_sched') { $this->load->view('Staff/Staff_view_sched'); $selected = $content; $content='';}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,6 +44,8 @@ if($content == 'Staff_view_sched') { $this->load->view('Staff/Staff_view_sched')
     <link href="<?php echo base_url();?>assets/css/plugins/morris.css" rel="stylesheet">
 
     <link href="<?php echo base_url();?>assets/css/css.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/scripts/fullcalendar/fullcalendar.min.css" />
 
     <!-- Custom Fonts 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"  -->
@@ -172,14 +175,87 @@ if($content == 'Staff_view_sched') { $this->load->view('Staff/Staff_view_sched')
             MEWU 2019: Mechanical and Electrical Work Unit USTP
         </a>
         </div>
-        
-    </div>
+    <?php
+        if($content == 'Student_view_sched') { $this->load->view('Student_view_sched'); $selected = $content; $content='';}
+        ?>
     
-    <!-- jQuery -->
+     jQuery
     <script src="<?php echo base_url();?>assets/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
+    
+    
+    Bootstrap Core JavaScript
     <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
+    
+    <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/lib/moment.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/lib/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/fullcalendar.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/gcal.js"></script>
+    
+    <script type="text/javascript">
+
+    var date_last_clicked = null;
+
+    $(document).ready(function() {
+
+        /*$.post('<?php echo base_url() ?>calendar/get_eventss',
+            function(data){
+                alert(data);
+            });*/
+        $('#calendar').fullCalendar({
+            header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,basicWeek,basicDay',
+          },
+            
+             eventSources: [
+                {
+                     events: function(start, end, timezone, callback) {
+                     $.ajax({
+                     url: '<?php echo base_url() ?>calendar/get_events',
+                     dataType: 'json',
+                     data: {
+                     // our hypothetical feed requires UNIX timestamps
+                     start: start.unix(),
+                     end: end.unix()
+                     },
+                     success: function(msg) {
+                         var events = msg.events;
+                         callback(events);
+                     }
+                     });
+                 }
+                }
+            ],
+
+             dayClick: function(date, jsEvent, view) {
+                    date_last_clicked = $(this);
+                    $(this).css('background-color', '#bed7f3');
+                    $("#addModal").modal('show');
+               console.log(date_last_clicked);
+            }
+
+            
+        });
+
+        $('.fc-day').click(function(e){
+            console.log($(e.currentTarget));
+
+            $("#addModal").modal('show');
+        })
+
+
+
+        
+    });
+    </script>
+
+     jQuery 
+    <!--<script src="<?php echo base_url();?>assets/js/jquery.js"></script> 
+
+    <!-- Bootstrap Core JavaScript 
+    <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
+    -->
 
     <!-- Morris Charts JavaScript -->
     <script src="<?php echo base_url();?>assets/js/plugins/morris/raphael.min.js"></script>

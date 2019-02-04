@@ -12,52 +12,11 @@ $level = $user_detail['type'];
 				<div class="col-lg-12">
 					<ol class="breadcrumb">
 						<li class="active">
-							<i class="fa fa-file"></i> View Equipment
+							<i class="fa fa-file"></i> View Pending Repair
 						</li>
 					</ol>
 				</div>
-				<table>
-					<tr>
-					<!-- <td><strong>Number</strong></td> -->
-					<td><strong>Name</strong></td>
-					<td><strong>Brand</strong></td>
-					<td><strong>Model</strong></td>
-					<td><strong>Serial Number</strong></td>
-					<td><strong>Office</strong></td>
-					<td><strong>Department</strong></td>
-					<td><strong>Year Acquired</strong>
-					<td><strong></strong>
-					<td></td></td></tr> 
-				     
-				     <?php foreach($equipment as $equipment){?>
-				     <tr>
-				    <td><?=$equipment->equip_id;?></td>
-				 	<td><?=$equipment->equip_name;?></td>
-				 	<td><?=$equipment->brand;?></td>
-				 	<td><?=$equipment->model;?></td>
-				 	<td><?=$equipment->serial_no;?></td>
-				 	<td><?=$equipment->office;?></td>
-				 	<td><?=$equipment->depart;?></td>
-				 	<td><?=$equipment->year_acc;?></td>
-				 	<td>
-				 	<a href="<?php echo base_url();?>Main/add_equip_his_form?id=<?=$equipment->equip_id;?>">
-				 		<button class="btn btn-success" style='width:45%;margin-top:2px;' name="view_history" type="submit">Add History</button>
-				 	</a>   
-					<a href="<?php echo base_url();?>Admin/admin_rep_dec?id=<?=$equipment->equip_id;?>">
-				 		<button class="btn btn-primary btn-signin" name="view_history" type="submit" style='width:45%;margin-top:2px;'>View History</button></td>
-				 	</a> 
-				 	</tr>  
-				    <?php }?>
-				  
-				</table>
-					<div class="modal fade" id="myModal">
-						<div class="modal-dialog">
-						    <div class="modal-content">
-						        <div class="modal-header">
-						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						          <h4 class="modal-title">Add Equipment History</h4>
-						        </div>
-						        <form action="/action_page.php" class="form_group">
+				<form action="/action_page.php" class="form_group">
 						        <div class="modal-body">
 									<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Main/add_equip_his">
 										<div class="form-group">
@@ -141,9 +100,6 @@ $level = $user_detail['type'];
 								          <button class="btn btn-primary" type="submit">Save changes</button>
 								        </div>
 						        </form>
-						    </div>
-						</div>
-					</div>
 			</div>
 		</div>
 	</div>

@@ -39,16 +39,16 @@ class Student extends CI_Controller {
 	
 
 
-	public function Student_set_req() {
+	public function Student_add_req() {
 
 		
-		$data['content'] = 'Student_set_event';
+		$data['content'] = 'Student_add_req';
 		$this->load->view('base_view_student', $data);
 		/*Check submit button */
 		echo "Records Saved Successfully";
 		}
 	
-	public function Student_add_req() {
+	public function Student_set_req() {
 	
 		
 		$no_participants=$this->input->post('no_participants');

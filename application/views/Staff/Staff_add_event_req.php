@@ -16,13 +16,24 @@ $level = $user_detail['type'];
 						</li>
 					</ol>
 				</div>
-				<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Staff/Staff_add_event">
+				<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Staff/Staff_add_event_req">
 								<div class="form-group">
 							     	<label for="" class="control-label col-sm-4">Number of Participants:</label>
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
-							     			 <input type="text" name="no_participants" class='form-control' required placeholder="Number of Participants">
+							     			 <input type="input" name="no_participants" class='form-control' required placeholder="Number of Participants">
+							     		</div>
+							     	</div>
+							     </div>
+							     <div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Venue: (please check)</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			  <input type="checkbox" name="vehicle" value="Bike">University Gymasium <br>
+							     			  <input type="checkbox" name="vehicle" value="Bike"> Audio Visual Room 1 (Ground Floor, ITB Phase-2<br>
+							     			  <input type="checkbox" name="vehicle" value="Bike"> Audio Visual Room 2 (4th Floor, ICT Building<br>
+							     			  <input type="checkbox" name="vehicle" value="Bike"> Audio Visual Room 3 (6th Floor, Engineering Complex<br>
 							     		</div>
 							     	</div>
 							     </div>
@@ -39,10 +50,20 @@ $level = $user_detail['type'];
 							     			  <input type="checkbox" name="vehicle" value="Bike"> Student Organiation<br>
 							     			  <input type="checkbox" name="vehicle" value="Bike"> University Administration<br>
 							     			  <input type="checkbox" name="vehicle" value="Bike"> Others:
-							     			  	 <input id="propertytype_other" name="propertytype_other" type="text" value=""     placeholder="Please Specify" class="form-control"><br>
+							     			  	 <input id="propertytype_other" name="propertytype_other" type="text" value=""  placeholder="Please Specify" class="form-control"><br>
 							     		</div>
 							     	</div>
 							     </div>
+							     <div class="form-group">
+								    <label class="control-label col-sm-4">Date Reserved:</label>
+								    <div class="col-sm-5 inputGroupContainer">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
+											<input type="date" name="date_request" class='form-control' required placeholder="Date Reserved" value="<?php echo date('Y-m-d'); ?>" />
+											<!-- <input type="date" name="date_request" class='form-control' required placeholder="Date Actual Use"> -->
+										</div>
+									</div>
+								</div>
 								<div class="form-group">
 								    <label class="control-label col-sm-4">Date Actual Use:</label>
 								    <div class="col-sm-5 inputGroupContainer">
@@ -88,7 +109,7 @@ $level = $user_detail['type'];
 							     		</div>
 							     	</div>
 							     </div>
-							    <div class="form-group">
+							    	<div class="form-group">
 							     	<label for="" class="control-label col-sm-4">Contact Number:</label>
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
@@ -106,7 +127,6 @@ $level = $user_detail['type'];
 							  </div>
 							  </div>
 					  		</form>
-			</div>
 		</div>
 	</div>
 </div>
