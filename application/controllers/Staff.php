@@ -52,16 +52,16 @@ class Staff extends CI_Controller {
 	
 // 	}
 
-	public function Student_add_event_req() {
+	public function Staff_add_event_req() {
 
 		
-		$data['content'] = 'Student_add_req';
-		$this->load->view('base_view_student', $data);
+		$data['content'] = 'Staff_add_event_req';
+		$this->load->view('base_view_staff', $data);
 		/*Check submit button */
 		echo "Records Saved Successfully";
 		}
 	
-	public function Student_set_event_req() {
+	public function Staff_set_event_req() {
 	
 		
 		$no_participants=$this->input->post('no_participants');
