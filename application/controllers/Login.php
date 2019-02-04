@@ -61,15 +61,15 @@ class Login extends CI_Controller {
 
 				
 				$user_detail = array(
-					'user_id'	=> $user_data['user_id'],
+					'person_id'	=> $user_data['person_id'],
 					'username'	=> $user_data['username'],
 					'type'	=> $user_data['type'],
 					'sign'	=> $user_data['sign']
 				);
 				$this->session->set_userdata('user_data_session', $user_detail);
-				$this->session->set_userdata('user_data_id', $user_data['user_id']);
+				/*$this->session->set_userdata('user_data_id', $user_data['person_id']);
 				$this->session->set_userdata('user_data_session', $user_data['username']);
-				$this->session->set_userdata('user_data_session', $user_data['type']);
+				$this->session->set_userdata('user_data_session', $user_data['type']);*/
 				$this->session->set_userdata('logged_in', true);
 				$this->session->set_userdata('why', 'haahha');
 				
@@ -77,6 +77,8 @@ class Login extends CI_Controller {
 
 				// user login ok
 				if ( $user_detail['sign'] ==='0'  ){
+					$lol=$this->session->userdata('user_data_session');
+					$data_to_view['id']=$lol['person_id'];
 					$data_to_view['selected'] = 'dashboard';
 					$data_to_view['content'] = 'dashboard';
 					$this->load->view('update_info',$data_to_view);

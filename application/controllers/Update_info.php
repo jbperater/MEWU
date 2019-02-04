@@ -65,11 +65,27 @@ class update_info extends CI_Controller {
 		$position=$this->input->post('position');
 		$contact_no=$this->input->post('contact_no');
 		$email=$this->input->post('email');
+		$sign=$this->input->post('sign');
 
-		$this->Login_auth_db->insert_info($fname,$mname,$lname,$bday,$position,$contact_no,$email);	
+		$this->Login_auth_db->insert_info($fname,$mname,$lname,$bday,$position,$contact_no,$email,$sign);	
 		
 	
 	}
+
+	function update_info()
+	{		
+		$id=$this->input->get('id');
+		$fname=$this->input->post('fname');
+			$mname=$this->input->post('mname');
+			$lname=$this->input->post('lname');
+			$bday=$this->input->post('bday');
+			$position=$this->input->post('position');
+			$contact_no=$this->input->post('contact_no');
+			$email=$this->input->post('email');
+			$sign=$this->input->post('sign');
+			$this->load->model('Login_auth_db');
+			$this->Login_auth_db->update_info($fname,$mname,$lname,$bday,$position,$contact_no,$email,$sign,$id);
+		}
 }
 
 

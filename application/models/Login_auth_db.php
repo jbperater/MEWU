@@ -12,7 +12,7 @@ Class Login_auth_db extends CI_Model {
 	function login($username, $password) {
 		
 		$this->db->select('*');
-		$this->db->from('accounts');
+		$this->db->from('persons');
 		$this->db->where('username', $username);
 		$this->db->where('password', $password);
 		$query = $this->db->get()->row();
@@ -33,12 +33,12 @@ Class Login_auth_db extends CI_Model {
 		
 		//$this->load->library('session');
 		$this->db->select('*');
-		$this->db->from('accounts');
+		$this->db->from('persons');
 		$this->db->where('username', $username);	
 		$query = $this->db->get();
 		
 		$user_data = array(
-			'user_id'	=> $query->row('user_id'),
+			'person_id'	=> $query->row('person_id'),
 			'username'	=> $query->row('username'),
 			'type'	=> $query->row('type'),
 			'sign'	=> $query->row('sign')
@@ -127,16 +127,31 @@ Class Login_auth_db extends CI_Model {
 	function set_account($username,$password,$type,$status,$date_created)
 	{
 
-	$query="insert into accounts values('','$username','$password','$type','$status','','$date_created')";
+	$query="insert into persons values('','','','','','','','','$username','$password','$type','$status','','$date_created')";
 	$this->db->query($query);
 
 }
 
-	function insert_info($fname,$mname,$lname,$bday,$position,$contact_no,$email)
+	function insert_info($fname,$mname,$lname,$bday,$position,$contact_no,$email,$sign)
 	{
+			$query="insert into persons values('','$fname','$mname','$lname','$bday','$position','$contact_no','$email','','','','','$sign','')";
+	$this->db->query($query);
+		}
 
-			$query="insert into persons values('','$fname','$mname','$lname','$bday','$position','$contact_no','$email','')";
-			$this->db->query($query);
+	function update_info($fname,$mname,$lname,$bday,$position,$contact_no,$email,$sign,$id)
+	{		
+			
+			$this->db->set('fname',$fname);
+			$this->db->set('mname',$mname);
+			$this->db->set('lname',$lname);
+			$this->db->set('bday',$bday);
+			$this->db->set('position',$position);
+			$this->db->set('contact_no',$contact_no);
+			$this->db->set('email',$email);
+			$this->db->set('sign',$sign);
+			$this->db->where('person_id',$id);
+			$this->db->update('persons');
+			echo $id;
 		}
 	
 }

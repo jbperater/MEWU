@@ -15,7 +15,7 @@ $user_detail = $this->session->userdata('user_data_session');
 						</li>
 					</ol>
 				</div>
-				<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Update_info/insert_info">
+				<form class="form-horizontal" method="POST" action="<?php echo base_url(); ?>Update_info/update_info?id=<?php echo$this->session->userdata('user_data_session')['person_id']; ?>">
 								<div class="form-group">
 							     	<label for="" class="control-label col-sm-4">First Name:</label>
 							     	<div class="col-sm-5 inputGroupContainer">
@@ -76,6 +76,15 @@ $user_detail = $this->session->userdata('user_data_session');
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 							     			 <input type="email" name="type" class='email' required placeholder="Email">
+							     		</div>
+							     	</div>
+							     </div>
+							     <div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Sign:</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							     			 <input type="input" name="sign" value="1">
 							     		</div>
 							     	</div>
 							     </div>
