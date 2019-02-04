@@ -49,7 +49,7 @@ class Admin extends CI_Controller {
 	
 	public function Admin_pen_rep() {
 		
-		$query = $this->Login_auth_db->view_repair();
+		 $query = $this->Login_auth_db->view_repair();
 		$query2 = $this->main_model->maintenance_personel();
 		 $data['repair'] =  $query;
 		 $data['option'] =  $query2;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2019 at 12:01 PM
+-- Generation Time: Feb 04, 2019 at 01:31 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -185,7 +185,9 @@ CREATE TABLE `event_equip` (
 INSERT INTO `event_equip` (`equip_id`, `name`, `type`) VALUES
 (1, '12', 'daw'),
 (2, 'da', 'daw'),
-(3, 'da', 'daw');
+(3, 'da', 'daw'),
+(4, 'masaya', 'Mechanical'),
+(5, 'pangit', 'Electrical');
 
 -- --------------------------------------------------------
 
@@ -293,8 +295,11 @@ CREATE TABLE `persons` (
 
 INSERT INTO `persons` (`person_id`, `fname`, `mname`, `lname`, `bday`, `position`, `contact_no`, `email`, `username`, `password`, `type`, `status`, `sign`, `date_created`) VALUES
 (1, 'Christian', 'Hundinay', 'Cat-awan', '2019-01-08', 'admin', '0916', 'h=gmail', 'chan', 'chan', 'admin', 'active', 1, '2019-02-03 21:38:05'),
-(2, 'joshua', 'Hundinay', 'Garbosa', '2019-02-04', 'maintenance', '122', 'cat-awan@gmail.com', 'joshua', 'joshua', 'maintenance', 'active', 1, '2019-02-03 21:38:05'),
-(11, 'cristyfel', 'uayan', 'pagutayao', '2019-02-05', 'Admin', '00000000', NULL, 'tyfel', '1', 'student', 'active', 1, '2019-02-03 18:14:00');
+(2, 'joshua', 'Hundinay', 'Garbosa', '2019-02-04', 'admin', '122', 'cat-awan@gmail.com', 'joshua', 'joshua', 'admin', 'active', 1, '2019-02-03 21:38:05'),
+(11, 'cristyfel', 'uayan', 'pagutayao', '2019-02-05', 'Admin', '00000000', NULL, 'tyfel', '1', 'student', 'active', 1, '2019-02-03 18:14:00'),
+(12, 'Nikkie', 'Abrea', 'Eduria', '2019-02-04', 'Student', '00000000', NULL, 'student', '1', 'student', 'active', 1, '2019-02-03 18:42:00'),
+(13, 'Nikkie', 'Abrea', 'Eduria', '2019-02-04', 'student', '32424', NULL, 'nikkie', '1', 'student', 'active', 1, '2019-02-04 19:43:00'),
+(14, 'Nikkie', 'Abrea', 'Eduria', '2019-02-04', 'staff', '99999', NULL, 'staff', '1', 'staff', 'active', 1, '2019-02-04 20:54:00');
 
 -- --------------------------------------------------------
 
@@ -459,7 +464,8 @@ CREATE TABLE `venue` (
 INSERT INTO `venue` (`venue_id`, `bldg_no`, `name`, `type`) VALUES
 (1, '1', 'dawdczs', 'dawczs'),
 (2, '1', 'dadadaw', 'dad'),
-(3, 'd', '12', 'daw');
+(3, 'd', '12', 'daw'),
+(4, '100', 'masaya', 'audio room');
 
 -- --------------------------------------------------------
 
@@ -651,7 +657,7 @@ ALTER TABLE `equipment`
 -- AUTO_INCREMENT for table `event_equip`
 --
 ALTER TABLE `event_equip`
-  MODIFY `equip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `equip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `job_req`
@@ -663,7 +669,7 @@ ALTER TABLE `job_req`
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `person_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `person_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `reserve_request`
@@ -675,7 +681,7 @@ ALTER TABLE `reserve_request`
 -- AUTO_INCREMENT for table `venue`
 --
 ALTER TABLE `venue`
-  MODIFY `venue_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `venue_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
