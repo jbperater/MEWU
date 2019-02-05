@@ -7,15 +7,14 @@ $type = $user_detail['type'];
 
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}
 if($content == 'Staff_add_event_req') { $this->load->view('Staff/Staff_add_event_req'); $selected = $content; $content='';}
-if($content == 'Staff_add_event') { $this->load->view('Staff/Staff_add_event'); $selected = $content; $content='';}
 if($content == 'Staff_add_repair_req') { $this->load->view('Staff/Staff_add_repair_req'); $selected = $content; $content='';}
+if($content == 'Staff_add_event_req') { $this->load->view('Staff/Staff_add_event_req'); $selected = $content; $content='';}
 if($content == 'Staff_app_event_req') { $this->load->view('Staff/Staff_app_event_req'); $selected = $content; $content='';}
 if($content == 'Staff_app_repair_req') { $this->load->view('Staff/Staff_app_repair_req'); $selected = $content; $content='';}
 if($content == 'Staff_dec_event_req') { $this->load->view('Staff/Staff_dec_event_req'); $selected = $content; $content='';}
 if($content == 'Staff_dec_repair_req') { $this->load->view('Staff/Staff_dec_repair_req'); $selected = $content; $content='';}
 if($content == 'Staff_pen_event_req') { $this->load->view('Staff/Staff_pen_event_req'); $selected = $content; $content='';}
 if($content == 'Staff_pen_repair_req') { $this->load->view('Staff/Staff_pen_repair_req'); $selected = $content; $content='';}
-if($content == 'Staff_view_sched') { $this->load->view('Staff/Staff_view_sched'); $selected = $content; $content='';}
 if($content == 'Staff_view_sched') { $this->load->view('Staff/Staff_view_sched'); $selected = $content; $content='';}
 ?>
 <!DOCTYPE html>
