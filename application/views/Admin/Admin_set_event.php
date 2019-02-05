@@ -22,18 +22,21 @@ $level = $user_detail['type'];
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
-							     			 <input type="input" name="no_participants" class='form-control' required placeholder="Number of Participants">
-							     		</div>
+							     			 <input type="input" name="no_participants" class='form-control' required placeholder="<?php echo $id; ?>">
+							     		</div>  
 							     	</div>
 							     </div>
 							     <div class="form-group">
 							     	<label for="" class="control-label col-sm-4">Venue: (please check)</label>
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
-							     			  <input type="checkbox" name="vehicle" value="Bike">University Gymasium <br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> Audio Visual Room 1 (Ground Floor, ITB Phase-2<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> Audio Visual Room 2 (4th Floor, ICT Building<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> Audio Visual Room 3 (6th Floor, Engineering Complex<br>
+							     			<?php foreach($venuedata as $venuedata){?>
+							     			  <input type="checkbox" name="venue[]" value="<?=$venuedata->venue_id;?>"><?=$venuedata->bldg_no;?>&nbsp<?=$venuedata->name;?> <br>
+							     			<?php }?>
+							     			 <!--  <input type="checkbox" name="venue[]" value="1">University Gymasium <br>
+							     			 <input type="checkbox" name="venue[]" value="2"> Audio Visual Room 1 (Ground Floor, ITB Phase-2<br>
+							     			 <input type="checkbox" name="venue[]" value="3"> Audio Visual Room 2 (4th Floor, ICT Building<br>
+							     			 <input type="checkbox" name="venue[]" value="4"> Audio Visual Room 3 (6th Floor, Engineering Complex<br> -->
 							     		</div>
 							     	</div>
 							     </div>
@@ -41,9 +44,9 @@ $level = $user_detail['type'];
 							     	<label for="" class="control-label col-sm-4">Department: (please check)</label>
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
-							     			<select name="depart" id="" class="form-control">
+							     			<select name="department" id="" class="form-control">
 							     			  <?php foreach($option as $option){?>
-											<option value=<?=$option->person_id;?>><?=$option->fname;?></option>
+											<option value=<?=$option->dep_id;?>><?=$option->acroname;?> - &nbsp<?=$option->name;?></option>
 											<?php }?>
 							     			</select>
 							     		</div>
@@ -69,12 +72,11 @@ $level = $user_detail['type'];
 									</div>
 								</div>
 								<div class="form-group">
-							     	<label for="" class="control-label col-sm-4">Purpose: (please check)</label>
+							     	<label for="" class="control-label col-sm-4">Purpose:</label>
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
-							     			<select name="" id="" class="form-control">
-							     				<option 
-							     			  > </option>
+							     			<select name="purpose" id="" class="form-control">
+						
 							     			  <option 
 							     			  <option 
 							     			   value="Lecture/Forum/Symposium"> Lecture/Forum/Symposium</option>
@@ -92,13 +94,20 @@ $level = $user_detail['type'];
 							     	<label for="" class="control-label col-sm-4">Equipment Needed: (please check)</label>
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
-							     			  <input type="checkbox" name="vehicle" value="Bike">Multi-media Data Projector LCD Projector<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> Sound System<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> Scoreboard<br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> Tables:
-							     			  	 <input id="propertytype_other" name="propertytype_other" type="text" value=""     placeholder="Specify #" class="form-control"><br>
-							     			  <input type="checkbox" name="vehicle" value="Bike"> Chairs:
-							     			  	 <input id="propertytype_other" name="propertytype_other" type="text" value=""     placeholder="Specify #" class="form-control"><br>
+							     			<?php foreach($equip_event as $equip_event){?>
+							     			  <input type="checkbox" name=event[]" value="<?=$equip_event->equip_id;?>"><?=$equip_event->name;?> <br>
+							     			<?php }?>
+							     			  <!-- <input type="checkbox" name="equipneed[]" value="Multi-media Data Projector LCD Projector">Multi-media Data Projector LCD Projector<br>
+							     			  <input type="checkbox" name="equipneed[]" value="Sound System"> Sound System<br>
+							     			  <input type="checkbox" name="equipneed[]" value="Scoreboard"> Scoreboard<br> -->
+							     			  <div class="form-group">
+							     			 <label for="" class="control-label">Table:</label>
+									     	<input type="text" name="table_no" class='form-control col-sm-3' required placeholder="Table No">
+									     	</div>
+									     	 <div class="form-group">
+							     			  <label for="" class="control-label">Chair:</label>
+									     	<input type="text" name="chair_no" class='form-control col-sm-3' required placeholder="Chair No">
+									     	</div>
 							     		</div>
 							     	</div>
 							     </div>
@@ -125,7 +134,6 @@ $level = $user_detail['type'];
 							    <label for="" class="col-sm-4 control-label"></label>
 							   		<div class="col-sm-5">
 							  		<button type="submit" class="btn btn-primary" id="submit" name="submit" width="100px">Submit <span class="glyphicon glyphicon-send"></span></button>
-
 							  </div>
 							  </div>
 					  		</form>

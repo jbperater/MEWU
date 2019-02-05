@@ -62,7 +62,9 @@ class Admin extends CI_Controller {
 
 	public function Admin_set_event() {
 
-		
+		$res = $this->session->userdata('user_data_session');
+		$id = $res['person_id'];
+		echo $res;
 		$data['content'] = 'Admin_set_event';
 		$this->load->view('base_view', $data);
 		/*Check submit button */
@@ -70,15 +72,40 @@ class Admin extends CI_Controller {
 		}
 	
 	public function Admin_add_event() {
-	
 		
-		$no_participants=$this->input->post('no_participants');
+		$res = $this->session->userdata('user_data_session')['person_id'];
+
+		// $venue1=$this->input->post('venue');
+		// $data2=array('venue_id'=>json_encode(implode(",", $venue1)),);
+		$data2 = $this->input->post('venue[]');
+		$data3 = $this->input->post('event[]');
+		$table_no = $this->input->post('table_no');
+		$chair_no = $this->input->post('chair_no');
+		$data = array(	
+				'no_participants' => $this->input->post('no_participants'),
+				'department'=>$this->input->post('department'),
+				'date_act'=>$this->input->post('date_act'),
+				'purpose'=>$this->input->post('purpose'),
+				'title_event'=>$this->input->post('title_event'),
+				'contact_no'=>$this->input->post('contact_no'),
+				'date_request'=>$this->input->post('date_request'),
+				'res_by'=>		$this->session->userdata('user_data_session')['person_id']
+			);	
+		/*$no_participants=$this->input->post('no_participants');
 		$date_act=$this->input->post('date_act');
 		$title_event=$this->input->post('title_event');
 		$contact_no=$this->input->post('contact_no');
-		$date_request=$this->input->post('date_request');
-
-		$this->Login_auth_db->set_event($no_participants,$date_act,$title_event,$contact_no,$date_request);	
+		$date_request=$this->input->post('date_request');*/
+		
+		echo 'no';
+		/*$this->Login_auth_db->set_event($no_participants,$date_act,$title_event,$contact_no,$date_request);	*/
+		
+		
+		$this->Login_auth_db->set_event_ni($data,$data2);
+		$last_id = $this->Login_auth_db->last_id();
+		echo $last_id;
+		$this->Login_auth_db->set_event_venue($last_id,$data2);
+		$this->Login_auth_db->set_equip_event($last_id,$data3,$table_no,$chair_no);
 		
 	
 	}

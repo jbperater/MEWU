@@ -94,8 +94,53 @@ Class Login_auth_db extends CI_Model {
  	function set_event($no_participants,$date_act,$title_event,$contact_no,$date_request)
 	{
 
-	$query="insert into reserve_request values('','$no_participants','','','$date_act','','$title_event','','$contact_no','','','$date_request')";
+	$query="insert into reserve_request values('','$no_participants','','','$date_act','','$title_event','','$contact_no','1','','$date_request')";
 	$this->db->query($query);
+	echo'who';
+}		
+
+	function set_event_ni($data,$data2)
+	{
+
+	$this->db->insert('reserve_request',$data);
+	
+	
+
+}
+	
+	function last_id(){
+		$last=$this->db->insert_id('reserve_request',array('form_no' => 'value'));
+		return $last;
+	}
+
+	function set_event_venue($last,$data)
+	{
+	// $last=$this->db->insert_id('reserve_request',array('form_no' => 'value'));
+	
+	echo $last;
+	foreach ($data as $data) {
+	$query="insert into reserve_ven values('$last','$data')";
+	$this->db->query($query);
+	
+	}
+	
+	
+}	
+	
+	function set_equip_event($last,$data,$table,$chair)
+	{
+	// $last=$this->db->insert_id('reserve_request',array('form_no' => 'value'));
+
+	echo $last;
+
+	foreach ($data as $data) {
+	$query="insert into reserve_equip_need values('$last','$data',$table,$chair)";
+	$this->db->query($query);
+	
+
+	}
+	
+	
 }
 
 
