@@ -138,20 +138,5 @@ Class Login_auth_db extends CI_Model {
 	$this->db->query($query);
 		}
 
-	function update_info($fname,$mname,$lname,$bday,$position,$contact_no,$email,$sign,$id)
-	{		
-			
-			$this->db->set('fname',$fname);
-			$this->db->set('mname',$mname);
-			$this->db->set('lname',$lname);
-			$this->db->set('bday',$bday);
-			$this->db->set('position',$position);
-			$this->db->set('contact_no',$contact_no);
-			$this->db->set('email',$email);
-			$this->db->set('sign',$sign);
-			$this->db->where('person_id',$id);
-			$this->db->update('persons');
-			echo $id;
-		}
 	
 }

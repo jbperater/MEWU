@@ -12,7 +12,7 @@ $level = $user_detail['type'];
 				<div class="col-lg-12">
 					<ol class="breadcrumb">
 						<li class="active">
-							<i class="fa fa-file"></i> View Pending Repair
+							<i class="fa fa-file"></i> Event Requests
 						</li>
 					</ol>
 				</div>

@@ -223,13 +223,16 @@ if($content == 'Admin_set_account') { $this->load->view('Admin/Admin_set_account
                     </li>
 
                     <?php 
-                    if ($selected == 'Admin_add_account')  echo '<li class="active" >';
+                    if ($selected == 'Admin_add_account'|| $selected == 'Admin_manage_account')  echo '<li class="active" >';
                     else echo '<li>';
                     ?>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo8"><i class="fa fa-fw fa-file"></i>Create Account<i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo8"><i class="fa fa-fw fa-file"></i>Accounts<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo8" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Admin/Admin_set_account"> Create Account</a>
+                            </li>
+                             <li>
+                                <a href="<?php echo base_url(); ?>Admin/search"> Manage Account</a>
                             </li>
                             
                         </ul>
