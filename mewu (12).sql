@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2019 at 10:38 PM
+-- Generation Time: Feb 05, 2019 at 12:16 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -185,7 +185,9 @@ CREATE TABLE `event_equip` (
 INSERT INTO `event_equip` (`equip_id`, `name`, `type`) VALUES
 (1, '12', 'daw'),
 (2, 'da', 'daw'),
-(3, 'da', 'daw');
+(3, 'da', 'daw'),
+(4, 'masaya', 'Mechanical'),
+(5, 'pangit', 'Electrical');
 
 -- --------------------------------------------------------
 
@@ -203,7 +205,7 @@ CREATE TABLE `job_req` (
   `date_time_fin` datetime DEFAULT NULL,
   `person_attend` int(11) DEFAULT NULL,
   `remark` varchar(50) DEFAULT NULL,
-  `requested_by` int(11) NOT NULL,
+  `requested_by` int(11) DEFAULT NULL,
   `approve_by` int(11) DEFAULT NULL,
   `date_req` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -214,7 +216,7 @@ CREATE TABLE `job_req` (
 
 INSERT INTO `job_req` (`job_id`, `item_no`, `work_description`, `bldg_no`, `location`, `date_time_start`, `date_time_fin`, `person_attend`, `remark`, `requested_by`, `approve_by`, `date_req`) VALUES
 (1, 2, 'wala', '201', 'bisan asa', '2019-02-19 11:11:00', '2019-02-13 11:11:00', 2, 'decline', 1, 1, '2019-02-01 17:50:57'),
-(3, NULL, NULL, '201', 'dadawd', '2019-02-13 00:00:00', '2019-02-13 00:00:00', NULL, 'pending', 1, NULL, '2019-02-03 06:12:10');
+(3, NULL, NULL, '201', 'dadawd', '2019-02-13 00:00:00', '2019-02-13 00:00:00', NULL, 'approve', 1, NULL, '2019-02-03 06:12:10');
 
 -- --------------------------------------------------------
 
@@ -272,18 +274,18 @@ CREATE TABLE `maintenance_rec` (
 
 CREATE TABLE `persons` (
   `person_id` int(11) NOT NULL,
-  `fname` varchar(50) NOT NULL,
+  `fname` varchar(50) DEFAULT NULL,
   `mname` varchar(50) DEFAULT NULL,
-  `lname` varchar(50) NOT NULL,
-  `bday` date NOT NULL,
-  `position` varchar(50) NOT NULL,
+  `lname` varchar(50) DEFAULT NULL,
+  `bday` date DEFAULT NULL,
+  `position` varchar(50) DEFAULT NULL,
   `contact_no` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `type` varchar(20) NOT NULL,
   `status` varchar(32) NOT NULL,
-  `sign` int(11) NOT NULL,
+  `sign` int(11) DEFAULT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -292,8 +294,12 @@ CREATE TABLE `persons` (
 --
 
 INSERT INTO `persons` (`person_id`, `fname`, `mname`, `lname`, `bday`, `position`, `contact_no`, `email`, `username`, `password`, `type`, `status`, `sign`, `date_created`) VALUES
-(1, 'Christian', 'Hundinay', 'Cat-awan', '2019-01-08', 'admin', '0916', 'h=gmail', '', '', '', '', 0, '2019-02-03 21:38:05'),
-(2, 'joshua', 'Hundinay', 'Garbosa', '2019-02-04', 'maintenance', '122', 'cat-awan@gmail.com', '', '', '', '', 0, '2019-02-03 21:38:05');
+(1, 'Christian', 'Hundinay', 'Cat-awan', '2019-01-08', 'admin', '0916', 'h=gmail', 'chan', 'chan', 'admin', 'active', 1, '2019-02-03 21:38:05'),
+(2, 'joshua', 'Hundinay', 'Garbosa', '2019-02-04', 'admin', '122', 'cat-awan@gmail.com', 'joshua', 'joshua', 'admin', 'active', 1, '2019-02-03 21:38:05'),
+(11, 'cristyfel', 'uayan', 'pagutayao', '2019-02-05', 'Admin', '00000000', NULL, 'tyfel', '1', 'student', 'active', 1, '2019-02-03 18:14:00'),
+(12, 'Nikkie', 'Abrea', 'Eduria', '2019-02-04', 'Student', '00000000', NULL, 'student', '1', 'student', 'active', 1, '2019-02-03 18:42:00'),
+(13, 'Nikkie', 'Abrea', 'Eduria', '2019-02-04', 'student', '32424', NULL, 'nikkie', '1', 'student', 'active', 1, '2019-02-04 19:43:00'),
+(14, 'Nikkie', 'Abrea', 'Eduria', '2019-02-04', 'staff', '99999', NULL, 'staff', '1', 'staff', 'active', 1, '2019-02-04 20:54:00');
 
 -- --------------------------------------------------------
 
@@ -348,16 +354,21 @@ CREATE TABLE `reservation_view` (
 
 CREATE TABLE `reserve_equip_need` (
   `form_no` int(11) NOT NULL,
-  `even_equip_id` int(11) NOT NULL
+  `even_equip_id` int(11) NOT NULL,
+  `table_no` int(11) DEFAULT NULL,
+  `chair_no` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `reserve_equip_need`
 --
 
-INSERT INTO `reserve_equip_need` (`form_no`, `even_equip_id`) VALUES
-(1, 1),
-(1, 1);
+INSERT INTO `reserve_equip_need` (`form_no`, `even_equip_id`, `table_no`, `chair_no`) VALUES
+(1, 1, NULL, NULL),
+(1, 1, NULL, NULL),
+(68, 1, 11, 11),
+(69, 2, 11, 11),
+(70, 4, 11, 11);
 
 -- --------------------------------------------------------
 
@@ -379,12 +390,12 @@ CREATE TABLE `reserve_event_venue` (
 CREATE TABLE `reserve_request` (
   `form_no` int(11) NOT NULL,
   `no_participants` int(11) NOT NULL,
-  `department` varchar(32) NOT NULL,
-  `venue` int(11) NOT NULL,
+  `department` varchar(32) DEFAULT NULL,
+  `venue` int(11) DEFAULT NULL,
   `date_act` datetime NOT NULL,
-  `purpose` varchar(32) NOT NULL,
+  `purpose` varchar(32) DEFAULT NULL,
   `title_event` varchar(32) NOT NULL,
-  `status` varchar(20) NOT NULL,
+  `status` varchar(20) DEFAULT NULL,
   `contact_no` varchar(32) NOT NULL,
   `res_by` int(11) DEFAULT NULL,
   `confired_by` int(11) DEFAULT NULL,
@@ -398,7 +409,68 @@ CREATE TABLE `reserve_request` (
 INSERT INTO `reserve_request` (`form_no`, `no_participants`, `department`, `venue`, `date_act`, `purpose`, `title_event`, `status`, `contact_no`, `res_by`, `confired_by`, `date_request`) VALUES
 (1, 0, '1', 1, '2019-01-02 00:00:00', 'secret', 'title', 'pending', '122', 1, NULL, '2019-01-28 18:42:26'),
 (2, 0, 'CITC', 1, '2019-01-02 00:00:00', 'secret', 'title', 'pending', '122', 1, 1, '2019-01-28 18:42:34'),
-(3, 0, 'dawd', 0, '0000-00-00 00:00:00', 'daw', 'daw', 'decline', '', 1, 1, '2019-01-28 22:37:10');
+(3, 0, 'dawd', 0, '0000-00-00 00:00:00', 'daw', 'daw', 'decline', '', 1, 1, '2019-01-28 22:37:10'),
+(10, 11, '', 0, '2019-02-22 11:11:00', '', '11', '', '11', 1, 1, '2019-02-03 16:00:00'),
+(11, 11, '1', NULL, '2019-02-22 11:11:00', NULL, '11', NULL, 'dawd', NULL, NULL, '2019-02-03 16:00:00'),
+(12, 11, '1', NULL, '2019-02-22 11:11:00', NULL, '11', NULL, 'dawd', NULL, NULL, '2019-02-03 16:00:00'),
+(13, 11, '1', NULL, '2019-02-22 11:11:00', NULL, '11', NULL, 'dawd', NULL, NULL, '2019-02-03 16:00:00'),
+(14, 111, '1', NULL, '2019-02-13 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-03 16:00:00'),
+(15, 111, '1', NULL, '2019-02-13 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-03 16:00:00'),
+(16, 111, '1', NULL, '2019-02-13 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-03 16:00:00'),
+(17, 111, '1', NULL, '2019-02-13 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-03 16:00:00'),
+(18, 11, '1', NULL, '2019-02-19 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-03 16:00:00'),
+(19, 11, '1', NULL, '2019-02-19 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-03 16:00:00'),
+(20, 11, '1', NULL, '2019-02-19 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-03 16:00:00'),
+(21, 11, '1', NULL, '2019-02-19 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-03 16:00:00'),
+(22, 11, '1', NULL, '2019-02-19 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-03 16:00:00'),
+(23, 11, '1', NULL, '2019-02-19 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-03 16:00:00'),
+(24, 11, '1', NULL, '2019-02-19 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-03 16:00:00'),
+(25, 11, '1', NULL, '2019-02-19 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-03 16:00:00'),
+(26, 11, '1', NULL, '2019-02-19 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-03 16:00:00'),
+(27, 111, '1', NULL, '2019-02-06 14:22:00', NULL, '12', NULL, '12', NULL, NULL, '2019-02-04 16:00:00'),
+(28, 111, '1', NULL, '2019-02-06 14:22:00', NULL, '12', NULL, '12', NULL, NULL, '2019-02-04 16:00:00'),
+(29, 111, '1', NULL, '2019-02-06 14:22:00', NULL, '12', NULL, '12', NULL, NULL, '2019-02-04 16:00:00'),
+(30, 111, '1', NULL, '2019-02-06 14:22:00', NULL, '12', NULL, '12', NULL, NULL, '2019-02-04 16:00:00'),
+(31, 111, '1', NULL, '2019-02-06 14:22:00', NULL, '12', NULL, '12', NULL, NULL, '2019-02-04 16:00:00'),
+(32, 111, '1', NULL, '2019-02-06 14:22:00', NULL, '12', NULL, '12', NULL, NULL, '2019-02-04 16:00:00'),
+(33, 111, '1', NULL, '2019-02-20 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(34, 111, '1', NULL, '2019-02-20 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(35, 111, '1', NULL, '2019-02-20 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(36, 111, '1', NULL, '2019-02-20 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(37, 111, '1', NULL, '2019-02-20 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(38, 111, '1', NULL, '2019-02-20 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(39, 111, '1', NULL, '2019-02-20 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(40, 111, '1', NULL, '2019-02-20 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(41, 111, '1', NULL, '2019-02-20 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(42, 111, '1', NULL, '2019-02-20 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(43, 111, '1', NULL, '2019-02-20 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(44, 111, '1', NULL, '2019-02-20 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(45, 111, '1', NULL, '2019-02-20 11:11:00', NULL, '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(46, 11, '1', NULL, '2019-02-21 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(47, 11, '1', NULL, '2019-02-21 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(48, 11, '1', NULL, '2019-02-21 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(49, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(50, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(51, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(52, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(53, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(54, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(55, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(56, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(57, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(58, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(59, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(60, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(61, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(62, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(63, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(64, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(65, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(66, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(67, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(68, 11, '1', NULL, '2019-02-06 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00'),
+(69, 11, '1', NULL, '2019-02-15 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '111', NULL, NULL, '2019-02-04 16:00:00'),
+(70, 11, '1', NULL, '2019-02-08 11:11:00', 'Lecture/Forum/Symposium', '11', NULL, '11', NULL, NULL, '2019-02-04 16:00:00');
 
 -- --------------------------------------------------------
 
@@ -417,7 +489,26 @@ CREATE TABLE `reserve_ven` (
 
 INSERT INTO `reserve_ven` (`form_no`, `venue_id`) VALUES
 (1, 1),
-(1, 1);
+(1, 1),
+(45, 2),
+(45, 4),
+(46, 2),
+(46, 3),
+(47, 2),
+(47, 3),
+(48, 1),
+(49, 2),
+(50, 2),
+(51, 2),
+(52, 2),
+(53, 2),
+(54, 2),
+(55, 2),
+(56, 2),
+(57, 2),
+(68, 2),
+(69, 4),
+(70, 3);
 
 -- --------------------------------------------------------
 
@@ -458,7 +549,8 @@ CREATE TABLE `venue` (
 INSERT INTO `venue` (`venue_id`, `bldg_no`, `name`, `type`) VALUES
 (1, '1', 'dawdczs', 'dawczs'),
 (2, '1', 'dadadaw', 'dad'),
-(3, 'd', '12', 'daw');
+(3, 'd', '12', 'daw'),
+(4, '100', 'masaya', 'audio room');
 
 -- --------------------------------------------------------
 
@@ -645,7 +737,7 @@ ALTER TABLE `equipment`
 -- AUTO_INCREMENT for table `event_equip`
 --
 ALTER TABLE `event_equip`
-  MODIFY `equip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `equip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `job_req`
 --
@@ -655,17 +747,17 @@ ALTER TABLE `job_req`
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `person_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `person_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `reserve_request`
 --
 ALTER TABLE `reserve_request`
-  MODIFY `form_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `form_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT for table `venue`
 --
 ALTER TABLE `venue`
-  MODIFY `venue_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `venue_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Constraints for dumped tables
 --
@@ -674,9 +766,9 @@ ALTER TABLE `venue`
 -- Constraints for table `job_req`
 --
 ALTER TABLE `job_req`
-  ADD CONSTRAINT `job_req_ibfk_1` FOREIGN KEY (`approve_by`) REFERENCES `persons` (`person_id`),
-  ADD CONSTRAINT `job_req_ibfk_2` FOREIGN KEY (`person_attend`) REFERENCES `persons` (`person_id`),
-  ADD CONSTRAINT `job_req_ibfk_3` FOREIGN KEY (`requested_by`) REFERENCES `persons` (`person_id`);
+  ADD CONSTRAINT `job_req_ibfk_1` FOREIGN KEY (`approve_by`) REFERENCES `persons` (`person_id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `job_req_ibfk_2` FOREIGN KEY (`person_attend`) REFERENCES `persons` (`person_id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `job_req_ibfk_3` FOREIGN KEY (`requested_by`) REFERENCES `persons` (`person_id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `job_schedule`
