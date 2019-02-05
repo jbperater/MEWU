@@ -101,6 +101,22 @@ Class Main_model extends CI_Model {
 		  return $query->result();
  	}
 
+ 	function get_department(){
+      $this->db->select('dep_id,acroname,name');
+      $result = $this->db->get('department');
+      return $result->result();
+  	}
+
+  	function get_venue(){
+      $this->db->select('venue_id,bldg_no,name');
+      $result = $this->db->get('venue');
+      return $result->result();
+  	}
 	
+	function get_equip_event(){
+      $this->db->select('equip_id,name');
+      $result = $this->db->get('event_equip');
+      return $result->result();
+  	}
 	
 }

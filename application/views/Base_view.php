@@ -8,8 +8,17 @@ $type = $user_detail['type'];
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}
 
 if($content == 'Admin_pen_req') { $this->load->view('Admin/Admin_pen_req'); $selected = $content; $content='';}
-if($content == 'Admin_set_event') { $this->load->view('Admin/Admin_set_event'); $selected = $content; $content='';}
-if($content == 'Admin_pen_rep') { $this->load->view('Admin/Admin_pen_rep'); $selected = $content; $content='';}
+if($content == 'Admin_set_event') { 
+    $query = $this->main_model->get_department();
+    $query2 = $this->main_model->get_venue();
+    $query3 = $this->main_model->get_equip_event();
+    $id = $this->session->userdata('user_data_session')['person_id'];
+    $data['option'] = $query;
+     $data['venuedata'] = $query2;
+     $data['equip_event'] = $query3;
+    $data['id'] = $id;
+    $this->load->view('Admin/Admin_set_event',$data); $selected = $content; $content='';}
+if($content == 'Admin_pen_rep') {$this->load->view('Admin/Admin_pen_rep'); $selected = $content; $content='';}
 if($content == 'Admin_set_event') { $this->load->view('Admin/Admin_set_event'); $selected = $content; $content='';}
 if($content == 'Admin_set_repair') { $this->load->view('Admin/Admin_set_repair'); $selected = $content; $content='';}
 if($content == 'Admin_view_sched') { $this->load->view('Admin/Admin_view_sched'); $selected = $content; $content='';}
