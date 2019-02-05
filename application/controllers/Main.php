@@ -60,27 +60,8 @@ class Main extends CI_Controller {
 
 			$this->main_model->reservetion_insert($data);	
 
-				public function add_equip_his(){
-
-		$this->load->model('main_model');
 			
-			$data = array(	
-				'brand' => $this->input->post('Brand'),
-				'equip_name' => $this->input->post('name'),
-				'model' => $this->input->post('Model'),
-				'serial_no' => $this->input->post('SerailNo'),
-				'office' => $this->input->post('Office'),
-				'depart' => $this->input->post('Department'),
-				'type' => $this->input->post('Brand'),
-				'year_acc' => $this->input->post('year')
-				
-			);	
-
-			$this->main_model->insert_equip($data);	
-			redirect('admin/admin_add_event');
-		
-	}
-
+	
 				
 			}
 			
@@ -100,8 +81,8 @@ class Main extends CI_Controller {
 	public function add_equip_his_form(){
 
 		$data['content'] = 'Maintenance_repair_sched';
-		$data['repair'] =  $query;
-		$this->load->view('base_view_maintenance', $data);
+		// $data['repair'] =  $query;
+		// $this->load->view('base_view_maintenance', $data);
 		
 	}
 

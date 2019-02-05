@@ -6,7 +6,7 @@ $type = $user_detail['type'];
 
 
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}
-if($content == 'Maintenance_view_equip') { $this->load->view('Maintenance/Maintenance_view_equip'); $selected = $content; $content='';}
+if($content == 'Maintenance_view_equip') { $this->load->view('Maintenance/Maintenance_view_equip_dt'); $selected = $content; $content='';}
 if($content == 'Maintenance_add_report') { $this->load->view('Maintenance/Maintenance_add_report'); $selected = $content; $content='';}
 if($content == 'Maintenance_update_sched') { 
         $id = $this->input->get('id');
