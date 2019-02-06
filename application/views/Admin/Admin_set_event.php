@@ -76,12 +76,7 @@ $level = $user_detail['type'];
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<select name="purpose" id="" class="form-control">
-												<option >
-							     			 
-							     			   </option>
 							     			  <option 
-							     			  <option 
-							     			 
 							     			   value="Lecture/Forum/Symposium"> Lecture/Forum/Symposium</option>
 							     			  <option 
 							     			   value="Film Showing"> Film Showing</option>
@@ -89,7 +84,12 @@ $level = $user_detail['type'];
 							     			   value="Seminar/Workshop/Conference"> Seminar/Workshop/Conference</option>
 							     			  <option 
 							     			   value="General Assembly"> General Assembly</option>
-
+							     			   <option 
+							     			   value="General Assembly"> College Meeting/Conference</option>
+							     			   <option 
+							     			   value="General Assembly"> Stage Drama</option>
+							     			    <option 
+							     			   value="General Assembly"> Others</option>
 							     			   <option 
 							     			   "><input type="text form-control col-sm-3" placeholder="Others" name="purpose"></option>
 							     			</select>
@@ -107,12 +107,12 @@ $level = $user_detail['type'];
 							     			  <input type="checkbox" name="equipneed[]" value="Sound System"> Sound System<br>
 							     			  <input type="checkbox" name="equipneed[]" value="Scoreboard"> Scoreboard<br> -->
 							     			  <div class="form-group">
-							     			 <label for="" class="control-label">Table:</label>
-									     	<input type="text" name="table_no" class='form-control col-sm-3' required placeholder="Table No">
+							     			 <label for="" class="control-label">Tables:</label>
+									     	<input type="text" name="table_no" class='form-control col-sm-3' required placeholder="(specify #)">
 									     	</div>
 									     	 <div class="form-group">
-							     			  <label for="" class="control-label">Chair:</label>
-									     	<input type="text" name="chair_no" class='form-control col-sm-3' required placeholder="Chair No">
+							     			  <label for="" class="control-label">Chairs:</label>
+									     	<input type="text" name="chair_no" class='form-control col-sm-3' required placeholder="(specify #)">
 									     	</div>
 							     		</div>
 							     	</div>

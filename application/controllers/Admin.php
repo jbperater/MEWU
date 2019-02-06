@@ -168,6 +168,7 @@ class Admin extends CI_Controller {
 	public function Admin_view_equip() {
 		
 		$data['content'] = 'Admin_view_equip';
+		$data["fetch_data"]=$this->Login_auth_db->get_equipment();
 		$this->load->view('base_view', $data);
 	}
 

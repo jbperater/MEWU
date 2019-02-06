@@ -3,8 +3,6 @@ $this->load->library('session');
 $user_detail = $this->session->userdata('user_data_session');
 $username = $user_detail['username'];
 $type = $user_detail['type'];
-
-
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}
 if($content == 'Student_add_req') { $this->load->view('Student/Student_add_req'); $selected = $content; $content='';}
 if($content == 'Student_all_req') { $this->load->view('Student/Student_all_req'); $selected = $content; $content='';}
@@ -104,7 +102,6 @@ if($content == 'Student_view_sched') { $this->load->view('Student/Student_view_s
                    </li> -->
                     
                     <?php 
-
                     if ($selected == 'Student_add_req')  echo '<li class="active" >';
                     else echo '<li>';
                     ?>
@@ -117,7 +114,6 @@ if($content == 'Student_view_sched') { $this->load->view('Student/Student_view_s
                     </li>
 
                     <?php 
-
                     if ($selected == 'Student_all_req' || $selected == 'Student_app_rec' || $selected == 'Student_dec_req' || $selected == 'Student_pen_req')  echo '<li class="active" >';
                     else echo '<li>';
                     ?>
@@ -177,11 +173,8 @@ if($content == 'Student_view_sched') { $this->load->view('Student/Student_view_s
     <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/gcal.js"></script>
     
     <script type="text/javascript">
-
     var date_last_clicked = null;
-
     $(document).ready(function() {
-
         /*$.post('<?php echo base_url() ?>calendar/get_eventss',
             function(data){
                 alert(data);
@@ -212,25 +205,18 @@ if($content == 'Student_view_sched') { $this->load->view('Student/Student_view_s
                  }
                 }
             ],
-
              dayClick: function(date, jsEvent, view) {
                     date_last_clicked = $(this);
                     $(this).css('background-color', '#bed7f3');
                     $("#addModal").modal('show');
                console.log(date_last_clicked);
             }
-
             
         });
-
         $('.fc-day').click(function(e){
             console.log($(e.currentTarget));
-
             $("#addModal").modal('show');
         })
-
-
-
         
     });
     </script>

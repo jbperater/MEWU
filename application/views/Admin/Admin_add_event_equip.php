@@ -23,7 +23,7 @@ $level = $user_detail['type'];
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
-							     			 <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="name" required autofocus>
+							     			 <input type="text" id="inputUsername" class="form-control" placeholder="Name" name="name" required autofocus>
 							     		</div>
 							     	</div>
 							     </div>

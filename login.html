@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/prince.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/smartadmin-production
+.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/css
+.css">
+
+<link rel="stylesheet" type="text/css" media="screen" href="./css/smartadmin-skins
+.css">
+	
+</head>
+<body>
+
+	<header class="header">
+		<span id="login-header-space"> <span class="visible-md visible-lg" style="width:400px;">Need an account? <a href="http://sis.ustp.edu.ph/register" class="btn btn-success">Create Account</a></span> <span class="visible-xs visible-sm"><a href="http://sis.ustp.edu.ph/register" class="btn btn-primary">Register</a></span></span>
+	</header>
+	
+	<div class="container-fluid">
+			
+		<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 what">
+			<div >
+				<form action="http://sis.ustp.edu.ph/login/verifylogin" method="post" accept-charset="utf-8" id="login-form" class="smart-form client-form" onsubmit="return false;" novalidate="novalidate"> <header> Sign In </header>
+				<input type="hidden" name="submitted" id="submitted" value="" style="visibility:hidden;">
+					<fieldset>
+						<section>
+						<label class="label">Username or E-mail</label>
+						<label class="input"> <i class="icon-append fa fa-user"></i>
+						<input type="text" name="username">
+						<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter email address/username</b></label>
+						</section>
+						<section>
+						<label class="label">Password</label>
+						<label class="input"> <i class="icon-append fa fa-lock"></i>
+						<input type="password" name="password">
+						<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b>
+						</label>
+						</section>
+						<section>
+						<label class="checkbox"><input type="checkbox" name="remember" value=""><i></i>Stay signed in</label>
+						</section>
+					</fieldset>
+				<footer>
+					<div class="alert alert-login alert-danger fade in  hidden">
+					<strong><i class="fa fa-warning"></i> Error!</strong>
+					<b class="alert-content"></b>
+					</div>
+					<div class="note pull-left">
+					<a href="http://sis.ustp.edu.ph/forgot">Forgot password?</a>
+					</div>
+					<button type="submit" class="btn btn-primary btnsubmit">Sign in</button>
+					</footer>
+				</form>
+			</div>
+		</div>
+		
+	</div>
+
+</body>
+</html>

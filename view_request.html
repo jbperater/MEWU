@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<?php
+session_start();
+if(!isset($_SESSION["login_user"]))
+{
+  header("location:index.php?You_MUST_LOGIN_FIRST");
+}
+?>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<!-- <link rel="stylesheet" href="css/stylesheet.css"> -->
+		<link rel="stylesheet" href="css/bootstrap-theme.css">
+		<script src="js/jquery-3.3.1.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/css
+.css">
+		<link rel="icon" href="img/logo.png">
+
+		<title>Profile</title>
+	</head>
+	<body>
+		<div class="col-lg-2 navbi" style="background-color:#bd4e4e;" >
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel panel-heading">
+						<h4 class="panel-title"><a href="#collapse1" data-toggle="collapse">Request</a></h4>
+					</div>
+					<div id="collapse1" class="panel-collapse collapse">
+						<ul class="list-group">
+							<li class="list-group-item"><a href="org.php">Add Event Request</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel panel-heading">
+						<h4 class="panel-title"><a href="#collapse2" data-toggle="collapse">View Request</a></h4>
+					</div>
+					<div id="collapse2" class="panel-collapse collapse">
+						<ul class="list-group">
+							<li class="list-group-item"><a href="register.php">All My Request</a></li>
+							<li class="list-group-item"><a href="super_admin_index.php">Approved Request</a></li>
+							<li class="list-group-item"><a href="super_admin_index.php">Dispproved Request</a></li>
+							<li class="list-group-item"><a href="super_admin_index.php">Pending Request</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel panel-heading">
+						<h4 class="panel-title"><a href="#collapse3" data-toggle="collapse">View Schedule</a></h4>
+					</div>
+					<div id="collapse3" class="panel-collapse collapse">
+						<ul class="list-group">
+							<li class="list-group-item"><a href="#">Event Schedule</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-10 contentni">
+			<div class="row">
+				<nav class="navbar navbar-inverse navbar-static-top">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="collapse navbar-collapse navHeaderCollapse">
+						<!-- <ul class="nav navbar-nav navbar-left">
+							<li class="active"><a href="basicinfo.html">Basic Information</a></li>
+							<li><a href="parentsdetails.html">Parents Details</a></li>
+							<li><a href="familydetails.html">Family Details</a></li>
+							<li><a href="contactperson.html">Contact Person</a></li>
+							<li><a href="others.html">Others</a></li>
+						</ul> -->
+						<ul class="nav navbar-nav navbar-right" style="margin-right: 15px;">
+							<li>
+								<a href="" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="about_me.html">Your Profile</a></li>
+									<li><a href="settings.html">Settings</a></li>
+									<li><a href="action/logout.php">Logout</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div class="row">
+				<table>
+				  <tr>
+				    <th>Form No</th>
+				    <th>Name of Event</th>
+				    <th>Department</th>
+				    <th>Date Reserved</th>
+				    <th>Time Reserved</th>
+				    <th>Date Actual Use</th>
+				    <th>Time Actual Use</th>
+				    <th>Purpose</th>
+				    <th>Equipment Needed</th>
+				    <th>Contact</th>
+				    <th>Status</th>
+				  </tr>
+				  <tr>
+				    <td>1</td>
+				    <td>DOST Seminar</td>
+				    <td>CITC</td>
+				    <td>OCtober 25, 2018</td>
+				    <td>12:00</td>
+				    <td>NOvember 1, 2018</td>
+				    <td>12</td>
+				    <td>Seminar</td>
+				    <td>Chair</td>
+				    <td>09169947508</td>
+				    <td>Disapprove</td>
+				  </tr>
+				   <tr>
+				    <td>1</td>
+				    <td>Sample Event</td>
+				    <td>CITC</td>
+				    <td>OCtober 25, 2018</td>
+				    <td>12:00</td>
+				    <td>NOvember 1, 2018</td>
+				    <td>12</td>
+				    <td>Seminar</td>
+				    <td>Chair</td>
+				    <td>09169947508</td>
+				    <td>Pending</td>
+				  </tr>
+				   <tr>
+				    <td>1</td>
+				    <td>Ako Seminar</td>
+				    <td>CITC</td>
+				    <td>OCtober 25, 2018</td>
+				    <td>12:00</td>
+				    <td>NOvember 1, 2018</td>
+				    <td>12</td>
+				    <td>Seminar</td>
+				    <td>Chair</td>
+				    <td>09169947508</td>
+				    <td>Approve</td>
+				  </tr>
+				 <!--  <tr>
+				   <td>Centro comercial Moctezuma</td>
+				   <td>Francisco Chang</td>
+				   <td>Mexico</td>
+				 </tr>
+				 <tr>
+				   <td>Ernst Handel</td>
+				   <td>Roland Mendel</td>
+				   <td>Austria</td>
+				 </tr>
+				 <tr>
+				   <td>Island Trading</td>
+				   <td>Helen Bennett</td>
+				   <td>UK</td>
+				 </tr>
+				 <tr>
+				   <td>Laughing Bacchus Winecellars</td>
+				   <td>Yoshi Tannamuri</td>
+				   <td>Canada</td>
+				 </tr>
+				 <tr>
+				   <td>Magazzini Alimentari Riuniti</td>
+				   <td>Giovanni Rovelli</td>
+				   <td>Italy</td>
+				 </tr> -->
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
