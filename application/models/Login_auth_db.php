@@ -67,8 +67,8 @@ Class Login_auth_db extends CI_Model {
 		  $this->db->from('equipment');
 		  $query = $this->db->get();
 		  return $query->result();
- 	}
-
+		}
+ 	
  	function add_report($date_req,$description,$parts_rep,$date_rep,$time_rep,$date_fin,$remark,$performed_by)
 	{
 

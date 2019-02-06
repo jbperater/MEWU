@@ -76,8 +76,6 @@ $level = $user_detail['type'];
 							     	<div class="col-sm-5 inputGroupContainer">
 							     		<div class="input-group">
 							     			<select name="purpose" id="" class="form-control">
-						
-							  
 							     			  <option 
 							     			   value="Lecture/Forum/Symposium"> Lecture/Forum/Symposium</option>
 							     			  <option 
@@ -92,6 +90,8 @@ $level = $user_detail['type'];
 							     			   value="General Assembly"> Stage Drama</option>
 							     			    <option 
 							     			   value="General Assembly"> Others</option>
+							     			   <option 
+							     			   "><input type="text form-control col-sm-3" placeholder="Others" name="purpose"></option>
 							     			</select>
 							     		</div>
 							     	</div>
