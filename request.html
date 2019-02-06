@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/prince.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/smartadmin-production
+.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/css
+.css">
+
+<link rel="stylesheet" type="text/css" media="screen" href="./css/smartadmin-skins
+.css">
+<script src="js/jquery-3.3.1.js"></script>
+		<script src="js/bootstrap.js"></script>
+	
+</head>
+<body>
+
+	<!-- <header class="header">
+		<span id="login-header-space"> <span class="visible-md visible-lg" style="width:400px;">Need an account? <a href="http://sis.ustp.edu.ph/register" class="btn btn-success">Create Account</a></span> <span class="visible-xs visible-sm"><a href="http://sis.ustp.edu.ph/register" class="btn btn-primary">Register</a></span></span>
+	</header> -->
+	
+	<div class="container-fluid">
+		<div class="col-xs-2" style="bacground-color:#bd4e4e;" class="navni">
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel panel-heading">
+						<h4 class="panel-title"><a href="#collapse1" data-toggle="collapse">Organization</a></h4>
+					</div>
+					<div id="collapse1" class="panel-collapse collapse">
+						<ul class="list-group">
+							<li class="list-group-item"><a href="org.php">Add Organization</a></li>
+							<li class="list-group-item"><a href="org_view.php">View Organization</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel panel-heading">
+						<h4 class="panel-title"><a href="#collapse2" data-toggle="collapse">User</a></h4>
+					</div>
+					<div id="collapse2" class="panel-collapse collapse">
+						<ul class="list-group">
+							<li class="list-group-item"><a href="register.php">Add User</a></li>
+							<li class="list-group-item"><a href="super_admin_index.php">View User</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel panel-heading">
+						<h4 class="panel-title"><a href="#collapse3" data-toggle="collapse">Permit</a></h4>
+					</div>
+					<div id="collapse3" class="panel-collapse collapse">
+						<ul class="list-group">
+							<li class="list-group-item"><a href="#">Add Permit</a></li>
+							<li class="list-group-item"><a href="permit_view.php">View Permit</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-10 col-sm-10 col-md-6 col-lg-6 what">
+			<form class="form-horizontal" method="POST" action="action/attendance_details_add.php">
+								<div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Department:</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+							     			 <input type="text" name="Department" class='form-control' required placeholder="Department">
+							     		</div>
+							     	</div>
+							     </div>
+								<div class="form-group">
+								    <label class="control-label col-sm-4">Venue:</label>
+								    <div class="col-sm-5 inputGroupContainer">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
+											<input type="text" name="Venue" class='form-control' required placeholder="Venue">
+										</div>
+									</div>
+								</div>
+							    <!-- <div class="form-group">
+							    									<label class="control-label col-sm-4">Applicant:</label>
+							    									<div class="col-sm-5 inputGroupContainer">
+							    										<div class="input-group">
+							    											<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							    											<input type="text" name="Applicant" class='form-control' required placeholder="Applicant">
+							    										</div>
+							    									</div>
+							    							 	</div> -->
+							     
+							    <div class="form-group">
+									<label class="control-label col-sm-4">Date Reserved:</label>
+									<div class="col-sm-5 inputGroupContainer">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+								    		<input type="text" name="Date Reserved" class='form-control' required placeholder="Date Reserved">
+								    	</div>
+								    </div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4">Time Reserved:</label>
+									<div class="col-sm-5 inputGroupContainer">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+									 		 <input type="text" name="Time Reserved" class='form-control' required placeholder="Time Reserved">
+										</div>
+									</div>
+							 	</div>
+							 	  <div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Date Actual Use:</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							     			 <input type="text" name="Time Actual Use" class='form-control' required placeholder="Time Actual Use">
+							     		</div>
+							     	</div>
+							     </div>
+							    <div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Time Actual Use:</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+							     			 <input type="text" name="Time Actual Use" class='form-control' required placeholder="Time Actual Use">
+							     		</div>
+							     	</div>
+							     </div>
+							     <div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Confirmd by:</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							     			 <input type="text" name="Confirmd by" class='form-control' required placeholder="Confirmd by">
+							     		</div>
+							     	</div>
+							     </div>
+							     <div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Title of Event:</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
+							     			 <input type="text" name="Title of Event" class='form-control' required placeholder="Title of Event">
+							     		</div>
+							     	</div>
+							     </div>
+							     <div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Contact Number:</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+							     			 <input type="text" name="Contact Number" class='form-control' required placeholder="Contact Number">
+							     		</div>
+							     	</div>
+							     </div>
+							     <!-- <div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Reserved By:</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							     			 <input type="text" name="Reserved By" class='form-control' required placeholder="Reserved By">
+							     		</div>
+							     	</div>
+							     </div> -->
+							     <!--  <div class="form-group">
+							     							     	<label for="" class="control-label col-sm-4">Noted by:</label>
+							     							     	<div class="col-sm-5 inputGroupContainer">
+							     							     		<div class="input-group">
+							     							     			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							     							     			 <input type="text" name="Noted by" class='form-control' required placeholder="Noted by">
+							     							     		</div>
+							     							     	</div>
+							     							     </div> -->
+							      <!-- <div class="form-group">
+							      							     	<label for="" class="control-label col-sm-4">Confirmd by:</label>
+							      							     	<div class="col-sm-5 inputGroupContainer">
+							      							     		<div class="input-group">
+							      							     			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							      							     			 <input type="text" name="Confirmd by" class='form-control' required placeholder="Confirmd by">
+							      							     		</div>
+							      							     	</div>
+							      							     </div> -->
+							   <br>
+							   <div class="form-group">
+							    <label for="" class="col-sm-4 control-label"></label>
+							   		<div class="col-sm-5">
+							  		<button type="submit" class="btn btn-primary" id="submit" name="submit" width="100px">Submit <span class="glyphicon glyphicon-send"></span></button>
+
+							  </div>
+							  </div>
+					  		</form>
+		</div>
+		
+	</div>
+
+</body>
+</html>

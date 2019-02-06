@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<?php
+session_start();
+if(!isset($_SESSION["login_user"]))
+{
+  header("location:index.php?You_MUST_LOGIN_FIRST");
+}
+?>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<!-- <link rel="stylesheet" href="css/stylesheet.css"> -->
+		<link rel="stylesheet" href="css/bootstrap-theme.css">
+		<script src="js/jquery-3.3.1.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/css
+.css">
+		<link rel="icon" href="img/logo.png">
+
+		<title>Profile</title>
+	</head>
+	<body>
+		<div class="col-lg-2 navbi" style="background-color:#bd4e4e;" >
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel panel-heading">
+						<h4 class="panel-title"><a href="#collapse1" data-toggle="collapse">Request</a></h4>
+					</div>
+					<div id="collapse1" class="panel-collapse collapse">
+						<ul class="list-group">
+							<li class="list-group-item"><a href="org.php">Add Event Request</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel panel-heading">
+						<h4 class="panel-title"><a href="#collapse2" data-toggle="collapse">View Request</a></h4>
+					</div>
+					<div id="collapse2" class="panel-collapse collapse">
+						<ul class="list-group">
+							<li class="list-group-item"><a href="register.php">All My Request</a></li>
+							<li class="list-group-item"><a href="super_admin_index.php">Approved Request</a></li>
+							<li class="list-group-item"><a href="super_admin_index.php">Dispproved Request</a></li>
+							<li class="list-group-item"><a href="super_admin_index.php">Pending Request</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel panel-heading">
+						<h4 class="panel-title"><a href="#collapse3" data-toggle="collapse">View Schedule</a></h4>
+					</div>
+					<div id="collapse3" class="panel-collapse collapse">
+						<ul class="list-group">
+							<li class="list-group-item"><a href="#">Event Schedule</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-10 contentni">
+			<div class="row">
+				<nav class="navbar navbar-inverse navbar-static-top">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="collapse navbar-collapse navHeaderCollapse">
+						<!-- <ul class="nav navbar-nav navbar-left">
+							<li class="active"><a href="basicinfo.html">Basic Information</a></li>
+							<li><a href="parentsdetails.html">Parents Details</a></li>
+							<li><a href="familydetails.html">Family Details</a></li>
+							<li><a href="contactperson.html">Contact Person</a></li>
+							<li><a href="others.html">Others</a></li>
+						</ul> -->
+						<ul class="nav navbar-nav navbar-right" style="margin-right: 15px;">
+							<li>
+								<a href="" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="about_me.html">Your Profile</a></li>
+									<li><a href="settings.html">Settings</a></li>
+									<li><a href="action/logout.php">Logout</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div class="row">
+				<form class="form-horizontal" method="POST" action="action/attendance_details_add.php">
+								<div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Item No:</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
+							     			 <input type="text" name="Title of Event" class='form-control' required placeholder="Item No">
+							     		</div>
+							     	</div>
+							     </div>
+							     <div class="form-group">
+							     	<label for="" class="control-label col-sm-4">Work Description:</label>
+							     	<div class="col-sm-5 inputGroupContainer">
+							     		<div class="input-group">
+							     			<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+							     			 <input type="text" name="Department" class='form-control' required placeholder="Descrition">
+							     		</div>
+							     	</div>
+							     </div>
+								<div class="form-group">
+								    <label class="control-label col-sm-4">Location Bldg/Office:</label>
+								    <div class="col-sm-5 inputGroupContainer">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
+											<input type="text" name="Venue" class='form-control' required placeholder="Location">
+										</div>
+									</div>
+								</div>
+								
+					  		</form>
+			</div>
+		</div>
+	</body>
+</html>
