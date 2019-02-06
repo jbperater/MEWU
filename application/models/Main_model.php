@@ -118,5 +118,11 @@ Class Main_model extends CI_Model {
       $result = $this->db->get('event_equip');
       return $result->result();
   	}
+
+  	function get_pen_req_rep(){
+      $this->db->select('equip_id,name');
+      $result = $this->db->get('event_equip');
+      return $result->result();
+  	}
 	
 }

@@ -16,7 +16,7 @@ $level = $user_detail['type'];
 						</li>
 					</ol>
 				</div>
-				<table>
+				<table id="book-table">
 					<tr>
 					<!-- <td><strong>Number</strong></td> -->
 					<td><strong>Name</strong></td>
@@ -24,7 +24,7 @@ $level = $user_detail['type'];
 					<td><strong>Model</strong></td>
 					<td><strong>Serial Number</strong></td>
 					<td><strong>Office</strong></td>
-					<td><strong>Department</strong></td>
+					<!-- <td><strong>Department</strong></td> -->
 					<td><strong>Year Acquired</strong>
 					<td><strong></strong>
 					<td></td></td></tr> 

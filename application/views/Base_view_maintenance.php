@@ -3,10 +3,11 @@ $this->load->library('session');
 $user_detail = $this->session->userdata('user_data_session');
 $username = $user_detail['username'];
 $type = $user_detail['type'];
+$this->Maintenance_model->get_equipment();
 
 
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}
-if($content == 'Maintenance_view_equip') { $this->load->view('Maintenance/Maintenance_view_equip_dt'); $selected = $content; $content='';}
+if($content == 'Maintenance_view_equip') { /*$this->load->view('Maintenance/Maintenance_view_equip_dt',array());*/ $selected = $content; }
 if($content == 'Maintenance_add_report') { $this->load->view('Maintenance/Maintenance_add_report'); $selected = $content; $content='';}
 if($content == 'Maintenance_update_sched') { 
         $id = $this->input->get('id');
@@ -51,6 +52,10 @@ if($content == 'Maintenance_all_sched') { $this->load->view('Maintenance/Mainten
     <link href="<?php echo base_url();?>assets/css/plugins/morris.css" rel="stylesheet">
 
     <link href="<?php echo base_url();?>assets/css/css.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/scripts/DataTable/css/datatables.min.css"/>
+
+    <link href="<?php echo base_url('assets/scripts/DataTable/css/jquery.dataTables.css') ?>" rel="stylesheet" />
 
     <!-- Custom Fonts 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"  -->
@@ -147,7 +152,9 @@ if($content == 'Maintenance_all_sched') { $this->load->view('Maintenance/Mainten
             </div>
             <!-- /.navbar-collapse -->
         </nav>
-
+        <?php
+        if($content == 'Maintenance_view_equip') { $this->load->view('Maintenance/Maintenance_view_equip_dt',array()); $selected = $content; $content='';}
+        ?>
         <div id="foo-bottom">
         <a href="" id="txt-standard">
             MEWU 2019: Mechanical and Electrical Work Unit USTP
@@ -166,6 +173,19 @@ if($content == 'Maintenance_all_sched') { $this->load->view('Maintenance/Mainten
     <script src="<?php echo base_url();?>assets/js/plugins/morris/raphael.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/plugins/morris/morris.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/plugins/morris/morris-data.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable/js/datatables.min.js"></script> 
+    <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable/js/jquery.datatables.min.js"></script> 
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+        $('#book-table').DataTable({
+        "ajax": {
+            url : "<?php echo base_url();?>maintenance/equipment_page",
+            type : 'GET'
+        },
+    });
+    });
+</script>
 
 </body>
 

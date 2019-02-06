@@ -54,6 +54,10 @@ Class Maintenance_model extends CI_Model {
 		$this->db->where('job_id', $id);
 		$this->db->update('job_req');
  	}
+
+ 	function get_equipment(){
+ 		$this->db->get('equipment');
+ 	}
 }
 
 

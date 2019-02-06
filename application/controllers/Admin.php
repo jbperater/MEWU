@@ -95,6 +95,7 @@ class Admin extends CI_Controller {
 				'purpose'=>$this->input->post('purpose'),
 				'title_event'=>$this->input->post('title_event'),
 				'contact_no'=>$this->input->post('contact_no'),
+				'status'=>'pending',
 				'date_request'=>$this->input->post('date_request'),
 				'res_by'=>		$this->session->userdata('user_data_session')['person_id']
 			);	

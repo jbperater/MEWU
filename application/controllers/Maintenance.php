@@ -31,7 +31,8 @@ class Maintenance extends CI_Controller {
 		   $data['equipment'] =  $query;
 		   $data['content'] ='Maintenance_view_equip';
 		   $this->load->view('base_view_maintenance', $data);
-  }
+  }	
+  	
 
 		//$data['content'] ='Maintenance_view_equip';
 		//$this->load->view('base_view_maintenance', $data);
@@ -97,6 +98,41 @@ class Maintenance extends CI_Controller {
 		$data['content'] = 'Maintenance_all_sched';
 		$this->load->view('base_view_maintenance', $data);
 	}
+
+	public function equipment_page()
+     {
+
+          // Datatables Variables
+          $draw = intval($this->input->get("draw"));
+          $start = intval($this->input->get("start"));
+          $length = intval($this->input->get("length"));
+
+
+          $equip = $this->maintenance_model->get_equipment();
+          echo var_dump($equip);
+          exit();
+          $data = array();
+
+          foreach($equip->result() as $r) {
+
+               $data[] = array(
+                    $r->name,
+                    $r->brand,
+                    $r->serial_no,
+                    $r->office . "/10 Stars",
+                    $r->year_acc
+               );
+          }
+
+          $output = array(
+               "draw" => $draw,
+                 "recordsTotal" => $equip->num_rows(),
+                 "recordsFiltered" => $equip->num_rows(),
+                 "data" => $data
+            );
+          echo json_encode($output);
+          exit();
+     }
 
 
 }
