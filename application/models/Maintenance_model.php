@@ -56,7 +56,8 @@ Class Maintenance_model extends CI_Model {
  	}
 
  	function get_equipment(){
- 		$this->db->get('equipment');
+ 		$kani = $this->db->get('equipment');
+ 		return $kani;
  	}
 }
 

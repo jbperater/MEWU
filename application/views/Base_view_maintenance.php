@@ -3,7 +3,8 @@ $this->load->library('session');
 $user_detail = $this->session->userdata('user_data_session');
 $username = $user_detail['username'];
 $type = $user_detail['type'];
-$this->Maintenance_model->get_equipment();
+
+// redirect(base_url().'maintenance/equipment_page');
 
 
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}

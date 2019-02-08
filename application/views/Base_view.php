@@ -12,7 +12,9 @@ if($content == 'Admin_set_event') {
     $query = $this->main_model->get_department();
     $query2 = $this->main_model->get_venue();
     $query3 = $this->main_model->get_equip_event();
-    $id = $this->session->userdata('user_data_session')['person_id'];
+    $id = $user;
+    echo var_dump($user);
+    exit();
     $data['option'] = $query;
     $data['venuedata'] = $query2;
     $data['equip_event'] = $query3;
