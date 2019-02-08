@@ -98,5 +98,38 @@ class Maintenance extends CI_Controller {
 		$this->load->view('base_view_maintenance', $data);
 	}
 
+	public function Maitenance_view_equip() {
+		
+		$data['content'] = 'Maintenance_view_equip';
+		$data["fetch_data"]=$this->Login_auth_db->get_equipment();
+		$this->load->view('base_view_maintenance', $data);
+	}
+
+	public function Maintenance_add_history() {
+		$data['content'] = 'Maintenance_add_history';
+		$this->load->view('base_view_maintenance', $data);
+		/*Check submit button */
+	
+		echo "Records Saved Successfully";
+	
+	}
+
+	public function add_history() {
+		
+		/*Check submit button */
+		$date_req=$this->input->post('date_req');
+		$description=$this->input->post('description');
+		$parts_rep=$this->input->post('parts_rep');
+		$date_rep=$this->input->post('date_rep');
+		$time_rep=$this->input->post('time_rep');
+		$date_fin=$this->input->post('date_fin');
+		$remark=$this->input->post('remark');
+		$performed_by=$this->input->post('performed_by');
+
+		$this->Maintenance_model->Maintenance_add_history($date_req,$description,$parts_rep,$date_rep,$time_rep,$date_fin,$remark,$performed_by);	
+		
+	
+	}
+
 
 }

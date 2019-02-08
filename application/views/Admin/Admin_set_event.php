@@ -90,8 +90,8 @@ $level = $user_detail['type'];
 							     			   value="General Assembly"> Stage Drama</option>
 							     			    <option 
 							     			   value="General Assembly"> Others</option>
-							     			   <option 
-							     			   "><input type="text form-control col-sm-3" placeholder="Others" name="purpose"></option>
+							     			  <!--  <option 
+							     			   "><input type="text form-control col-sm-3" placeholder="Others" name="purpose"></option> -->
 							     			</select>
 							     		</div>
 							     	</div>

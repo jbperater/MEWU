@@ -183,5 +183,25 @@ Class Login_auth_db extends CI_Model {
 	$this->db->query($query);
 		}
 
+
+	function fetch_account_details($id){
+		$this->db->select()->from('persons')->where('person_id',$id);
+		$data =  $this->db->get();
+		return $data->result();
+		}
+
+	function account_total_rows(){
+		$this->db->select()->from('persons');
+		return $this->db->get()->num_rows();
+		
+	}	
+
+	function get_account_data_for_update($id)
+		{
+		$data = $this->db->select()->from('persons')->where('person_id',$id);
+		$data = $this->db->get();
+		return $data->result();
+		}
+
 	
 }

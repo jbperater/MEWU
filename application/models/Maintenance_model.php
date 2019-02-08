@@ -54,6 +54,14 @@ Class Maintenance_model extends CI_Model {
 		$this->db->where('job_id', $id);
 		$this->db->update('job_req');
  	}
+
+ 	function Maintenance_add_history($date_req,$description,$parts_rep,$date_rep,$time_rep,$date_fin,$remark,$performed_by)
+	{
+
+	$query="insert into maintenance_rec values('','$date_req','$description','$parts_rep','$date_rep','$time_rep','$date_fin','$remark','$performed_by')";
+	$this->db->query($query);
+
+}
 }
 
 

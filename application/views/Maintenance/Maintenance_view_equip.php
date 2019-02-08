@@ -37,11 +37,10 @@ $level = $user_detail['type'];
 				 	<td><?=$equipment->model;?></td>
 				 	<td><?=$equipment->serial_no;?></td>
 				 	<td><?=$equipment->office;?></td>
-				 	<td><?=$equipment->depart;?></td>
 				 	<td><?=$equipment->year_acc;?></td>
 				 	<td>
-				 	<a href="<?php echo base_url();?>Main/add_equip_his_form?id=<?=$equipment->equip_id;?>">
-				 		<button class="btn btn-success" style='width:45%;margin-top:2px;' name="view_history" type="submit">Add History</button>
+				 	<a href="<?php echo base_url();?>Maintenance/Maintenance_add_history">
+				 		<button class="btn btn-success" style='width:45%;margin-top:2px;' name="Maintenance_add_history" type="submit">Add History</button>
 				 	</a>   
 					<a href="<?php echo base_url();?>Admin/admin_rep_dec?id=<?=$equipment->equip_id;?>">
 				 		<button class="btn btn-primary btn-signin" name="view_history" type="submit" style='width:45%;margin-top:2px;'>View History</button></td>
