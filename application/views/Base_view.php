@@ -3,7 +3,7 @@ $this->load->library('session');
 $user_detail = $this->session->userdata('user_data_session');
 $username = $user_detail['username'];
 $type = $user_detail['type'];
-
+$this->load->model('Login_auth_db');
 
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}
 
@@ -12,13 +12,19 @@ if($content == 'Admin_set_event') {
     $query = $this->main_model->get_department();
     $query2 = $this->main_model->get_venue();
     $query3 = $this->main_model->get_equip_event();
-    $id = $this->session->userdata('user_data_session')['person_id'];
+    $id = $user;
+    echo var_dump($user);
+    exit();
     $data['option'] = $query;
-     $data['venuedata'] = $query2;
-     $data['equip_event'] = $query3;
+    $data['venuedata'] = $query2;
+    $data['equip_event'] = $query3;
     $data['id'] = $id;
     $this->load->view('Admin/Admin_set_event',$data); $selected = $content; $content='';}
-if($content == 'Admin_pen_rep') {$this->load->view('Admin/Admin_pen_rep'); $selected = $content; $content='';}
+if($content == 'Admin_pen_rep') {
+    $query = $this->Login_auth_db->view_repair();
+
+    $data['repair'] = $query;
+    $this->load->view('Admin/Admin_pen_rep',$data); $selected = $content; $content='';}
 if($content == 'Admin_set_event') { $this->load->view('Admin/Admin_set_event'); $selected = $content; $content='';}
 if($content == 'Admin_set_repair') { $this->load->view('Admin/Admin_set_repair'); $selected = $content; $content='';}
 if($content == 'Admin_view_sched') { $this->load->view('Admin/Admin_view_sched'); $selected = $content; $content='';}
@@ -63,6 +69,8 @@ if($content == 'Admin_set_account') { $this->load->view('Admin/Admin_set_account
     <link href="<?php echo base_url();?>assets/css/css.css" rel="stylesheet">
 
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/scripts/fullcalendar/fullcalendar.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/scripts/DataTable/datatables.min.css"/>
     
 
     <!-- Custom Fonts 

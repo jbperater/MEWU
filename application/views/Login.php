@@ -23,7 +23,7 @@
 			
 			<?php echo (!empty($error) ? '<p class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'.$error.'</p>' : ''); ?>
 			
-            <form class="form-signin" action="<?php echo base_url(); ?>Login/login_auth" method="post">
+            <form class="form-signin" action="<?php echo base_url(); ?>Admin/login_auth" method="post">
                 <span id="reauth-email" class="reauth-email"></span>
                 <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="username" required autofocus>
                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>

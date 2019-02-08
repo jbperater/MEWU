@@ -9,7 +9,7 @@ class Login extends CI_Controller {
 		parent::__construct(); 
 		$this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-		//$this->load->library('session');
+		$this->load->library('session');
 		$this->load->model('Login_auth_db');
 		
 
@@ -71,7 +71,9 @@ class Login extends CI_Controller {
 				$this->session->set_userdata('user_data_session', $user_data['username']);
 				$this->session->set_userdata('user_data_session', $user_data['type']);*/
 				// $this->session->set_userdata('logged_in', true);
-				// $this->session->set_userdata('why', 'haahha');
+				$this->session->set_userdata('id', $user_data['person_id']);
+
+
 				
 
 
@@ -89,7 +91,10 @@ class Login extends CI_Controller {
 				
 				}
 				elseif ( $user_detail['type'] ==='admin' ){
-					$lol=$this->session->userdata('user_data_session');
+					$lol=$this->session->userdata('user_data_session')['person_id'];
+					// echo var_dump($lol);
+    	// 			exit();
+					$data_to_view['user'] = $lol;
 					$data_to_view['selected'] = 'dashboard';
 					$data_to_view['content'] = 'dashboard';
 					$this->load->view('base_view',$data_to_view);

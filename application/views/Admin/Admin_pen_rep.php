@@ -2,6 +2,7 @@
 $this->load->library('session');
 $user_detail = $this->session->userdata('user_data_session');
 $level = $user_detail['type'];
+ // echo var_dump($repair);exit();
 ?>
 <div id="wrapper">
 	<div id="page-wrapper"> 
@@ -22,6 +23,7 @@ $level = $user_detail['type'];
 					<td><strong>Description</strong></td>
 					<td><strong>Building Number</strong></td>
 					<td><strong>Location</strong></td>
+					<td><strong>Requester</strong></td>
 				     
 				     
 				     <?php foreach($repair as $repair){ ?>
@@ -33,6 +35,7 @@ $level = $user_detail['type'];
 				 	<td><?=$repair->location;?></td>
 
 				 	<td><?=$repair->fname;?>&nbsp<?=$repair->mname;?>&nbsp<?=$repair->lname;?></td>
+
 				 	<td> <a href="<?php echo base_url();?>Admin/admin_rep_app?id=<?=$repair->job_id;?>"> 
 				 		<!-- <a data-toggle="modal" href="#myModal" > -->
 
@@ -40,8 +43,9 @@ $level = $user_detail['type'];
 						</a>
 				 	 <a href="<?php echo base_url();?>Admin/admin_rep_dec?id=<?=$repair->job_id;?>">
 					      <button class='btn btn-danger' style='width:40%;margin-top:2px;'>Decline</button>
-						</a></td></tr>    
-				    <?php }?>
+						</a></td></tr>  
+
+				    <?php  }?>
 				  
 
 				</table>
