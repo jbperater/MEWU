@@ -28,7 +28,7 @@ class Calendar extends CI_Controller
      $end_format = $enddt->format('Y-m-d H:i:s');
 
      $events = $this->calendar_model->get_events($start_format, $end_format);
-
+     
      $data_events = array();
 
      foreach($events->result() as $r) {

@@ -146,6 +146,9 @@ if($content == 'Admin_set_account') { $this->load->view('Admin/Admin_set_account
                             <li>
                                 <a href="<?php echo base_url(); ?>Admin/Admin_pen_rep"> View Repair Requests</a>
                             </li>
+                             <li>
+                                <a href="<?php echo base_url(); ?>Calendar/get_events"> tr</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -277,7 +280,7 @@ if($content == 'Admin_set_account') { $this->load->view('Admin/Admin_set_account
     <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
     
     <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/lib/moment.min.js"></script>
-     <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/lib/jquery.min.js"></script>
+    <!--  <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/lib/jquery.min.js"></script> -->
     <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/fullcalendar.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/scripts/fullcalendar/gcal.js"></script>
     
@@ -312,7 +315,10 @@ if($content == 'Admin_set_account') { $this->load->view('Admin/Admin_set_account
                      success: function(msg) {
                          var events = msg.events;
                          callback(events);
-                     }
+                     },
+                     error: function() {
+                    alert('there was an error while fetching events!');
+                  }
                      });
                  }
                 }
@@ -320,19 +326,33 @@ if($content == 'Admin_set_account') { $this->load->view('Admin/Admin_set_account
 
              dayClick: function(date, jsEvent, view) {
                     date_last_clicked = $(this);
+                    
                     $(this).css('background-color', '#bed7f3');
                     $("#addModal").modal('show');
                console.log(date_last_clicked);
-            }
+
+            },
+            eventClick: function(event, jsEvent, view) {
+          $('#name').val(event.title);
+          $('#description').val(event.description);
+          $('#start_date').val(moment(event.start).format('YYYY/MM/DD HH:mm'));
+          if(event.end) {
+            $('#end_date').val(moment(event.end).format('YYYY/MM/DD HH:mm'));
+          } else {
+            $('#end_date').val(moment(event.start).format('YYYY/MM/DD HH:mm'));
+          }
+          $('#event_id').val(event.id);
+          $('#editModal').modal();
+       },
 
             
         });
 
-        $('.fc-day').click(function(e){
-            console.log($(e.currentTarget));
+        // $('.fc-day').click(function(e){
+        //     console.log($(e.currentTarget));
 
-            $("#addModal").modal('show');
-        })
+        //     $("#addModal").modal('show');
+        // })
 
 
 
