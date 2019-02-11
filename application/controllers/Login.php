@@ -66,7 +66,8 @@ class Login extends CI_Controller {
 					'type'	=> $user_data['type'],
 					'sign'	=> $user_data['sign']
 				);
-				$this->session->set_userdata('user_data_session', $user_detail);
+				$ses=$this->session->set_userdata('user_data_session', $user_detail);
+				echo var_dump($ses);
 				/*$this->session->set_userdata('user_data_id', $user_data['person_id']);
 				$this->session->set_userdata('user_data_session', $user_data['username']);
 				$this->session->set_userdata('user_data_session', $user_data['type']);*/
@@ -93,11 +94,13 @@ class Login extends CI_Controller {
 				elseif ( $user_detail['type'] ==='admin' ){
 					$lol=$this->session->userdata('user_data_session')['person_id'];
 					// echo var_dump($lol);
+				  // var_dump($user_detail);
+				  //   exit;
     	// 			exit();
 					$data_to_view['user'] = $lol;
 					$data_to_view['selected'] = 'dashboard';
 					$data_to_view['content'] = 'dashboard';
-					$this->load->view('base_view',$data_to_view);
+					// $this->load->view('base_view',$data_to_view);
 					redirect('Admin/Admin_pen_req');
 					var_dump($lol);
 					
@@ -135,7 +138,7 @@ class Login extends CI_Controller {
 
 				
 
-				echo "nothing";
+				
 
 			} else {
 

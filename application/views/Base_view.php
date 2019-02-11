@@ -5,6 +5,7 @@ $username = $user_detail['username'];
 $type = $user_detail['type'];
 $this->load->model('Login_auth_db');
 
+
 if($content == 'dashboard') { $this->load->view('home'); $selected = $content; $content='';}
 
 if($content == 'Admin_pen_req') { $this->load->view('Admin/Admin_pen_req'); $selected = $content; $content='';}
@@ -13,8 +14,6 @@ if($content == 'Admin_set_event') {
     $query2 = $this->main_model->get_venue();
     $query3 = $this->main_model->get_equip_event();
     $id = $user;
-    echo var_dump($user);
-    exit();
     $data['option'] = $query;
     $data['venuedata'] = $query2;
     $data['equip_event'] = $query3;

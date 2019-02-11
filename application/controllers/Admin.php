@@ -142,7 +142,7 @@ class Admin extends CI_Controller {
 	public function Admin_pen_req() {
 		$lol=$this->session->userdata('user_data_session');
 		
-		var_dump($lol);
+		
 		
 		$query = $this->Login_auth_db->admin_event_req();
 		$data['event_req'] = null;
@@ -152,9 +152,9 @@ class Admin extends CI_Controller {
 		$data['content'] ='Admin_pen_req';
 
 		
+		
+		$data['content'] = 'Admin_pen_rep';
 		$this->load->view('base_view', $data);
-		//$data['content'] = 'Admin_pen_rep';
-		//$this->load->view('base_view', $data);
 
 		 $this->load->model('Login_auth_db');
 
