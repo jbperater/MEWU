@@ -67,5 +67,7 @@ Class Maintenance_model extends CI_Model {
  		return $kani;
  	}
 
+ }
+
 
 	
